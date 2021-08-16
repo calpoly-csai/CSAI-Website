@@ -1,0 +1,3 @@
+<section>
+    <h2>Get Involved</h2>
+</section>
