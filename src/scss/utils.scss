@@ -1,0 +1,10 @@
+$_breakpoint: (
+	small: 735px,
+	medium: 1070px
+);
+
+@mixin viewport($size) {
+	@media screen and (max-width: map-get($_breakpoint, $size)) {
+		@content;
+	}
+}

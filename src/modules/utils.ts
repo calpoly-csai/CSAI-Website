@@ -29,3 +29,14 @@ export function mapRange(
 	let p = (val - inRange[0]) / (inRange[1] - inRange[0]);
 	return lerp(outRange[0], outRange[1], p);
 }
+
+/**
+ * Encodes form data as a URL.
+ */
+export function encode(formData: any): string {
+	let data = [];
+	for (let [key, val] of formData) {
+		data.push(encodeURIComponent(key) + '=' + encodeURIComponent(val));
+	}
+	return data.join('&');
+}

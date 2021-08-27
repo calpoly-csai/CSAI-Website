@@ -1,23 +1,93 @@
 <script lang="ts">
-    
-    const choices  = [
-        {title: "Host a Workshop", form: ""}
-        {title: "test", form: ""}
-        {title: "test", form: ""}
-    ]
+	import InvolvementForm from './InvolvementForm.svelte';
+	type FormType = 'speaker' | 'member' | 'partner';
+	const choices: { title: string; formType: FormType }[] = [
+		{ title: 'Host a Workshop', formType: 'speaker' },
+		{ title: 'Become a Member', formType: 'member' },
+		{ title: 'Partner with Us', formType: 'partner' }
+	];
+	let formIndex = 1;
+	$: activeFormInfo = choices[formIndex];
 </script>
 
-<section class="GetInvolved">
+<section class="GetInvolved" id="get-involved">
 	<header>
 		<h2>Get Involved</h2>
-		<h3>There are many ways to participate</h3>
+		<h3 class="subtitle">There are many ways to participate</h3>
 	</header>
+	<div class="content">
+		<nav class="involvement-nav">
+			<div
+				class="active-slider"
+				style="transform: translateX({formIndex * 100}%); width: {(1 / choices.length) * 100}%;"
+			/>
+			{#each choices as { title }, i}
+				<button
+					class="wrapper menu-item"
+					on:click={() => (formIndex = i)}
+					style="color: {i === formIndex ? `white` : `initial`};">{title}</button
+				>
+			{/each}
+		</nav>
+
+		<article class="cta-form">
+			<InvolvementForm formType={activeFormInfo.formType} />
+		</article>
+	</div>
 </section>
 
-<aside />
-
-<style>
+<style lang="scss">
 	.GetInvolved {
 		background-color: var(--color-background-dark);
+		color: white;
+		text-align: center;
+		padding-bottom: 130px;
+		overflow: hidden;
+	}
+
+	.content {
+		max-width: 700px;
+		margin: auto;
+	}
+
+	header {
+		margin-top: 100px;
+	}
+
+	h2 {
+		margin: 0;
+	}
+
+	.subtitle {
+		font-weight: normal;
+	}
+
+	.involvement-nav {
+		display: flex;
+		justify-content: space-around;
+		width: 100%;
+		position: relative;
+		padding: 15px 0;
+		background-color: white;
+		border-radius: 10px;
+		margin: 40px 0;
+
+		button {
+			color: var(--color-text-dark);
+		}
+	}
+
+	.active-slider {
+		left: 0;
+		transition: transform 0.3s;
+		position: absolute;
+		height: 61px;
+		margin-top: -21px;
+		border-radius: 10px;
+		background-color: var(--color-primary-variant);
+	}
+
+	.menu-item {
+		transition: color 0.3s;
 	}
 </style>

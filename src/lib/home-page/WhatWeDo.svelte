@@ -52,7 +52,7 @@
 	}
 </script>
 
-<section class="WhatWeDo">
+<section class="WhatWeDo" id="what-we-do">
 	<h2>What We Do</h2>
 	<ul class="activity-list">
 		{#each activities as activity, i}
@@ -61,16 +61,18 @@
 			>
 		{/each}
 	</ul>
-	{#key currentActivity}
-		<div
-			class="activity-display"
-			in:fly={{ y: 15, duration: 1000, delay: 300 }}
-			out:fly={{ y: 15, duration: 300 }}
-		>
-			<img src={currentActivity.icon} alt={currentActivity.title} />
-			<p>{currentActivity.description}</p>
-		</div>
-	{/key}
+	<div class="activity-wrapper">
+		{#key currentActivity}
+			<div
+				class="activity-display"
+				in:fly={{ y: 15, duration: 1000, delay: 1000 }}
+				out:fly={{ y: 15, duration: 300 }}
+			>
+				<img src={currentActivity.icon} alt={currentActivity.title} />
+				<p>{currentActivity.description}</p>
+			</div>
+		{/key}
+	</div>
 </section>
 
 <style lang="scss">
@@ -100,6 +102,11 @@
 			font-weight: 700;
 			color: var(--color-primary-variant);
 		}
+	}
+
+	.activity-wrapper {
+		height: 400px;
+		width: 100%;
 	}
 
 	.activity-display {

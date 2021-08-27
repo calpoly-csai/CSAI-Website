@@ -3,7 +3,17 @@
 	import WhoWeAre from '$lib/home-page/WhoWeAre.svelte';
 	import WhatWeDo from '$lib/home-page/WhatWeDo.svelte';
 	import Projects from '$lib/home-page/Projects/Projects.svelte';
-	// import GetInvolved from '$lib/home-page/GetInvolved/GetInvolved.svelte';
+	import GetInvolved from '$lib/home-page/GetInvolved/GetInvolved.svelte';
+	import { onMount } from 'svelte';
+
+	function handleWaypointNavigation() {
+		let waypoint = window.location.hash;
+		if (!waypoint) return;
+		let el = document.querySelector(waypoint);
+		el?.scrollIntoView({ behavior: 'smooth' });
+	}
+
+	onMount(handleWaypointNavigation);
 </script>
 
 <svelte:head>
@@ -20,7 +30,7 @@
 	<WhoWeAre />
 	<WhatWeDo />
 	<Projects />
-	<!-- <GetInvolved /> -->
+	<GetInvolved />
 </article>
 
 <style lang="scss" global>
@@ -72,7 +82,8 @@
 		font-size: 20px;
 	}
 
-	button {
+	button,
+	input[type='submit'] {
 		transform: scale(1);
 		transition: transform 0.4s;
 		border: none;
@@ -93,6 +104,17 @@
 		&:active {
 			transform: scale(0.95);
 		}
+	}
+
+	input,
+	textarea {
+		display: block;
+		border-radius: 12px;
+		background-color: #ededed;
+		border: 1px solid #cdcdcd;
+		padding: 10px;
+		font-family: 'IBM Plex Sans', sans-serif;
+		color: var(--color-text-dark);
 	}
 
 	.Home section {

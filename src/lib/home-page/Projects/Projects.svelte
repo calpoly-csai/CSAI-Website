@@ -26,7 +26,7 @@
 	];
 </script>
 
-<section class="Projects">
+<section class="Projects" id="projects">
 	<h2>Projects</h2>
 	<img
 		class="chart-backdrop"
@@ -73,7 +73,6 @@
 		margin: 0;
 		height: min-content;
 		display: flex;
-		/* grid-template-columns: 1fr 1fr 1fr; */
 		align-items: stretch;
 		justify-content: center;
 		flex-wrap: wrap;

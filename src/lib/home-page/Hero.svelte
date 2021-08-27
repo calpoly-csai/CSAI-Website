@@ -2,22 +2,17 @@
 	import { onMount } from 'svelte';
 	import particlesConfig from '../../modules/particle-config';
 	import scrollTrackable from '../../modules/scrollTrackable';
-	import { lerp, mapRange } from '../../modules/utils';
 	let ParticlesComponent;
 	let scrollP = 0;
-	$: isOnscreen = scrollP < 0.9;
-	$: sectionStyle = `opacity: ${lerp(1, 0, scrollP)}`;
+	$: isOnscreen = scrollP < 0.99;
+	$: console.log(isOnscreen);
 	onMount(async () => {
 		const module = await import('svelte-particles');
 		ParticlesComponent = module.default;
 	});
 </script>
 
-<section
-	class="Hero"
-	style={sectionStyle}
-	use:scrollTrackable={(p) => (scrollP = mapRange(p, [0.3, 1], [0, 1]))}
->
+<section class="Hero" id="hero" use:scrollTrackable={(progress) => (scrollP = progress)}>
 	{#if isOnscreen}
 		<svelte:component
 			this={ParticlesComponent}
@@ -36,6 +31,7 @@
 </section>
 
 <style lang="scss">
+	@import '../../scss/utils.scss';
 	:global(#particle-background) {
 		position: fixed;
 		top: 0;
@@ -47,7 +43,6 @@
 
 	.Hero {
 		background-color: transparent;
-		will-change: opacity;
 	}
 
 	.content {

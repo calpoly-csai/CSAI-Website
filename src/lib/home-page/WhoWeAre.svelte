@@ -4,12 +4,12 @@
 	import scrollTrackable from '../../modules/scrollTrackable';
 	let p = 0;
 	$: textStyle = `
-	opacity: ${mapRange(p, [0, 0.5], [0, 1], true)};
-	transform: translateY(${mapRange(p, [0, 0.5], [50, 0], true)}px)
+	opacity: ${mapRange(p, [0, 0.3], [0, 1], true)};
+	transform: translateY(${mapRange(p, [0, 0.3], [100, 0], true)}px)
 	`;
 </script>
 
-<section class="WhoWeAre">
+<section class="WhoWeAre" id="who-we-are">
 	<div class="top-dots">
 		<DotGrid />
 	</div>
@@ -45,6 +45,7 @@
 		align-self: center;
 		justify-self: center;
 		z-index: 5;
+		will-change: transform;
 
 		p {
 			width: 340px;
