@@ -65,6 +65,9 @@ input[type='submit'] {
 	font-weight: 700;
 	font-size: 17px;
 	cursor: pointer;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
 
 	&.wrapper {
 		margin: 0;
