@@ -29,5 +29,6 @@ npm run build
 ### Resources
 
 - [SvelteKit](https://kit.svelte.dev/)
+- [Svelte Netlify Adapter](https://github.com/sveltejs/kit/tree/master/packages/adapter-netlify)
 - [Feather Icons](https://feathericons.com/)
 - [TypeScript](https://www.typescriptlang.org/docs/)
