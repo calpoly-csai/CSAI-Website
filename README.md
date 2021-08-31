@@ -1,6 +1,6 @@
 # CSAI Website
 
-The home of Cal Poly CSAI on the internet. This page helps potential members, speakers and partners understand our values and experience.
+The home of Cal Poly CSAI on the internet. This page helps potential members, speakers and partners understand our values and experiences.
 
 ## Development
 
