@@ -11,7 +11,7 @@
 
 <section class="WhoWeAre" id="who-we-are">
 	<div class="top-dots">
-		<DotGrid />
+		<DotGrid rows={4} />
 	</div>
 	<div class="bottom-dots">
 		<DotGrid rows={4} columns={15} />

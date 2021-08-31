@@ -35,6 +35,7 @@
 </footer>
 
 <style lang="scss">
+	@import '../scss/utils.scss';
 	footer {
 		position: relative;
 		display: grid;
@@ -45,6 +46,11 @@
 		width: 100%;
 		padding: 50px;
 		background-color: white;
+		box-shadow: 0 0 20px #00000012;
+
+		@include viewport(small) {
+			padding: 35px;
+		}
 
 		h3 {
 			font-size: 25px;
@@ -82,12 +88,18 @@
 		.social-media {
 			align-self: flex-end;
 			justify-self: flex-end;
+			text-align: right;
 
 			button {
 				display: inline-block;
 				margin: 0 10px;
 
 				height: 30px;
+
+				@include viewport(small) {
+					display: block;
+					margin: 10px 0;
+				}
 			}
 
 			a {

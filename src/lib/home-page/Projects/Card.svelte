@@ -19,7 +19,9 @@
 	</ul>
 </li>
 
-<style>
+<style lang="scss">
+	@import '../../../scss/utils';
+
 	.Card {
 		position: relative;
 		background-color: var(--color-background-light);
@@ -31,7 +33,11 @@
 		padding-top: 50px;
 		width: 330px;
 		max-width: 90%;
-		margin: 15px;
+		margin: 30px 15px;
+
+		@include viewport(small) {
+			margin: 35px 0;
+		}
 	}
 	.icon-wrapper {
 		width: 80px;

@@ -5,7 +5,6 @@
 	let ParticlesComponent;
 	let scrollP = 0;
 	$: isOnscreen = scrollP < 0.99;
-	$: console.log(isOnscreen);
 	onMount(async () => {
 		const module = await import('svelte-particles');
 		ParticlesComponent = module.default;
@@ -43,6 +42,7 @@
 
 	.Hero {
 		background-color: transparent;
+		min-height: 100vh;
 	}
 
 	.content {
@@ -79,5 +79,6 @@
 	.club-descriptor {
 		padding: 0;
 		margin: 0;
+		text-align: center;
 	}
 </style>

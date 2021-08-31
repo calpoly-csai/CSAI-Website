@@ -1,3 +1,8 @@
+export const breakpoints = {
+	small: '(max-width: 735px)',
+	medium: '(max-width: 1070px)'
+};
+
 /**
  * Linear interpolation (blend) between 2 values.
  * @param start Output when progress = 0.

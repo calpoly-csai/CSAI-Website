@@ -29,6 +29,7 @@
   },
   "type": "module",
   "dependencies": {
+    "svelte-media-query": "^1.1.1",
     "svelte-particles": "^1.16.3"
   }
 }

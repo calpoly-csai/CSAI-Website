@@ -303,30 +303,7 @@ export default {
 			}
 		},
 		color: {
-			value: '#2992E5', // Particle color
-			animation: {
-				h: {
-					count: 0,
-					enable: false,
-					offset: 0,
-					speed: 1,
-					sync: false
-				},
-				s: {
-					count: 0,
-					enable: false,
-					offset: 0,
-					speed: 1,
-					sync: true
-				},
-				l: {
-					count: 0,
-					enable: true,
-					offset: 0,
-					speed: 1,
-					sync: true
-				}
-			}
+			value: '#2992E5' // Particle color
 		},
 		destroy: {
 			mode: 'none',

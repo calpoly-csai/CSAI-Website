@@ -13,7 +13,6 @@
 		// 	headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
 		// 	body
 		// }).catch(console.error);
-		console.log(body);
 	}
 </script>
 
@@ -81,6 +80,7 @@
 </form>
 
 <style lang="scss">
+	@import '../../../scss/utils.scss';
 	form {
 		display: grid;
 		gap: 15px 20px;
@@ -95,9 +95,22 @@
 		grid-template-columns: 1fr 1fr;
 		grid-template-areas: 'title title' 'name reason' 'email reason' 'submit submit';
 
+		@include viewport(small) {
+			grid-template-rows: repeat(5, auto);
+
+			grid-template-columns: 1fr;
+			grid-template-areas: 'title ' 'name' 'email' 'reason' 'submit';
+		}
+
 		&.speaker {
 			grid-template-rows: repeat(5, auto);
 			grid-template-areas: 'title title' 'name reason' 'email reason' 'topic reason' 'submit submit';
+
+			@include viewport(small) {
+				grid-template-rows: repeat(6, auto);
+				grid-template-columns: 1fr;
+				grid-template-areas: 'title ' 'name' 'email' 'topic' 'reason' 'submit';
+			}
 		}
 	}
 

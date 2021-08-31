@@ -46,11 +46,21 @@
 	</ul>
 </section>
 
-<style>
+<style lang="scss">
+	@import '../../../scss/utils';
 	.Projects {
-		display: grid;
-		grid-template-rows: auto 1fr;
-		grid-template-columns: 1fr;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+	}
+
+	h2 {
+		text-align: center;
+		margin-bottom: 60px;
+		@include viewport(small) {
+			margin-bottom: 40px;
+		}
 	}
 	.chart-backdrop {
 		position: absolute;
@@ -76,5 +86,10 @@
 		align-items: stretch;
 		justify-content: center;
 		flex-wrap: wrap;
+
+		@include viewport(small) {
+			align-items: center;
+			flex-direction: column;
+		}
 	}
 </style>

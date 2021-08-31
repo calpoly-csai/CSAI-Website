@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { assets } from '$app/paths';
 	import { onMount, onDestroy } from 'svelte';
-	import { fade, fly } from 'svelte/transition';
+	import { fly } from 'svelte/transition';
 	const activities = [
 		{
 			title: 'Competitions',
@@ -34,7 +34,15 @@
 	let activeIndex = 0;
 	let activityUpdateInterval: NodeJS.Timer;
 	let intervalDuration = 4000;
-	$: currentActivity = activities[activeIndex];
+	let currentActivity: typeof activities[number];
+	let activitesList: HTMLUListElement;
+	$: {
+		currentActivity = activities[activeIndex];
+		if (activitesList) {
+			let offsetX = (activitesList?.children[activeIndex] as HTMLElement).offsetLeft - 30;
+			activitesList?.scrollTo({ left: offsetX, behavior: 'smooth' });
+		}
+	}
 
 	function resetInterval() {
 		clearInterval(activityUpdateInterval);
@@ -54,7 +62,7 @@
 
 <section class="WhatWeDo" id="what-we-do">
 	<h2>What We Do</h2>
-	<ul class="activity-list">
+	<ul class="activity-list" bind:this={activitesList}>
 		{#each activities as activity, i}
 			<button class="wrapper" class:active={i === activeIndex} on:click={() => selectActivity(i)}
 				>{activity.title}</button
@@ -65,7 +73,7 @@
 		{#key currentActivity}
 			<div
 				class="activity-display"
-				in:fly={{ y: 15, duration: 1000, delay: 1000 }}
+				in:fly={{ y: 15, duration: 700, delay: 400 }}
 				out:fly={{ y: 15, duration: 300 }}
 			>
 				<img src={currentActivity.icon} alt={currentActivity.title} />
@@ -76,26 +84,34 @@
 </section>
 
 <style lang="scss">
+	@import '../../scss/utils.scss';
 	.WhatWeDo {
 		text-align: center;
+		min-height: initial;
 	}
 	h2 {
 		margin: 0;
 	}
 
 	.activity-list {
-		margin: 0;
+		margin: auto;
 		padding: 0;
 		list-style: none;
 		margin-bottom: 30px;
+		display: flex;
+		flex-wrap: nowrap;
+		overflow-x: auto;
+		width: min-content;
+		max-width: 100%;
 
 		button {
 			color: rgb(177, 177, 177);
-			display: inline-block;
+			display: block;
 			background-color: transparent;
 			margin: 10px;
 			font-size: 22px;
 			transition: all 0.4s;
+			white-space: nowrap;
 		}
 
 		.active {
@@ -105,14 +121,25 @@
 	}
 
 	.activity-wrapper {
+		position: relative;
 		height: 400px;
-		width: 100%;
+		width: 400px;
+		max-width: 100%;
+		margin: auto;
+		margin-top: 50px;
 	}
 
 	.activity-display {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
 		img {
 			max-height: 80%;
 			height: 300px;
+		}
+		p {
+			margin: auto;
 		}
 	}
 </style>

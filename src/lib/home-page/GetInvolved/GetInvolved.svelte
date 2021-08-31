@@ -37,6 +37,7 @@
 </section>
 
 <style lang="scss">
+	@import '../../../scss/utils.scss';
 	.GetInvolved {
 		background-color: var(--color-background-dark);
 		color: white;
@@ -51,7 +52,7 @@
 	}
 
 	header {
-		margin-top: 100px;
+		margin-top: 50px;
 	}
 
 	h2 {
@@ -71,19 +72,22 @@
 		background-color: white;
 		border-radius: 10px;
 		margin: 40px 0;
+		overflow: hidden;
 
 		button {
 			color: var(--color-text-dark);
+			@include viewport(small) {
+				width: 100px;
+			}
 		}
 	}
 
 	.active-slider {
+		top: 0;
 		left: 0;
 		transition: transform 0.3s;
 		position: absolute;
-		height: 61px;
-		margin-top: -21px;
-		border-radius: 10px;
+		height: 100%;
 		background-color: var(--color-primary-variant);
 	}
 
