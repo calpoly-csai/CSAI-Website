@@ -45,3 +45,13 @@ export function encode(formData: any): string {
 	}
 	return data.join('&');
 }
+
+/**
+ * Random uniform selection of element from an array.
+ * @param arr Collection to select from.
+ * @returns Random element of the collection
+ */
+export function randomlySelect<T>(arr: T[]): T {
+	let i = Math.min(Math.floor(Math.random() * arr.length), arr.length - 1);
+	return arr[i];
+}

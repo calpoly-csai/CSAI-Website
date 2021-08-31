@@ -2,6 +2,7 @@
 	import Hero from '$lib/home-page/Hero.svelte';
 	import WhoWeAre from '$lib/home-page/WhoWeAre.svelte';
 	import WhatWeDo from '$lib/home-page/WhatWeDo.svelte';
+	import Meetings from '$lib/home-page/Meetings.svelte';
 	import Projects from '$lib/home-page/Projects/Projects.svelte';
 	import GetInvolved from '$lib/home-page/GetInvolved/GetInvolved.svelte';
 	import { onMount } from 'svelte';
@@ -29,6 +30,7 @@
 	<Hero />
 	<WhoWeAre />
 	<WhatWeDo />
+	<Meetings />
 	<Projects />
 	<GetInvolved />
 </article>

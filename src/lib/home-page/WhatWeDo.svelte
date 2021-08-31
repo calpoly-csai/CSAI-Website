@@ -87,7 +87,7 @@
 	@import '../../scss/utils.scss';
 	.WhatWeDo {
 		text-align: center;
-		min-height: initial;
+		min-height: min-content;
 	}
 	h2 {
 		margin: 0;
@@ -124,7 +124,7 @@
 		position: relative;
 		height: 400px;
 		width: 400px;
-		max-width: 100%;
+		max-width: 90%;
 		margin: auto;
 		margin-top: 50px;
 	}
@@ -135,7 +135,7 @@
 		left: 0;
 		width: 100%;
 		img {
-			max-height: 80%;
+			max-width: 80%;
 			height: 300px;
 		}
 		p {

@@ -30,3 +30,4 @@ npm run build
 
 - [SvelteKit](https://kit.svelte.dev/)
 - [Feather Icons](https://feathericons.com/)
+- [TypeScript](https://www.typescriptlang.org/docs/)
