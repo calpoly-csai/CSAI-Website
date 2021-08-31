@@ -20,8 +20,8 @@
 		<h2>Who We Are</h2>
 		<p>
 			A group of Cal Poly students inspired to use machine learning to solve problems and grow as a
-			community. We believe that self driven learning and the pursuit of impactful solutions is the
-			best way to grow as developers and people.
+			community. We believe that self driven learning and the pursuit of impactful solutions are the
+			best ways to grow as developers and people.
 		</p>
 	</div>
 	<img class="illustration" src="/images/data-scientist.svg" alt="Data scientist" />
