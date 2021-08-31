@@ -26,7 +26,7 @@
 		</div>
 		<h1>CS + AI</h1>
 		<p class="club-descriptor">
-			Computer Science and Artifical Intellgence Club <br />Cal Poly San Luis Obispo
+			Computer Science and Artificial Intelligence Club <br />Cal Poly San Luis Obispo
 		</p>
 	</div>
 </section>
