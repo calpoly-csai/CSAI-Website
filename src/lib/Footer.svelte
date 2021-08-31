@@ -16,7 +16,7 @@
 </script>
 
 <footer>
-	<img class="logo" src="static/images/logo-black.png" alt="CSAI Logo" />
+	<img class="logo" src="/images/logo-black.png" alt="CSAI Logo" />
 	<nav>
 		<h3>Navigation</h3>
 		<ul>
@@ -93,7 +93,7 @@
 			button {
 				display: inline-block;
 				margin: 0 10px;
-
+				width: 30px;
 				height: 30px;
 
 				@include viewport(small) {

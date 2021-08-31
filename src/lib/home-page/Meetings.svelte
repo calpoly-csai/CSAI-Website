@@ -63,7 +63,7 @@
 
 <section
 	class="Meetings"
-	use:scrollTrackable={(progress) => p.set(mapRange(progress, [0.1, 0.6], [0, 1], true))}
+	use:scrollTrackable={(progress) => p.set(mapRange(progress, [0.1, 0.7], [0, 1], true))}
 >
 	<div class="meeting-info">
 		<h2>Meetings</h2>
@@ -75,7 +75,7 @@
 		</p>
 	</div>
 	<div class="visualization">
-		<img src="static/images/logo-black.png" alt="CSAI logo" />
+		<img src="/images/logo-black.png" alt="CSAI logo" />
 		<canvas bind:this={canvas} width="1000" height="1000" />
 	</div>
 </section>

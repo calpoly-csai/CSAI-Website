@@ -11,7 +11,7 @@
 		html_url: string; // URL to personal GitHub page
 	}
 
-	const officerPath = 'static/images/officers/';
+	const officerPath = '/images/officers/';
 	const officers = [
 		{ name: 'John Waidhofer', title: 'Co-President', image: 'john.jpg' },
 		{ name: 'Patrick Perrine', title: 'Co-President', image: 'patrick.jpg' },
@@ -45,7 +45,7 @@
 			<DotGrid rows={5} columns={11} />
 		</div>
 		<div class="arcs">
-			<img src="static/images/arcs.svg" alt="arcs" />
+			<img src="/images/arcs.svg" alt="arcs" />
 		</div>
 	</div>
 	<section class="officers">

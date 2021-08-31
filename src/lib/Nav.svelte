@@ -13,6 +13,13 @@
 
 	let showMenu = false;
 
+	async function logoClicked() {
+		if (location.pathname !== '/') {
+			await goto('/');
+		}
+		window.scrollTo({ top: 0, behavior: 'smooth' });
+	}
+
 	async function showMemberForm() {
 		if (location.pathname !== '/') {
 			await goto('/');
@@ -27,10 +34,8 @@
 	{#if matches}
 		<!-- Small Nav Menu -->
 		<nav class="hamburger-nav">
-			<button class="wrapper logo-button">
-				<a href="/" class="wrapper">
-					<img class="logo" src={'static/images/logo-white.png'} alt="CSAI Logo" />
-				</a>
+			<button class="wrapper logo-button" on:click={logoClicked}>
+				<img class="logo" src="/images/logo-white.png" alt="CSAI Logo" />
 			</button>
 			<button class="wrapper" on:click={() => (showMenu = true)}>
 				<MenuIcon size="30" />
@@ -54,7 +59,7 @@
 			<div class="left-options">
 				<button class="wrapper logo-button">
 					<a href="/" class="wrapper">
-						<img class="logo" src={'static/images/logo-white.png'} alt="CSAI Logo" />
+						<img class="logo" src="/images/logo-white.png" alt="CSAI Logo" />
 					</a>
 				</button>
 				<ul>

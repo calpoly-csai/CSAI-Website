@@ -24,7 +24,7 @@
 			best way to grow as developers and people.
 		</p>
 	</div>
-	<img class="illustration" src="static/images/data-scientist.svg" alt="Data scientist" />
+	<img class="illustration" src="/images/data-scientist.svg" alt="Data scientist" />
 </section>
 
 <style lang="scss">

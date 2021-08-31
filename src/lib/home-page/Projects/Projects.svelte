@@ -30,7 +30,7 @@
 	<h2>Projects</h2>
 	<img
 		class="chart-backdrop"
-		src="static/images/chart-backdrop.svg"
+		src="/images/chart-backdrop.svg"
 		aria-hidden="true"
 		alt="chart-backdrop"
 	/>
