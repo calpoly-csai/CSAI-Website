@@ -35,6 +35,15 @@
 	onMount(getMembers);
 </script>
 
+<svelte:head>
+	<title>CSAI Team</title>
+	<meta name="theme-color" content="#2992e5" />
+	<meta
+		name="description"
+		content="The CSAI team works on open-source projects and competitions to grow as data scientists."
+	/>
+</svelte:head>
+
 <article class="Team">
 	<div class="backdrop">
 		<div class="top-dots">

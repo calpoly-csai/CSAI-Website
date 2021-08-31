@@ -57,10 +57,8 @@
 		<!-- Large Nav Menu -->
 		<nav class="widescreen-nav">
 			<div class="left-options">
-				<button class="wrapper logo-button">
-					<a href="/" class="wrapper">
-						<img class="logo" src="/images/logo-white.png" alt="CSAI Logo" />
-					</a>
+				<button class="wrapper logo-button" on:click={logoClicked}>
+					<img class="logo" src="/images/logo-white.png" alt="CSAI Logo" />
 				</button>
 				<ul>
 					{#each routes as route}
