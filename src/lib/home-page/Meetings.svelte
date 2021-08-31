@@ -96,13 +96,10 @@
 			grid-template-rows: 1fr 1fr;
 		}
 
-		p {
-			max-width: 500px;
-		}
-
 		.meeting-info {
 			align-self: center;
 			justify-self: center;
+			width: 340px;
 		}
 
 		.meeting-time {
