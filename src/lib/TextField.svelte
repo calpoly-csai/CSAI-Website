@@ -3,12 +3,14 @@
 	export let label: string;
 	export let name: string = '';
 	export let placeholder: string = '';
+	export let autocomplete: HTMLInputElement['autocomplete'] = '';
 	export let style: string = '';
+	export let required = false;
 </script>
 
 <label {style}>
 	<span class="name">{label}</span>
-	<input {type} {name} {placeholder} />
+	<input {type} {name} {placeholder} {required} {autocomplete} />
 </label>
 
 <style>

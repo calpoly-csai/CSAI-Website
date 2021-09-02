@@ -1,83 +1,95 @@
 <script lang="ts">
 	import TextField from '$lib/TextField.svelte';
 	import { encode } from '../../../modules/utils';
-
+	import { fly } from 'svelte/transition';
 	export let formType: 'member' | 'partner' | 'speaker';
+	let sendCount = 0;
 	function onSubmit(e: Event) {
 		// Send off form data
 		const formData = new FormData(e.target as HTMLFormElement);
 		const body = encode(formData);
-		// TODO: Hook this up to Netlify
-		// fetch('/', {
-		// 	method: 'POST',
-		// 	headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-		// 	body
-		// }).catch(console.error);
+		sendCount++;
+		fetch('/', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+			body
+		}).catch(console.error);
 	}
 </script>
 
-<form on:submit|preventDefault={onSubmit} class={formType}>
-	<input type="hidden" name="formType" value={formType} />
-	{#if formType == 'member'}
-		<div style="grid-area: title">
-			<h3>Tell Us About Yourself</h3>
-		</div>
-		<div style="grid-area: name">
-			<TextField name="name" label="Name" />
-		</div>
-		<div style="grid-area: email">
-			<TextField name="email" label="Email" type="email" />
-		</div>
+{#key sendCount}
+	<form
+		on:submit|preventDefault={onSubmit}
+		class={formType}
+		name={`${formType}-onboarding`}
+		method="post"
+		data-netlify="true"
+		data-netlify-honeypot="bot-field"
+		in:fly={{ y: 15, duration: 700, delay: 400 }}
+		out:fly={{ y: 15, duration: 300 }}
+	>
+		<input type="hidden" name="form-name" value={`${formType}-onboarding`} />
+		{#if formType == 'member'}
+			<div style="grid-area: title">
+				<h3>Tell Us About Yourself</h3>
+			</div>
+			<div style="grid-area: name">
+				<TextField name="name" autocomplete="given-name" label="Name" required />
+			</div>
+			<div style="grid-area: email">
+				<TextField name="email" label="Email" autocomplete="email" type="email" required />
+			</div>
 
-		<div class="reason">
-			<span style="margin-left:5px">Area of Interest</span>
-			<textarea name="reason" />
-		</div>
-		<div style="grid-area: submit">
-			<input type="submit" value="Say Hi 👋" />
-		</div>
-	{:else if formType == 'partner'}
-		<div style="grid-area: title">
-			<h3>We're Interested in Collaborating</h3>
-		</div>
-		<div style="grid-area: name">
-			<TextField name="name" label="Organization Name" />
-		</div>
-		<div style="grid-area: email">
-			<TextField name="email" label="Email" type="email" />
-		</div>
+			<div class="reason">
+				<span style="margin-left:5px">Area of Interest</span>
+				<textarea name="reason" />
+			</div>
+			<div style="grid-area: submit">
+				<input type="submit" value="Say Hi 👋" />
+			</div>
+		{:else if formType == 'partner'}
+			<div style="grid-area: title">
+				<h3>We're Interested in Collaborating</h3>
+			</div>
+			<div style="grid-area: name">
+				<TextField name="name" label="Organization Name" autocomplete="organization" required />
+			</div>
+			<div style="grid-area: email">
+				<TextField name="email" label="Email" type="email" autocomplete="email" required />
+			</div>
 
-		<div class="reason">
-			<span style="margin-left:5px">Message</span>
-			<textarea name="reason" />
-		</div>
-		<div style="grid-area: submit">
-			<input type="submit" value="Propose Project 🧠" />
-		</div>
-	{:else}
-		<div style="grid-area: title">
-			<h3>Share Your Knowledge</h3>
-		</div>
-		<div style="grid-area: name">
-			<TextField name="name" label="Name" />
-		</div>
-		<div style="grid-area: email">
-			<TextField name="email" label="Email" type="email" />
-		</div>
+			<div class="reason">
+				<span style="margin-left:5px">Message</span>
+				<textarea name="reason" required />
+			</div>
+			<div style="grid-area: submit">
+				<input type="submit" value="Propose Project 🧠" />
+			</div>
+		{:else}
+			<div style="grid-area: title">
+				<h3>Share Your Knowledge</h3>
+			</div>
+			<div style="grid-area: name">
+				<TextField name="name" autocomplete="given-name" label="Name" required />
+			</div>
+			<div style="grid-area: email">
+				<TextField name="email" autocomplete="email" label="Email" type="email" required />
+			</div>
 
-		<div style="grid-area: topic">
-			<TextField name="topic" label="Topic" type="text" />
-		</div>
+			<div style="grid-area: topic">
+				<TextField name="topic" label="Topic" type="text" required />
+			</div>
 
-		<div class="reason">
-			<span style="margin-left:5px">Description</span>
-			<textarea name="description" />
-		</div>
-		<div style="grid-area: submit">
-			<input type="submit" value="Pitch Workshop 🔨" />
-		</div>
-	{/if}
-</form>
+			<div class="reason">
+				<span style="margin-left:5px">Description</span>
+				<textarea name="description" required />
+			</div>
+			<div style="grid-area: submit">
+				<input type="submit" value="Pitch Workshop 🔨" />
+			</div>
+		{/if}
+	</form>
+{/key}
 
 <style lang="scss">
 	@import '../../../scss/utils.scss';

@@ -79,6 +79,13 @@ input[type='submit'] {
 	&:active {
 		transform: scale(0.95);
 	}
+	&:active:disabled {
+		transform: scale(1);
+	}
+
+	&:disabled {
+		background-color: gray;
+	}
 }
 
 input,
