@@ -34,6 +34,31 @@
 	<Meetings />
 	<Projects />
 	<GetInvolved />
+	<!-- Hidden forms allow Netlify Forms to understand what to expect from the frontend -->
+	<form
+		hidden
+		aria-hidden="true"
+		name="member-onboarding"
+		method="POST"
+		data-netlify="true"
+		data-netlify-honeypot="bot-field"
+	/>
+	<form
+		hidden
+		aria-hidden="true"
+		name="member-onboarding"
+		method="POST"
+		data-netlify="true"
+		data-netlify-honeypot="bot-field"
+	/>
+	<form
+		hidden
+		aria-hidden="true"
+		name="speaker-onboarding"
+		method="POST"
+		data-netlify="true"
+		data-netlify-honeypot="bot-field"
+	/>
 </article>
 
 <style lang="scss" global>

@@ -1,6 +1,6 @@
 # CSAI Website
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/0934f469-0006-4862-ad95-d32dd698e1b2/deploy-status)](https://app.netlify.com/sites/zen-lumiere-d61855/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/0934f469-0006-4862-ad95-d32dd698e1b2/deploy-status)](https://app.netlify.com/sites/zen-lumiere-d61855/deploys) <br>
 The home of Cal Poly CSAI on the internet. This page helps potential members, speakers and partners understand our values and experiences.
 
 ## Development
