@@ -8,7 +8,10 @@
 	</head>
 	<body>
 		<div id="svelte">%svelte.body%</div>
-	<!-- Hidden forms allow Netlify Forms to understand what to expect from the frontend -->
+	<!-- 
+		These hidden elements allow Netlify Forms to understand the format of use submissions.
+		The field names of these forms should match the client-side rendered forms in InvolvementForm.svelte
+	-->
 
 		<form
 		hidden
@@ -25,7 +28,7 @@
 	<form
 		hidden
 		aria-hidden="true"
-		name="member-onboarding"
+		name="partner-onboarding"
 		method="POST"
 		netlify
 		data-netlify-honeypot="bot-field"
