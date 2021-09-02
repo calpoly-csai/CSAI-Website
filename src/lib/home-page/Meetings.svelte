@@ -73,13 +73,13 @@
 			Campus. During these sessions, project teams intermingle to learn new technologies and touch
 			base on large architectural decisions.
 		</p>
-		<button class="calendar-button">
-			<a
-				href="https://calendar.google.com/calendar/embed?src=csaicalpoly%40gmail.com&ctz=America%2FLos_Angeles"
-				target="_blank"
-				class="wrapper">See Calendar</a
-			></button
+		<a
+			href="https://calendar.google.com/calendar/embed?src=csaicalpoly%40gmail.com&ctz=America%2FLos_Angeles"
+			target="_blank"
+			class="wrapper"
 		>
+			<button class="calendar-button"> See Calendar</button>
+		</a>
 	</div>
 	<div class="visualization">
 		<img src="/images/logo-black.png" alt="CSAI logo" />
@@ -139,6 +139,10 @@
 				height: 100%;
 			}
 		}
+	}
+
+	a.wrapper {
+		width: 175px;
 	}
 
 	.calendar-button {
