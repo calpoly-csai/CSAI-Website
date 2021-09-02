@@ -7,6 +7,8 @@
 	import GetInvolved from '$lib/home-page/GetInvolved/GetInvolved.svelte';
 	import { onMount } from 'svelte';
 
+	export const prerender = true;
+
 	function handleWaypointNavigation() {
 		let waypoint = window.location.hash;
 		if (!waypoint) return;
