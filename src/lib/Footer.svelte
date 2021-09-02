@@ -2,9 +2,13 @@
 	import { GithubIcon, InstagramIcon, LinkedinIcon } from 'svelte-feather-icons';
 
 	const socialMedia = [
-		{ icon: GithubIcon, link: 'https://github.com/calpoly-csai' },
-		{ icon: LinkedinIcon, link: 'https://www.linkedin.com/school/csai-cal-poly/mycompany/' },
-		{ icon: InstagramIcon, link: 'https://www.instagram.com/calpolycsai/' }
+		{ label: 'Github', icon: GithubIcon, link: 'https://github.com/calpoly-csai' },
+		{
+			label: 'LinkedIn',
+			icon: LinkedinIcon,
+			link: 'https://www.linkedin.com/school/csai-cal-poly/mycompany/'
+		},
+		{ label: 'Instagram', icon: InstagramIcon, link: 'https://www.instagram.com/calpolycsai/' }
 	];
 
 	const footerNav = [
@@ -26,8 +30,8 @@
 		</ul>
 	</nav>
 	<ul class="social-media">
-		{#each socialMedia as { icon, link }}
-			<button class="wrapper">
+		{#each socialMedia as { icon, link, label }}
+			<button class="wrapper" aria-label={label}>
 				<a href={link} target="_blank"><svelte:component this={icon} /></a>
 			</button>
 		{/each}

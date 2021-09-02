@@ -24,7 +24,7 @@
 		<div class="logo-frame">
 			<img class="logo" src="/images/logo-white.png" alt="CSAI Logo" />
 		</div>
-		<h1>CS + AI</h1>
+		<h1 aria-label="CSAI">CS + AI</h1>
 		<p class="club-descriptor">
 			Computer Science and Artificial Intelligence Club <br />Cal Poly San Luis Obispo
 		</p>
