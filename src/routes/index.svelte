@@ -1,3 +1,7 @@
+<script context="module">
+	export const prerender = true;
+</script>
+
 <script lang="ts">
 	import Hero from '$lib/home-page/Hero.svelte';
 	import WhoWeAre from '$lib/home-page/WhoWeAre.svelte';
@@ -6,8 +10,6 @@
 	import Projects from '$lib/home-page/Projects/Projects.svelte';
 	import GetInvolved from '$lib/home-page/GetInvolved/GetInvolved.svelte';
 	import { onMount } from 'svelte';
-
-	export const prerender = true;
 
 	function handleWaypointNavigation() {
 		let waypoint = window.location.hash;
@@ -34,44 +36,6 @@
 	<Meetings />
 	<Projects />
 	<GetInvolved />
-	<!-- Hidden forms allow Netlify Forms to understand what to expect from the frontend -->
-	<form
-		hidden
-		aria-hidden="true"
-		name="member-onboarding"
-		method="POST"
-		data-netlify="true"
-		data-netlify-honeypot="bot-field"
-	>
-		<input type="text" name="name" />
-		<input type="email" name="email" />
-		<textarea name="reason" />
-	</form>
-	<form
-		hidden
-		aria-hidden="true"
-		name="member-onboarding"
-		method="POST"
-		data-netlify="true"
-		data-netlify-honeypot="bot-field"
-	>
-		<input type="text" name="name" />
-		<input type="email" name="email" />
-		<textarea name="reason" />
-	</form>
-	<form
-		hidden
-		aria-hidden="true"
-		name="speaker-onboarding"
-		method="POST"
-		data-netlify="true"
-		data-netlify-honeypot="bot-field"
-	>
-		<input type="text" name="name" />
-		<input type="email" name="email" />
-		<input type="text" name="topic" />
-		<textarea name="description" />
-	</form>
 </article>
 
 <style lang="scss" global>

@@ -23,8 +23,6 @@
 		class={formType}
 		name={`${formType}-onboarding`}
 		method="post"
-		data-netlify="true"
-		data-netlify-honeypot="bot-field"
 		in:fly={{ y: 15, duration: 700, delay: 400 }}
 		out:fly={{ y: 15, duration: 300 }}
 	>

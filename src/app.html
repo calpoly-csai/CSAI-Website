@@ -8,5 +8,44 @@
 	</head>
 	<body>
 		<div id="svelte">%svelte.body%</div>
+	<!-- Hidden forms allow Netlify Forms to understand what to expect from the frontend -->
+
+		<form
+		hidden
+		aria-hidden="true"
+		name="member-onboarding"
+		method="POST"
+		netlify
+		data-netlify-honeypot="bot-field"
+	>
+		<input type="text" name="name" />
+		<input type="email" name="email" />
+		<textarea name="reason" />
+	</form>
+	<form
+		hidden
+		aria-hidden="true"
+		name="member-onboarding"
+		method="POST"
+		netlify
+		data-netlify-honeypot="bot-field"
+	>
+		<input type="text" name="name" />
+		<input type="email" name="email" />
+		<textarea name="reason" />
+	</form>
+	<form
+		hidden
+		aria-hidden="true"
+		name="speaker-onboarding"
+		method="POST"
+		netlify
+		data-netlify-honeypot="bot-field"
+	>
+		<input type="text" name="name" />
+		<input type="email" name="email" />
+		<input type="text" name="topic" />
+		<textarea name="description" />
+	</form>
 	</body>
 </html>
