@@ -42,7 +42,11 @@
 		method="POST"
 		data-netlify="true"
 		data-netlify-honeypot="bot-field"
-	/>
+	>
+		<input type="text" name="name" />
+		<input type="email" name="email" />
+		<textarea name="reason" />
+	</form>
 	<form
 		hidden
 		aria-hidden="true"
@@ -50,7 +54,11 @@
 		method="POST"
 		data-netlify="true"
 		data-netlify-honeypot="bot-field"
-	/>
+	>
+		<input type="text" name="name" />
+		<input type="email" name="email" />
+		<textarea name="reason" />
+	</form>
 	<form
 		hidden
 		aria-hidden="true"
@@ -58,7 +66,12 @@
 		method="POST"
 		data-netlify="true"
 		data-netlify-honeypot="bot-field"
-	/>
+	>
+		<input type="text" name="name" />
+		<input type="email" name="email" />
+		<input type="text" name="topic" />
+		<textarea name="description" />
+	</form>
 </article>
 
 <style lang="scss" global>
