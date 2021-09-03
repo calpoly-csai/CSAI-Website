@@ -6,29 +6,29 @@
 		{
 			title: 'Competitions',
 			description: 'Team up with fellow members and build models to solve data science problems.',
-			icon: assets + '/images/competition-icon.svg'
+			icon: assets + '/images/Competitions.svg'
 		},
 
 		{
 			title: 'Guest Speakers',
 			description: 'Network with and learn from industry professionals.',
-			icon: assets + '/images/competition-icon.svg'
+			icon: assets + '/images/Speakers.svg'
 		},
 		{
 			title: 'Hangouts',
 			description:
 				'At our core, we are a commmunity. Members meet up weekly to talk about life and de-stress.',
-			icon: assets + '/images/competition-icon.svg'
+			icon: assets + '/images/Hangouts.svg'
 		},
 		{
 			title: 'Workshops',
 			description: 'Learn about and apply new machine learning techniques.',
-			icon: assets + '/images/competition-icon.svg'
+			icon: assets + '/images/Workshop.svg'
 		},
 		{
 			title: 'Projects',
 			description: 'Create software solutions for challenges in the SLO community and beyond.',
-			icon: assets + '/images/competition-icon.svg'
+			icon: assets + '/images/Projects.svg'
 		}
 	];
 	let activeIndex = 0;
