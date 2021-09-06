@@ -1,5 +1,5 @@
 <script>
-	import { GithubIcon, InstagramIcon, LinkedinIcon } from 'svelte-feather-icons';
+	import { GithubIcon, InstagramIcon, LinkedinIcon, YoutubeIcon } from 'svelte-feather-icons';
 
 	const socialMedia = [
 		{ label: 'Github', icon: GithubIcon, link: 'https://github.com/calpoly-csai' },
@@ -8,7 +8,12 @@
 			icon: LinkedinIcon,
 			link: 'https://www.linkedin.com/school/csai-cal-poly/mycompany/'
 		},
-		{ label: 'Instagram', icon: InstagramIcon, link: 'https://www.instagram.com/calpolycsai/' }
+		{ label: 'Instagram', icon: InstagramIcon, link: 'https://www.instagram.com/calpolycsai/' },
+		{
+			label: 'Youtube',
+			icon: YoutubeIcon,
+			link: 'https://www.youtube.com/channel/UCAJUPERHzznsXHyFSACpjJw'
+		}
 	];
 
 	const footerNav = [
