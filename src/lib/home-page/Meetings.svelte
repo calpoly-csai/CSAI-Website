@@ -82,7 +82,7 @@
 		</a>
 	</div>
 	<div class="visualization">
-		<img src="/images/logo-black.png" alt="CSAI logo" />
+		<img src="/images/logo.svg" alt="CSAI logo" />
 		<canvas bind:this={canvas} width="1000" height="1000" />
 	</div>
 </section>
@@ -127,7 +127,6 @@
 
 			img {
 				width: 50%;
-				height: 50%;
 				position: absolute;
 				top: 55%;
 				left: 50%;
