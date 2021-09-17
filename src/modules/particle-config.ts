@@ -440,7 +440,7 @@ export default {
 				factor: 1000
 			},
 			limit: 0,
-			value: 100
+			value: 175
 		},
 		opacity: {
 			random: {

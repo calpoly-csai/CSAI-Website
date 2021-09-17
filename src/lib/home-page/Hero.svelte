@@ -57,6 +57,7 @@
 		flex-direction: column;
 		max-width: 100%;
 		max-height: 100%;
+		background-color: rgba(255, 255, 255, 0.8);
 	}
 
 	h1 {
