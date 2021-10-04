@@ -68,7 +68,6 @@
 		justify-content: space-around;
 		width: 100%;
 		position: relative;
-		padding: 15px 0;
 		background-color: white;
 		border-radius: 10px;
 		margin: 40px 0;
@@ -76,9 +75,8 @@
 
 		button {
 			color: var(--color-text-dark);
-			@include viewport(small) {
-				width: 100px;
-			}
+			padding: 15px 0;
+			width: 100%;
 		}
 	}
 
