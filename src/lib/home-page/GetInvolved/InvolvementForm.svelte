@@ -42,7 +42,7 @@
 
 			<div class="reason">
 				<span style="margin-left:5px">Area of Interest</span>
-				<textarea name="reason" />
+				<textarea name="MERGE6" />
 			</div>
 			<div style="grid-area: submit">
 				<input type="submit" value="Say Hi 👋" />
