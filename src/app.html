@@ -1,54 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" href="/favicon.png" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		%svelte.head%
-	</head>
-	<body>
-		<div id="svelte">%svelte.body%</div>
-	<!-- 
-		These hidden elements allow Netlify Forms to understand the format of use submissions.
-		The field names of these forms should match the client-side rendered forms in InvolvementForm.svelte
-	-->
 
-		<form
-		hidden
-		aria-hidden="true"
-		name="member-onboarding"
-		method="POST"
-		netlify
-		data-netlify-honeypot="bot-field"
-	>
-		<input type="text" name="name" />
-		<input type="email" name="email" />
-		<textarea name="reason" />
-	</form>
-	<form
-		hidden
-		aria-hidden="true"
-		name="partner-onboarding"
-		method="POST"
-		netlify
-		data-netlify-honeypot="bot-field"
-	>
-		<input type="text" name="name" />
-		<input type="email" name="email" />
-		<textarea name="reason" />
-	</form>
-	<form
-		hidden
-		aria-hidden="true"
-		name="speaker-onboarding"
-		method="POST"
-		netlify
-		data-netlify-honeypot="bot-field"
-	>
-		<input type="text" name="name" />
-		<input type="email" name="email" />
-		<input type="text" name="topic" />
-		<textarea name="description" />
-	</form>
-	</body>
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" href="/favicon.png" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	%svelte.head%
+</head>
+
+<body>
+	<div id="svelte">%svelte.body%</div>
+</body>
+
 </html>

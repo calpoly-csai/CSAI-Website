@@ -9,8 +9,9 @@
 		const formData = new FormData(e.target as HTMLFormElement);
 		const body = encode(formData);
 		sendCount++;
-		fetch('/', {
+		fetch('https://gmail.us20.list-manage.com/subscribe/post', {
 			method: 'POST',
+			mode: 'no-cors',
 			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
 			body
 		}).catch(console.error);
@@ -26,16 +27,17 @@
 		in:fly={{ y: 15, duration: 700, delay: 400 }}
 		out:fly={{ y: 15, duration: 300 }}
 	>
-		<input type="hidden" name="form-name" value={`${formType}-onboarding`} />
+		<input type="hidden" name="u" value="12870b8567f2fb8368e29d083" />
+		<input type="hidden" name="id" value="ad52c8dd36" />
 		{#if formType == 'member'}
 			<div style="grid-area: title">
 				<h3>Tell Us About Yourself</h3>
 			</div>
 			<div style="grid-area: name">
-				<TextField name="name" autocomplete="given-name" label="Name" required />
+				<TextField name="MERGE1" autocomplete="given-name" label="Name" required />
 			</div>
 			<div style="grid-area: email">
-				<TextField name="email" label="Email" autocomplete="email" type="email" required />
+				<TextField name="MERGE0" label="Email" autocomplete="email" type="email" required />
 			</div>
 
 			<div class="reason">
