@@ -17,8 +17,7 @@
 		{ name: 'Patrick Perrine', title: 'Co-President', image: 'patrick.jpg' },
 		{ name: 'Braden Michelson', title: 'Treasurer', image: 'braden.jpg' },
 		{ name: 'Taylor Nguyen', title: 'Secretary', image: 'taylor.jpeg' },
-		{ name: 'Phaniraj Aenugula', title: 'Outreach Officer', image: 'phani.jpeg' },
-		{ name: 'Andrew Doud', title: 'Tech Officer', image: 'andrew.jpg' }
+		{ name: 'Phaniraj Aenugula', title: 'Outreach Officer', image: 'phani.jpeg' }
 	];
 
 	let members: MemberData[] = [];
