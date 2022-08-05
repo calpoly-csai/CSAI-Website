@@ -13,11 +13,12 @@
 
 	const officerPath = '/images/officers/';
 	const officers = [
-		{ name: 'John Waidhofer', title: 'Co-President', image: 'john.jpg' },
-		{ name: 'Patrick Perrine', title: 'Co-President', image: 'patrick.jpg' },
-		{ name: 'Braden Michelson', title: 'Treasurer', image: 'braden.jpg' },
-		{ name: 'Taylor Nguyen', title: 'Secretary', image: 'taylor.jpeg' },
-		{ name: 'Phaniraj Aenugula', title: 'Outreach Officer', image: 'phani.jpeg' }
+		{ name: 'Sarah Ellwein', title: 'President', image: 'logo-black.png' },
+		{ name: 'Anthony Colin', title: 'Treasurer', image: 'logo-black.png' },
+		{ name: 'Olivia Hartnett', title: 'Secretary', image: 'logo-black.png' },
+		{ name: 'Celine Ha', title: 'Research Officer', image: 'logo-black.png' },
+		{ name: 'David Hernandez', title: 'Tech Officer', image: 'logo-black.png' },
+		{ name: 'Leo Horwitz', title: 'Tech Officer', image: 'logo-black.png' }
 	];
 
 	let members: MemberData[] = [];
