@@ -67,9 +67,9 @@
 >
 	<div class="meeting-info">
 		<h2>Meetings</h2>
-		<p class="meeting-time">Sundays 12:00 PM - 3:00 PM PST</p>
+		<p class="meeting-time">Sundays 1:00 PM - 3:00 PM PST</p>
 		<p class="meeting-description">
-			Meetings are often held over Zoom or in the Bonderson Engineering Building on the Cal Poly
+			Meetings are often held in the Bonderson Engineering Building on the Cal Poly
 			Campus. During these sessions, project teams intermingle to learn new technologies and touch
 			base on large architectural decisions.
 		</p>
