@@ -13,11 +13,15 @@
 
 	const officerPath = '/images/officers/';
 	const officers = [
-		{ name: 'Leo Horwitz', title: 'President', image: 'logo-black.png' },
-		{ name: 'Anthony Colin', title: 'Treasurer', image: 'logo-black.png' },
-		{ name: 'Olivia Hartnett', title: 'Secretary', image: 'logo-black.png' },
-		{ name: 'Celine Ha', title: 'Research Officer', image: 'logo-black.png' },
-		{ name: 'David Hernandez', title: 'Tech Officer', image: 'logo-black.png' },
+		{ name: 'Leo Horwitz', title: 'President', image: 'Leo Horwitz.jpg' },
+		{ name: 'Hannah Moshtaghi', title: 'Vice President', image: 'Hannah Moshtaghi.jpg' },
+		{ name: 'Ameer Arsala', title: 'Treasurer', image: 'Ameer Arsala.jpg' },
+		{ name: 'David Hernandez', title: 'Tech Officer', image: 'David Hernandez.jpg' },
+		{ name: 'Belal Elshenety', title: 'Tech Officer', image: 'Belal Elshenety.jpeg' },
+		{ name: 'Jason Jelincic', title: 'Outreach Officer', image: 'Jason Jelincic.jpg' },
+		{ name: 'Ishan Meher', title: 'Engagement Officer', image: 'Ishan_Meher.jpg' },
+		{ name: 'Sharon Liang', title: 'General Officer', image: 'Sharon_Liang.HEIC' },
+		{ name: 'Arthur Umerov', title: 'General Officer', image: 'Arthur_Umerov.jpg' }
 		//{ name: 'Leo Horwitz', title: 'Tech Officer', image: 'logo-black.png' }
 	];
 
