@@ -20,7 +20,7 @@
 		{ name: 'Belal Elshenety', title: 'Tech Officer', image: 'Belal Elshenety.jpeg' },
 		{ name: 'Jason Jelincic', title: 'Outreach Officer', image: 'Jason Jelincic.jpg' },
 		{ name: 'Ishan Meher', title: 'Engagement Officer', image: 'Ishan_Meher.jpg' },
-		{ name: 'Sharon Liang', title: 'General Officer', image: 'Sharon_Liang.HEIC' },
+		{ name: 'Sharon Liang', title: 'General Officer', image: 'Sharon_Liang.jpg' },
 		{ name: 'Arthur Umerov', title: 'General Officer', image: 'Arthur_Umerov.jpg' }
 		//{ name: 'Leo Horwitz', title: 'Tech Officer', image: 'logo-black.png' }
 	];
