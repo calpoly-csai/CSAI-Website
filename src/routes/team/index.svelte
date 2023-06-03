@@ -16,7 +16,7 @@
 		{ name: 'Leo Horwitz', title: 'President', image: 'Leo Horwitz.jpg' },
 		{ name: 'Hannah Moshtaghi', title: 'Vice President', image: 'Hannah Moshtaghi.jpg' },
 		{ name: 'Ameer Arsala', title: 'Treasurer', image: 'Ameer Arsala.jpg' },
-		{ name: 'David Hernandez', title: 'Tech Officer', image: 'David Hernandez.jpg' },
+		{ name: 'David Hernandez', title: 'Tech Officer', image: 'David_Hernandez.png' },
 		{ name: 'Belal Elshenety', title: 'Tech Officer', image: 'Belal Elshenety.jpeg' },
 		{ name: 'Jason Jelincic', title: 'Outreach Officer', image: 'Jason Jelincic.jpg' },
 		{ name: 'Ishan Meher', title: 'Engagement Officer', image: 'Ishan_Meher.jpg' },
