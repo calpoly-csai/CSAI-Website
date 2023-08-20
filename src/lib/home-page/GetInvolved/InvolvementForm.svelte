@@ -2,6 +2,7 @@
 	import TextField from '$lib/TextField.svelte';
 	import { json_encode } from '../../../modules/utils';
 	import { fly } from 'svelte/transition';
+	import {env} from '$env/dynamic/private'
 	export let formType: 'member' | 'partner' | 'speaker';
 	let sendCount = 0;
 	function onSubmit(e: Event) {
@@ -14,7 +15,7 @@
 		fetch('https://connect.mailerlite.com/api/subscribers', {
 			method: 'POST',
 			// mode: 'no-cors',
-			headers: {'Authorization': process.env.ML_API_KEY,
+			headers: {'Authorization': env.API_KEY,
 					'Content-Type': 'application/json' ,
 					'Accept' : 'application/json',
 					},
