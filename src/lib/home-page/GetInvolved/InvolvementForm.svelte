@@ -14,7 +14,7 @@
 		fetch('https://connect.mailerlite.com/api/subscribers', {
 			method: 'POST',
 			// mode: 'no-cors',
-			headers: {'Authorization': process.env.API_KEY,
+			headers: {'Authorization': process.env.ML_API_KEY,
 					'Content-Type': 'application/json' ,
 					'Accept' : 'application/json',
 					},
