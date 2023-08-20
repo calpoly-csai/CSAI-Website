@@ -1,5 +1,5 @@
 [build]
-command = "npm run build"
+command = "ML_API_KEY=$API_KEY npm run build"
 publish = "build"
 
 [functions]
