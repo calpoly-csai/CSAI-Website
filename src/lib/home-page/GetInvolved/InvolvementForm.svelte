@@ -2,7 +2,6 @@
 	import TextField from '$lib/TextField.svelte';
 	import { json_encode } from '../../../modules/utils';
 	import { fly } from 'svelte/transition';
-	// import {PUBLIC_ML_KEY} from '$env/static/public'
 	export let formType: 'member' | 'partner' | 'speaker';
 	let sendCount = 0;
 	function onSubmit(e: Event) {
