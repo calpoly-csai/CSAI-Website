@@ -46,6 +46,37 @@ export function encode(formData: any): string {
 	return data.join('&');
 }
 
+export function json_encode(formData: any): string {
+
+	console.log(formData)
+
+	let data = {}
+
+	data['fields'] = {}
+	data['groups'] = ['97003801734547401']
+	data['status'] = 'active'
+
+	for (let [key, val] of formData){
+		console.log(key)
+		console.log(val)
+		
+		if (key == 'email'){
+			data[key] = val
+		}
+		else {
+			data['fields'][key] = val
+		}
+	
+	}
+	
+	console.log(data)
+
+	return JSON.stringify(data)
+	
+	// return { "name" : "hi" }
+}
+
+
 /**
  * Random uniform selection of element from an array.
  * @param arr Collection to select from.
