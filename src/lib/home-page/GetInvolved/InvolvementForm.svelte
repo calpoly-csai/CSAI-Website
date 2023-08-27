@@ -9,8 +9,6 @@
 	function onSubmit(e: Event) {
 		// Send off form data
 		const formData = new FormData(e.target as HTMLFormElement);
-		console.log('TESTING: ')
-		// console.log(typeof formData)
 		const body = json_encode(formData);
 		sendCount++;
 		fetch('https://connect.mailerlite.com/api/subscribers', {
