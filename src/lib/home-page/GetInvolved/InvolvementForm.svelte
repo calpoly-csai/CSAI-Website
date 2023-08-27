@@ -2,19 +2,19 @@
 	import TextField from '$lib/TextField.svelte';
 	import { json_encode } from '../../../modules/utils';
 	import { fly } from 'svelte/transition';
+	// import {env} from '$env/dynamic/private'
 	export let formType: 'member' | 'partner' | 'speaker';
+	const apikey = import.meta.env.VITE_ML_KEY
 	let sendCount = 0;
 	function onSubmit(e: Event) {
 		// Send off form data
 		const formData = new FormData(e.target as HTMLFormElement);
-		console.log('TESTING: ')
-		// console.log(typeof formData)
 		const body = json_encode(formData);
 		sendCount++;
 		fetch('https://connect.mailerlite.com/api/subscribers', {
 			method: 'POST',
 			// mode: 'no-cors',
-			headers: {'Authorization': process.env.API_KEY,
+			headers: {'Authorization': apikey,
 					'Content-Type': 'application/json' ,
 					'Accept' : 'application/json',
 					},

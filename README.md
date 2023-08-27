@@ -33,3 +33,8 @@ npm run build
 - [Svelte Netlify Adapter](https://github.com/sveltejs/kit/tree/master/packages/adapter-netlify)
 - [Feather Icons](https://feathericons.com/)
 - [TypeScript](https://www.typescriptlang.org/docs/)
+
+### Note on Environment Variables
+
+- You can set-up your own Environment Variable using a .env file on your local machine, but please refrain from uploading it to GitHub.
+- To use Environment Variables on deploy, you must add them to the Netlify build settings. 
