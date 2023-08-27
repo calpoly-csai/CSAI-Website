@@ -1,18 +1,23 @@
 <script lang="ts">
 	import TextField from '$lib/TextField.svelte';
-	import { encode } from '../../../modules/utils';
+	import { json_encode } from '../../../modules/utils';
 	import { fly } from 'svelte/transition';
+	// import {env} from '$env/dynamic/private'
 	export let formType: 'member' | 'partner' | 'speaker';
+	const apikey = import.meta.env.VITE_ML_KEY
 	let sendCount = 0;
 	function onSubmit(e: Event) {
 		// Send off form data
 		const formData = new FormData(e.target as HTMLFormElement);
-		const body = encode(formData);
+		const body = json_encode(formData);
 		sendCount++;
-		fetch('https://gmail.us20.list-manage.com/subscribe/post', {
+		fetch('https://connect.mailerlite.com/api/subscribers', {
 			method: 'POST',
-			mode: 'no-cors',
-			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+			// mode: 'no-cors',
+			headers: {'Authorization': apikey,
+					'Content-Type': 'application/json' ,
+					'Accept' : 'application/json',
+					},
 			body
 		}).catch(console.error);
 	}
@@ -27,22 +32,26 @@
 		in:fly={{ y: 15, duration: 700, delay: 400 }}
 		out:fly={{ y: 15, duration: 300 }}
 	>
-		<input type="hidden" name="u" value="12870b8567f2fb8368e29d083" />
-		<input type="hidden" name="id" value="ad52c8dd36" />
+		<!-- Hidden values used in API Call, no Longer relevant -->
+		<!-- <input type="hidden" name="u" value="12870b8567f2fb8368e29d083" />
+		<input type="hidden" name="id" value="ad52c8dd36" /> -->
 		{#if formType == 'member'}
 			<div style="grid-area: title">
 				<h3>Tell Us About Yourself</h3>
 			</div>
 			<div style="grid-area: name">
-				<TextField name="MERGE1" autocomplete="given-name" label="Name" required />
+				<TextField name="Name" autocomplete="given-name" label="First Name" required />
+			</div>
+			<div style="grid-area: lastname">
+				<TextField name="Last name" autocomplete="given-name" label="Last Name" required />
 			</div>
 			<div style="grid-area: email">
-				<TextField name="MERGE0" label="Email" autocomplete="email" type="email" required />
+				<TextField name="email" label="Email" autocomplete="email" type="email" required />
 			</div>
 
 			<div class="reason">
 				<span style="margin-left:5px">Area of Interest</span>
-				<textarea name="MERGE6" />
+				<textarea name="reason" />
 			</div>
 			<div style="grid-area: submit">
 				<input type="submit" value="Say Hi 👋" />
@@ -105,7 +114,12 @@
 		text-align: left;
 		grid-template-rows: repeat(4, auto);
 		grid-template-columns: 1fr 1fr;
-		grid-template-areas: 'title title' 'name reason' 'email reason' 'submit submit';
+		grid-template-areas: 
+			'title title' 
+			'name reason' 
+			'email reason' 
+			'lastname reason'  
+			'submit submit' ;
 
 		@include viewport(small) {
 			grid-template-rows: repeat(5, auto);
@@ -124,6 +138,25 @@
 				grid-template-areas: 'title ' 'name' 'email' 'topic' 'reason' 'submit';
 			}
 		}
+
+		&.member {
+			grid-template-rows: repeat(5, auto);
+			grid-template-areas: 
+				'title title' 
+				'name reason'
+				'lastname reason' 
+				'email reason' 
+				'topic reason' 
+				'submit submit';
+				
+				@include viewport(small) {
+				grid-template-rows: repeat(6, auto);
+				grid-template-columns: 1fr;
+				grid-template-areas: 'title ' 'name' 'lastname' 'email' 'topic' 'reason' 'submit';
+			}
+		}
+
+
 	}
 
 	h3 {
