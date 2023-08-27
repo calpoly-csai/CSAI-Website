@@ -48,17 +48,14 @@ export function encode(formData: any): string {
 
 export function json_encode(formData: any): string {
 
-	console.log(formData)
+	// console.log(formData)
 
 	let data = {}
-
 	data['fields'] = {}
 	data['groups'] = ['97003801734547401']
 	data['status'] = 'active'
 
 	for (let [key, val] of formData){
-		console.log(key)
-		console.log(val)
 		
 		if (key == 'email'){
 			data[key] = val
@@ -69,11 +66,7 @@ export function json_encode(formData: any): string {
 	
 	}
 	
-	console.log(data)
-
 	return JSON.stringify(data)
-	
-	// return { "name" : "hi" }
 }
 
 
