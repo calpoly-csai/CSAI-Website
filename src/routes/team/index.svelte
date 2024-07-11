@@ -33,9 +33,9 @@
 		// { name: 'Misha Bandi', title: 'Meeting Facilitator', image: '' },
 		{ name: 'Weston Patrick', title: 'Meeting Facilitator', image: 'WestonPatrick.jpg'},
    		{ name: 'Matthew Huang', title: 'Project Lead', image: 'MatthewHuang.jpg'},
-    	{ name: 'Min Hset Hliang', title: 'Project Lead', image: 'Min Hset Hlaing.JPG'},
+    	{ name: 'Min Hset Hlaing', title: 'Project Lead', image: 'Min Hset Hlaing.JPG'},
 		{ name: 'Sharon Liang', title: 'Webmaster', image: 'SharonLiang.jpeg' },
-		{ name: 'Isha', title: 'Outreach Officer', image: 'IshaVarrier.png'},
+		{ name: 'Isha Varrier', title: 'Outreach Officer', image: 'IshaVarrier.png'},
     	// { name: 'Dak', title: 'Social Media Lead', image: 'Dak.jpg'},
     	{ name: 'Harini Baskar', title: 'Social Media Lead', image: 'HariniBaskar.png'},
     	{ name: 'Rachana Raju', title: 'Event Coordinator', image: 'RachanaRaju.jpg'}
