@@ -12,17 +12,34 @@
 	}
 
 	const officerPath = '/images/officers/';
+	// const executiveBoard = [
+	// 	{ name: 'Leo Horwitz', title: 'President', image: 'Leo Horwitz.jpg' },
+	// 	{ name: 'Hannah Moshtaghi', title: 'External Vice President', image: 'HannahMoshtaghi.JPG' },
+	// 	{ name: 'Jason Jelincic', title: 'Internal Vice President', image: 'Jason Jelincic.jpg' },
+	// 	{ name: 'Thomas Spieler', title: 'Administrator', image: 'ThomasSpieler.jpg'}
+	// ];
 	const officers = [
 		{ name: 'Leo Horwitz', title: 'President', image: 'Leo Horwitz.jpg' },
-		{ name: 'Hannah Moshtaghi', title: 'Vice President', image: 'Hannah Moshtaghi.jpg' },
-		{ name: 'Ameer Arsala', title: 'Treasurer', image: 'Ameer Arsala.jpg' },
-		{ name: 'David Hernandez', title: 'Tech Officer', image: 'David_Hernandez.png' },
-		{ name: 'Belal Elshenety', title: 'Tech Officer', image: 'Belal Elshenety.jpeg' },
-		{ name: 'Jason Jelincic', title: 'Outreach Officer', image: 'Jason Jelincic.jpg' },
-		{ name: 'Ishan Meher', title: 'Engagement Officer', image: 'Ishan_Meher.jpg' },
-		{ name: 'Sharon Liang', title: 'General Officer', image: 'Sharon_Liang.jpg' },
-		{ name: 'Arthur Umerov', title: 'General Officer', image: 'Arthur_Umerov.jpg' }
-		//{ name: 'Leo Horwitz', title: 'Tech Officer', image: 'logo-black.png' }
+		{ name: 'Hannah Moshtaghi', title: 'External Vice President', image: 'HannahMoshtaghi.JPG' },
+		{ name: 'Jason Jelincic', title: 'Internal Vice President', image: 'Jason Jelincic.jpg' },
+		{ name: 'Thomas Spieler', title: 'Administrator', image: 'ThomasSpieler.jpg'},
+		{ name: 'Ameer Arsala', title: 'Research Lead', image: 'Ameer Arsala.jpg' },
+		{ name: 'David Hernandez', title: 'Research Lead', image: 'David_Hernandez.png' },
+		{ name: 'Ishan Meher', title: 'Research Lead', image: 'Ishan_Meher.jpg' },
+		{ name: 'Belal Elshenety', title: 'Meeting Facilitator Lead', image: 'Belal Elshenety.jpeg' },	
+    	{ name: 'Logan Barker', title: 'Meeting Facilitator Lead', image: 'LoganBarker.jpeg'},
+		{ name: 'Parker Jones', title: 'Meeting Facilitator', image: 'ParkerJones.jpg' },
+		{ name: 'Muzart Tuman', title: 'Meeting Facilitator', image: 'Muzart Tuman.jpg' },
+		// { name: 'Misha Bandi', title: 'Meeting Facilitator', image: '' },
+		{ name: 'Weston Patrick', title: 'Meeting Facilitator', image: 'WestonPatrick.jpg'},
+   		{ name: 'Matthew Huang', title: 'Project Lead', image: 'MatthewHuang.jpg'},
+    	{ name: 'Min Hset Hliang', title: 'Project Lead', image: 'Min Hset Hlaing.JPG'},
+		{ name: 'Sharon Liang', title: 'Webmaster', image: 'SharonLiang.jpeg' },
+		{ name: 'Isha', title: 'Outreach Officer', image: 'IshaVarrier.png'},
+    	// { name: 'Dak', title: 'Social Media Lead', image: 'Dak.jpg'},
+    	{ name: 'Harini Baskar', title: 'Social Media Lead', image: 'HariniBaskar.png'},
+    	{ name: 'Rachana Raju', title: 'Event Coordinator', image: 'RachanaRaju.jpg'}
+    
 	];
 
 	let members: MemberData[] = [];
@@ -67,6 +84,13 @@
 			The officer team is available to assist members on their AI learning paths, advise development
 			leaders on community projects, and carry out the administrative processes of the club.
 		</p>
+
+		<!-- <h3> Executive Board </h3>
+		<ul class="officer-list">
+		{#each executiveBoard as { name, title, image}}
+			<OfficerCard {name} {title} image={officerPath + image} />
+		{/each}
+		</ul> -->
 
 		<ul class="officer-list">
 			{#each officers as { name, title, image }}
