@@ -32,7 +32,7 @@
     	{ name: 'Min Hset Hlaing', title: 'Project Lead', image: 'Min Hset Hlaing.JPG'},
 		{ name: 'Sharon Liang', title: 'Webmaster', image: 'SharonLiang.jpeg' },
 		{ name: 'Isha Varrier', title: 'Outreach Officer', image: 'IshaVarrier.png'},
-    	{ name: 'Dak', title: 'Social Media Lead', image: 'DaksheshPasala.png'},
+    	{ name: 'Dakshesh Pasala', title: 'Social Media Lead', image: 'DaksheshPasala.png'},
     	{ name: 'Harini Baskar', title: 'Social Media Lead', image: 'HariniBaskar.png'},
     	{ name: 'Rachana Raju', title: 'Event Coordinator', image: 'RachanaRaju.jpg'}
     
