@@ -28,19 +28,22 @@
 		{ name: 'Ishan Meher', title: 'Research Lead', image: 'Ishan_Meher.jpg' },
 		{ name: 'Belal Elshenety', title: 'Meeting Facilitator Lead', image: 'Belal Elshenety.jpeg' },	
     	{ name: 'Logan Barker', title: 'Meeting Facilitator Lead', image: 'LoganBarker.jpeg'},
-		{ name: 'Parker Jones', title: 'Meeting Facilitator', image: 'ParkerJones.jpg' },
-		{ name: 'Muzart Tuman', title: 'Meeting Facilitator', image: 'Muzart Tuman.jpg' },
-		// { name: 'Misha Bandi', title: 'Meeting Facilitator', image: '' },
-		{ name: 'Weston Patrick', title: 'Meeting Facilitator', image: 'WestonPatrick.jpg'},
    		{ name: 'Matthew Huang', title: 'Project Lead', image: 'MatthewHuang.jpg'},
     	{ name: 'Min Hset Hlaing', title: 'Project Lead', image: 'Min Hset Hlaing.JPG'},
 		{ name: 'Sharon Liang', title: 'Webmaster', image: 'SharonLiang.jpeg' },
 		{ name: 'Isha Varrier', title: 'Outreach Officer', image: 'IshaVarrier.png'},
-    	// { name: 'Dak', title: 'Social Media Lead', image: 'Dak.jpg'},
+    	{ name: 'Dak', title: 'Social Media Lead', image: 'DaksheshPasala.png'},
     	{ name: 'Harini Baskar', title: 'Social Media Lead', image: 'HariniBaskar.png'},
     	{ name: 'Rachana Raju', title: 'Event Coordinator', image: 'RachanaRaju.jpg'}
     
 	];
+
+	const teamMembers = [
+		// { name: 'Misha Bandi', title: 'Meeting Facilitator', image: '' },
+		{ name: 'Parker Jones', title: 'Meeting Facilitator', image: 'ParkerJones.jpg' },
+		{ name: 'Muzart Tuman', title: 'Meeting Facilitator', image: 'Muzart Tuman.jpg' },
+		{ name: 'Weston Patrick', title: 'Meeting Facilitator', image: 'WestonPatrick.jpg'},
+	]
 
 	let members: MemberData[] = [];
 
@@ -84,16 +87,14 @@
 			The officer team is available to assist members on their AI learning paths, advise development
 			leaders on community projects, and carry out the administrative processes of the club.
 		</p>
-
-		<!-- <h3> Executive Board </h3>
-		<ul class="officer-list">
-		{#each executiveBoard as { name, title, image}}
-			<OfficerCard {name} {title} image={officerPath + image} />
-		{/each}
-		</ul> -->
-
 		<ul class="officer-list">
 			{#each officers as { name, title, image }}
+				<OfficerCard {name} {title} image={officerPath + image} />
+			{/each}
+		</ul>
+		<h3><br> Meeting Facilitators</h3>
+		<ul class="officer-list">
+			{#each teamMembers as { name, title, image}}
 				<OfficerCard {name} {title} image={officerPath + image} />
 			{/each}
 		</ul>
