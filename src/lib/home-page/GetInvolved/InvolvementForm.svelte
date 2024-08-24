@@ -2,24 +2,44 @@
 	import TextField from '$lib/TextField.svelte';
 	import { json_encode } from '../../../modules/utils';
 	import { fly } from 'svelte/transition';
+
+	// new - for firebase
+	import {app, db} from '../../../firebase.js';
+	import {collection, addDoc} from "firebase/firestore";
+
+
 	// import {env} from '$env/dynamic/private'
-	export let formType: 'member' | 'partner' | 'speaker';
+	export let formType: 'member' | 'partner' | 'speaker'|'nameTest';
 	const apikey = import.meta.env.VITE_ML_KEY
 	let sendCount = 0;
-	function onSubmit(e: Event) {
-		// Send off form data
+	async function onSubmit(e: Event) {
+		e.preventDefault();
 		const formData = new FormData(e.target as HTMLFormElement);
 		const body = json_encode(formData);
 		sendCount++;
-		fetch('https://connect.mailerlite.com/api/subscribers', {
-			method: 'POST',
-			// mode: 'no-cors',
-			headers: {'Authorization': apikey,
-					'Content-Type': 'application/json' ,
-					'Accept' : 'application/json',
-					},
-			body
-		}).catch(console.error);
+
+		if(formType === 'nameTest'){
+			try{
+				const name = formData.get("name");
+				await addDoc(collection(db, "names"), {
+					name: name,
+					timestamp: new Date()
+				});
+				console.log("Name submitted to Firestore", name);
+			} catch(e){
+				console.error("Error adding document to Firestore:", e);
+			}
+		} else{
+			fetch('https://connect.mailerlite.com/api/subscribers', {
+				method: 'POST',
+				// mode: 'no-cors',
+				headers: {'Authorization': apikey,
+						'Content-Type': 'application/json' ,
+						'Accept' : 'application/json',
+						},
+				body
+			}).catch(console.error);
+		}
 	}
 </script>
 
@@ -74,6 +94,18 @@
 			<div style="grid-area: submit">
 				<input type="submit" value="Propose Project 🧠" />
 			</div>
+		<!-- temp -->
+		{:else if formType == 'nameTest'}
+			<div style="grid-area: title">
+				<h3>Record Your Name</h3>
+			</div>
+			<div style="grid-area: name">
+				<TextField name="name" autocomplete="given-name" label="Name" required />
+			</div>
+			<div style="grid-area: submit">
+				<input type="submit" value="Submit Name" />
+			</div>
+		
 		{:else}
 			<div style="grid-area: title">
 				<h3>Share Your Knowledge</h3>
