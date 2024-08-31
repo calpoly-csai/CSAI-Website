@@ -12,12 +12,6 @@
 	}
 
 	const officerPath = '/images/officers/';
-	// const executiveBoard = [
-	// 	{ name: 'Leo Horwitz', title: 'President', image: 'Leo Horwitz.jpg' },
-	// 	{ name: 'Hannah Moshtaghi', title: 'External Vice President', image: 'HannahMoshtaghi.JPG' },
-	// 	{ name: 'Jason Jelincic', title: 'Internal Vice President', image: 'Jason Jelincic.jpg' },
-	// 	{ name: 'Thomas Spieler', title: 'Administrator', image: 'ThomasSpieler.jpg'}
-	// ];
 	const officers = [
 		{ name: 'Leo Horwitz', title: 'President', image: 'Leo Horwitz.jpg' },
 		{ name: 'Hannah Moshtaghi', title: 'External Vice President', image: 'HannahMoshtaghi.JPG' },
@@ -30,7 +24,7 @@
     	{ name: 'Logan Barker', title: 'Meeting Facilitator Lead', image: 'LoganBarker.jpeg'},
    		{ name: 'Matthew Huang', title: 'Project Lead', image: 'MatthewHuang.jpg'},
     	{ name: 'Min Hset Hlaing', title: 'Project Lead', image: 'Min Hset Hlaing.JPG'},
-		{ name: 'Sharon Liang', title: 'Webmaster', image: 'SharonLiang.jpeg' },
+		{ name: 'Sharon Liang', title: 'Webmaster', image: 'SharonLiang.jpg' },
 		{ name: 'Isha Varrier', title: 'Outreach Officer', image: 'IshaVarrier.png'},
     	{ name: 'Dakshesh Pasala', title: 'Social Media Lead', image: 'DaksheshPasala.png'},
     	{ name: 'Harini Baskar', title: 'Social Media Lead', image: 'HariniBaskar.png'},
