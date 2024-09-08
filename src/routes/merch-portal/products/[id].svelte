@@ -15,14 +15,40 @@
     }
     return{
       props: {
-        product: productDoc.data(),
-      }
+        product: {
+          id: productId, 
+          ...productDoc.data(),
+        },
+      },
     };
   }
 </script>
 
 <script>
+  import {addToCart} from '../../../stores/cartStore';
+  
   export let product;
+
+  let selectedSize = null;
+  
+  const handleAddToCart = () => {
+    if(selectedSize){
+
+      console.log(`size selected!${selectedSize}`);
+      const productToAdd = {
+        id: product.id,
+        name: product.productName,
+        price: product.price,
+        size: selectedSize,
+        quantity: 1
+      };
+
+      addToCart(productToAdd);
+      console.log(`Added ${productToAdd.name} to cart`); 
+    }else{
+      alert('Please select a size');
+    }
+  };
 </script>
 
 <div class="product-display">
@@ -30,14 +56,14 @@
     <h1>{product.productName}</h1>
     <p>{product.productDescription}</p>
     <div class="sizes">
-      <button>S</button>
-      <button>M</button>
-      <button>L</button>
-      <button>XL</button>
+      <button on:click={() => selectedSize = 'S'} class:selected={selectedSize==='S'}>S</button>
+      <button on:click={() => selectedSize = 'M'} class:selected={selectedSize==='M'}>M</button>
+      <button on:click={() => selectedSize = 'L'} class:selected={selectedSize==='L'}>L</button>
+      <button on:click={() => selectedSize = 'XL'} class:selected={selectedSize==='XL'}>XL</button>
     </div>
     <div class="price-add-to-cart">
       <span class="total-price">Price: ${product.price}</span> 
-      <button>Add to cart</button>
+      <button on:click={handleAddToCart}>Add to cart</button>
     </div>
   </div>
   <div class="product-image">
