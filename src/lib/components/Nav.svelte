@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import MediaQuery from 'svelte-media-query';
-	import { breakpoints } from '../modules/utils';
+	import { breakpoints } from '../../modules/utils';
 	import { MenuIcon, XIcon } from 'svelte-feather-icons';
 	import { fly } from 'svelte/transition';
 	const routes = [

@@ -1,5 +1,5 @@
-<script context="module">
-  import {db} from '/src/firebase.js';
+<script context="module"> 
+  import {db} from '../../../../src/lib/utils/firebase.js';
   import {doc, getDoc} from 'firebase/firestore';
   
   export async function load({params}){
@@ -25,7 +25,8 @@
 </script>
 
 <script>
-  import {addToCart} from '../../../stores/cartStore';
+  // @ts-ignore
+  import {addToCart} from '$lib/merch/stores/cartStore';
   
   export let product;
 
