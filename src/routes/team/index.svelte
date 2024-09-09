@@ -1,5 +1,5 @@
 <script lang="ts">
-	import DotGrid from '$lib/DotGrid.svelte';
+	import DotGrid from '$lib/components/DotGrid.svelte';
 	import { onMount } from 'svelte';
 	import OfficerCard from './_components/OfficerCard.svelte';
 

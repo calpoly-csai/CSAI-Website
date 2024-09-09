@@ -1,5 +1,5 @@
 <script lang="ts">
-	import TextField from '$lib/TextField.svelte';
+	import TextField from '$lib/components/TextField.svelte';
 	import { json_encode } from '../../../modules/utils';
 	import { fly } from 'svelte/transition';
 	// import {env} from '$env/dynamic/private'

@@ -1,10 +1,10 @@
 <script lang="ts">
 	import InvolvementForm from './InvolvementForm.svelte';
-	type FormType = 'speaker' | 'member' | 'partner' | 'nameTest';
+	type FormType = 'speaker' | 'member' | 'partner';
 	const choices: { title: string; formType: FormType }[] = [
 		{ title: 'Host a Workshop', formType: 'speaker' },
 		{ title: 'Become a Member', formType: 'member' },
-		{ title: 'Partner with Us', formType: 'partner' }
+		{ title: 'Partner with Us', formType: 'partner'}
 	];
 	let formIndex = 1;
 	$: activeFormInfo = choices[formIndex];

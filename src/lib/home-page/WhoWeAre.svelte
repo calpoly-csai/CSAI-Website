@@ -1,5 +1,5 @@
 <script lang="ts">
-	import DotGrid from '$lib/DotGrid.svelte';
+	import DotGrid from '$lib/components/DotGrid.svelte';
 	import { mapRange } from '../../modules/utils';
 	import scrollTrackable from '../../modules/scrollTrackable';
 	let p = 0;

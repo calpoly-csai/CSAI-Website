@@ -1,6 +1,6 @@
 <script>
     import {onMount} from 'svelte';
-    import {db} from '../../../src/firebase.js';
+    import {db} from '../../../src/lib/utils/firebase.js';
     import {collection, getDocs} from 'firebase/firestore';
 
     let products = [];
@@ -26,6 +26,7 @@
 </script>
 
 <div class="grid-container">
+    <!--TODO: add cart and search logo -->
     {#each products as product}
         <div class = "product-card">
             <a href={`/merch-portal/products/${product.id}`}>

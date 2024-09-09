@@ -44,7 +44,7 @@
 </footer>
 
 <style lang="scss">
-	@import '../scss/utils.scss';
+	@import '../../scss/utils.scss';
 	footer {
 		position: relative;
 		display: grid;
