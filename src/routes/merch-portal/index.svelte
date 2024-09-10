@@ -2,6 +2,8 @@
     import {onMount} from 'svelte';
     import {db} from '../../../src/lib/utils/firebase.js';
     import {collection, getDocs} from 'firebase/firestore';
+    import ProductDisplayGrid from '$lib/merch/product/ProductDisplayGrid.svelte';
+    import CartDrawer from '$lib/merch/cart/CartDrawer.svelte';
 
     let products = [];
 
@@ -25,71 +27,23 @@
     });
 </script>
 
-<div class="grid-container">
-    <!--TODO: add cart and search logo -->
-    {#each products as product}
-        <div class = "product-card">
-            <a href={`/merch-portal/products/${product.id}`}>
-                <div class = "image-container">
-                    <img src = {product.images[0]} alt={product.name}/>
-                </div> 
-                <h2>{product.name}</h2>
-                <p>${product.price}</p>
-            </a>
-        </div>
-    {/each}
+<div class="top">
+    <CartDrawer/>
 </div>
+<ProductDisplayGrid {products} />
+
+<!-- TODO: implement the scroll feature so navbar can disappear -->
 
 <style lang="scss" global>
 	@import '../../scss/global.scss';
 	@import '../../scss/utils.scss';
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-    .grid-container{
-        margin-top: 80px;
-        padding: 96px;
-        display: grid;
-        grid-template-columns: repeat(3, 0.33fr);
-        font-family: 'Inter', sans-serif;
-        gap: 50px;
-    }
-
-    .product-card{
-        padding: 10px;
-        text-align: center;
-    }
-
-    .product-card a{
-        text-decoration: none;
-        color: inherit;
-    }
-
-    .product-card img {
-        width: 100%;
-        height: width;
-        margin-bottom: 8px;
-        object-fit: contain;
-    }
-
-    .product-card h2 {
-        margin: 0;
-        font-size: 21px;
-    }
-
-    .image-container {
-        width: 100%;
-        padding-top: 100%;
+    .top {
         position: relative;
-        background-color: #fff;
-        overflow: hidden;
+        z-index: 10; /* Ensure this is higher than the navbar's z-index */
+        margin-top: 75px;
     }
-
-    .image-container img {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        max-width: 100%;
-        max-height: 100%;
+    .drawer {
+        z-index: 1000; /* High enough to sit above other elements */
     }
 </style>
