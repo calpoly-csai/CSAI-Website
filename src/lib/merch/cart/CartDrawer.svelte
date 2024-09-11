@@ -3,7 +3,6 @@
 	import { writable } from 'svelte/store'; // manages the open/close state of the drawer
 
 	let isDrawerOpen = writable(false);
-
 	function toggleDrawer() {
 		isDrawerOpen.update(n => !n);
 	}
