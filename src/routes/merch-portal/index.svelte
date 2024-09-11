@@ -27,23 +27,27 @@
     });
 </script>
 
+<svelte:head>
+	<title>CSAI Merch</title>
+	<meta name="theme-color" content="#2992e5" />
+	<meta
+		name="description"
+		content="The CSAI merch is available to order here."
+	/>
+</svelte:head>
+
 <div class="top">
-    <CartDrawer/>
+    <CartDrawer />          
 </div>
+
 <ProductDisplayGrid {products} />
 
-<!-- TODO: implement the scroll feature so navbar can disappear -->
 
 <style lang="scss" global>
 	@import '../../scss/global.scss';
 	@import '../../scss/utils.scss';
 
     .top {
-        position: relative;
-        z-index: 10; /* Ensure this is higher than the navbar's z-index */
-        margin-top: 75px;
-    }
-    .drawer {
-        z-index: 1000; /* High enough to sit above other elements */
+        margin-top: 100px;
     }
 </style>
