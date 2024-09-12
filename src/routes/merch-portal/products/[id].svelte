@@ -1,7 +1,10 @@
 <script context="module"> 
   import {db} from '../../../../src/lib/utils/firebase.js';
   import {doc, getDoc} from 'firebase/firestore';
+  import CartDrawer from '$lib/merch/cart/CartDrawer.svelte';
+  import {ArrowLeftIcon} from 'svelte-feather-icons'
   
+  // load products from firebase collection
   export async function load({params}){
     const productId = params.id;
     const productRef = doc(db, "merchandise", productId);
@@ -50,7 +53,20 @@
       alert('Please select a size');
     }
   };
+
+  const handleBack = () =>{
+    window.history.back()
+  }
 </script>
+
+<div class="product-header">
+  <button class="back-button" on:click={handleBack}>
+      <ArrowLeftIcon/>
+  </button>
+  <!-- <div class="cart-toggle">
+      <CartDrawer/> 
+  </div> -->
+</div>
 
 <div class="product-display">
   <div class="product-details">
@@ -79,10 +95,31 @@
   @import '../../../scss/utils.scss';
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
   
+  .product-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 190px;
+    margin-top: 80px;
+  }
+
+  .back-button {
+    // margin-left: 190px;
+    margin-top: 40px;
+    background: transparent;
+    border: none;
+    color: black;
+    cursor: pointer;
+  }
+
+  .back-button:hover{
+    background-color: rgba(107, 110, 167, 0.1);
+    border-radius: 50%;
+  }
+
   .product-display {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding: 96px;
     border-radius: 10px;
     font-family: 'Inter', sans-serif;
     max-width: 1200px;
@@ -92,12 +129,13 @@
   .product-details {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    word-break: break-word; 
+    margin-top: 100px;
+    //justify-content: center;
     padding-right: 32px;
   }
 
-  .product-details h1 { /* product name */
+  //product name
+  .product-details h1 { 
     font-size: 50px;
     font-weight: bold;
     font-style: italic;
@@ -105,12 +143,13 @@
     word-break: break-all;
   }
 
-  .product-details p { /* product description */
+  .product-details p { 
     margin: 16px 0;
     font-size: 19px;
     color: #666;
   }
 
+  //product sizes
   .sizes {
     display: flex;
     gap: 16px;
@@ -139,7 +178,8 @@
     background-color: #bbb;
   }
 
-  .sizes button:focus { /*outline when selected*/
+  // outline size when selected
+  .sizes button:focus { 
     outline: none;
     border: 2px solid #666;
   }  
@@ -185,7 +225,7 @@
     justify-content: center;
     width: 100%;
     max-width: 350px;
-    margin-top: 50px;
+    margin-top: 56px;
     background-color: #DFDFEF;
     border-radius: 24px;
   }

@@ -123,21 +123,21 @@
 	}
 
 /* toggle drawer button */
-	.cart{
+	/* .cart{
 		display:flex;
 		justify-content: right;
 		margin-right: 90px;
-	}
+	} */
 
 	.cart-button{
 		margin-top: 40px;
-		background-color: rgba(188, 195, 199, 0.3);
-		border-radius: 50%;
+		background-color: transparent;
 	}
 
 	.cart-button:hover{
 		color: rgb(28, 41, 144);
 		background-color: rgb(203, 211, 211, 0.3);
+		border-radius: 50%;
 	}
 
 /* dims overlay when drawer is open */
