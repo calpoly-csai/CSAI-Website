@@ -100,7 +100,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		padding: 0 190px;
+		padding: 0 130px;
 		margin-top: 80px;
 	}
 
@@ -121,6 +121,7 @@
 	.product-display {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
+		padding: 0px 96px 96px 96px;
 		border-radius: 10px;
 		font-family: 'Inter', sans-serif;
 		max-width: 1200px;
@@ -130,7 +131,7 @@
 	.product-details {
 		display: flex;
 		flex-direction: column;
-		margin-top: 100px;
+		margin-top: 87px;
 		//justify-content: center;
 		padding-right: 32px;
 	}
@@ -141,7 +142,6 @@
 		font-weight: bold;
 		font-style: italic;
 		margin-bottom: 3px;
-		word-break: break-all;
 	}
 
 	.product-details p {

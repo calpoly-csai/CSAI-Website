@@ -12,7 +12,7 @@
 <style>
     .grid-container{
         margin-top: 10px;
-        padding: 55px;
+        padding: 0px 120px 96px 120px;
         display: grid;
         grid-template-columns: repeat(3, 0.33fr);
         font-family: 'Inter', sans-serif;

@@ -134,11 +134,11 @@
 	}
 
 	/* toggle drawer button */
-	/* .cart{
+	.cart{
 		display:flex;
 		justify-content: right;
 		margin-right: 90px;
-	} */
+	}
 
 	.cart-button {
 		margin-top: 40px;
