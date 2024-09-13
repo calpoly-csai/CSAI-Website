@@ -1,48 +1,49 @@
-import {writable} from "svelte/store"
+import { writable } from 'svelte/store';
 
 type CartItem = {
-    id: string;
-    name: string;
-    price: number;
-    size: string;
-    quantity: number;
+	id: string;
+	name: string;
+	images: string[];
+	price: number;
+	quantity: number;
 };
 
 export const cartItems = writable<CartItem[]>([]);
 
-// add to cart
-export const addToCart = (product: CartItem) => {
-    cartItems.update(items=>{
-        const itemPosition = items.findIndex(
-            item => item.id === product.id && item.size === product.size
-        );
-        if (itemPosition !== -1){
-            const updatedItems = items.map((item, index)=>{
-                if(index === itemPosition){
-                    return {...item, quantity: item.quantity + 1};
-                }
-            });
-            return updatedItems;
-        }else{
-            return [...items, {...product, quantity: 1}]
-        }
+//add to cart
+export function addToCart(item) {
+	cartItems.update((currentCart) => {
+		const existingItem = currentCart.find((cartItem) => cartItem.id === item.id);
 
-    });
+		if (existingItem) {
+			return currentCart.map((cartItem) =>
+				cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
+			);
+		} else {
+			return [...currentCart, { ...item, quantity: 1 }];
+		}
+	});
 }
-// remove from cart
-export const removeFromCart = (id: string, size: string) =>{
-    cartItems.update(items =>{
-        const itemPosition = items.findIndex(
-            item => item.id === id && item.size === size
-        );
-        if(itemPosition !== -1){
-            if(items[itemPosition].quantity - 1 <= 0){
-                items.splice(itemPosition, 1);
-            }
-            else{
-                items[itemPosition].quantity -= 1;
-            }       
-        }
-        return [...items];
-    })
+
+// remove from cart -- entire item removed, regardless of quantity
+export function removeFromCart(id) {
+	cartItems.update((currentCart) => currentCart.filter((item) => item.id !== id));
+}
+
+// increase item quantity
+export function increaseQuantity(id: string) {
+	cartItems.update((currentCart) => {
+		return currentCart.map((cartItem) =>
+			cartItem.id === id ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
+		);
+	});
+}
+
+// decrease item quantity
+export function decreaseQuantity(id: string) {
+	cartItems.update((currentCart) => {
+		return currentCart.map((cartItem) =>
+			cartItem.id === id ? { ...cartItem, quantity: Math.max(cartItem.quantity - 1, 1) } : cartItem
+		);
+	});
 }
