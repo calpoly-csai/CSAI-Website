@@ -28,8 +28,9 @@
 <script>
 	// @ts-ignore
 	import { addToCart } from '$lib/merch/stores/cartStore';
-	import CartDrawer from '$lib/merch/cart/CartDrawer.svelte';
+	import{toggleDrawer} from '$lib/merch/stores/cartDrawerStore';
 	import { ArrowLeftIcon } from 'svelte-feather-icons';
+	import CartDrawer from '$lib/merch/cart/CartDrawer.svelte';
 
 	export let product;
 
@@ -63,11 +64,8 @@
 	<button class="back-button" on:click={handleBack}>
 		<ArrowLeftIcon />
 	</button>
-	<!-- <div class="cart-toggle">
-      <CartDrawer/> 
-  </div> -->
 </div>
-
+<CartDrawer/>
 <div class="product-display">
 	<div class="product-details">
 		<h1>{product.productName}</h1>
@@ -82,7 +80,7 @@
 		</div>
 		<div class="price-add-to-cart">
 			<span class="total-price">Price: ${product.price}</span>
-			<button on:click={handleAddToCart}>Add to cart</button>
+			<button on:click={() => { handleAddToCart(); toggleDrawer(); }}>Add to cart</button>
 		</div>
 	</div>
 	<div class="product-image">
