@@ -6,16 +6,21 @@ type CartItem = {
 	images: string[];
 	price: number;
 	quantity: number;
+	size: string;
 };
 
 export const cartItems = writable<CartItem[]>([]);
 
 //add to cart
-export function addToCart(item) {
+export function addToCart(item: CartItem) {
+	
 	cartItems.update((currentCart) => {
-		const existingItem = currentCart.find((cartItem) => cartItem.id === item.id);
+		const existingItem = currentCart.find((cartItem) => 
+		cartItem.id === item.id && cartItem.size === item.size);
+		
 
 		if (existingItem) {
+			console.log(item.size)
 			return currentCart.map((cartItem) =>
 				cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
 			);
@@ -26,24 +31,30 @@ export function addToCart(item) {
 }
 
 // remove from cart -- entire item removed, regardless of quantity
-export function removeFromCart(id) {
-	cartItems.update((currentCart) => currentCart.filter((item) => item.id !== id));
+export function removeFromCart(id: string, size:string ) {
+	cartItems.update((currentCart) => 
+		currentCart.filter((item) => item.id !== id || item.size !== size));
 }
 
 // increase item quantity
-export function increaseQuantity(id: string) {
+export function increaseQuantity(id: string, size: string) {
 	cartItems.update((currentCart) => {
 		return currentCart.map((cartItem) =>
-			cartItem.id === id ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
+			cartItem.id === id  && cartItem.size === size? 
+				{ ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
 		);
 	});
 }
 
 // decrease item quantity
-export function decreaseQuantity(id: string) {
+export function decreaseQuantity(id: string, size:string ) {
 	cartItems.update((currentCart) => {
-		return currentCart.map((cartItem) =>
-			cartItem.id === id ? { ...cartItem, quantity: Math.max(cartItem.quantity - 1, 1) } : cartItem
+		const updatedCart = currentCart.map((cartItem) =>
+			cartItem.id === id && cartItem.size === size
+				? { ...cartItem, quantity: Math.max(cartItem.quantity - 1, 0) }
+				: cartItem
 		);
+		// filter out items with quantity 0
+		return updatedCart.filter((cartItem) => cartItem.quantity > 0);
 	});
 }

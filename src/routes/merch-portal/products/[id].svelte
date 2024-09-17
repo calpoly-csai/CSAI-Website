@@ -1,3 +1,4 @@
+<!-- TODO: readjust the size of ONE-SIZE button - low priority -->
 <script context="module">
 	import { db } from '../../../../src/lib/utils/firebase.js';
 	import { doc, getDoc } from 'firebase/firestore';
@@ -71,12 +72,9 @@
 		<h1>{product.productName}</h1>
 		<p>{product.productDescription}</p>
 		<div class="sizes">
-			<button on:click={() => (selectedSize = 'S')} class:selected={selectedSize === 'S'}>S</button>
-			<button on:click={() => (selectedSize = 'M')} class:selected={selectedSize === 'M'}>M</button>
-			<button on:click={() => (selectedSize = 'L')} class:selected={selectedSize === 'L'}>L</button>
-			<button on:click={() => (selectedSize = 'XL')} class:selected={selectedSize === 'XL'}
-				>XL</button
-			>
+			{#each product.sizes  as size}
+				<button class="larger-size-button" on:click={() => (selectedSize = size)} class:selected={selectedSize === size}>{size}</button>
+			{/each}
 		</div>
 		<div class="price-add-to-cart">
 			<span class="total-price">Price: ${product.price}</span>
@@ -170,6 +168,13 @@
 		cursor: pointer;
 		box-sizing: border-box;
 		padding: 0;
+	}
+
+	// larger size button specific styling
+	.larger-size-button {
+		width: 90px; 
+		height: 90px; 
+		font-size: 18px;
 	}
 
 	.sizes button:hover {
