@@ -1,6 +1,7 @@
+<!-- cart sliding drawer -->
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import {isDrawerOpen, toggleDrawer} from '$lib/merch/stores/cartDrawerStore';
+	import { isDrawerOpen, toggleDrawer } from '$lib/merch/stores/cartDrawerStore';
 	import {
 		cartItems,
 		removeFromCart,
@@ -15,41 +16,39 @@
 	}
 
 	// subscribing to the cart store
-	$: items = $cartItems; 
-	$: totalPrice = items.reduce((acc, item) => acc + (item.price * item.quantity), 0).toFixed(2);
-
+	$: items = $cartItems;
+	$: totalPrice = items.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2);
 </script>
+
 <div class="drawer" class:open={$isDrawerOpen}>
-	<div class= "top-section"> 
-		<h3> YOUR CART</h3>
+	<div class="top-section">
+		<h3>YOUR CART</h3>
 		<div class="titles">
 			<h5>PRODUCT</h5>
 			<h5>TOTAL</h5>
 		</div>
-		<div class="divider"></div>
+		<div class="divider" />
 	</div>
 	<div class="cart-items">
 		{#if items.length > 0}
 			{#each items as item (item.id + '-' + item.size)}
-			<div class="item">
-				<CartItem {item} {increaseQuantity} {decreaseQuantity} {removeFromCart} />
-			</div>
+				<div class="item">
+					<CartItem {item} {increaseQuantity} {decreaseQuantity} {removeFromCart} />
+				</div>
 			{/each}
 		{:else}
 			<p>Your cart is empty</p>
 		{/if}
 	</div>
-	
+
 	<div class="bottom">
-		<div class="divider"></div>
+		<div class="divider" />
 		<div class="total">
 			<p>TOTAL</p>
 			<p>{totalPrice}USD</p>
 		</div>
-		<div class= "checkout">
-			<button class="checkout-button" on:click={goToCart}>
-				Checkout
-			</button>
+		<div class="checkout">
+			<button class="checkout-button" on:click={goToCart}> Checkout </button>
 		</div>
 	</div>
 </div>
@@ -59,28 +58,28 @@
 {/if}
 
 <style>
-/* top section */
-	.titles{
-		display:flex;
+	/* top section */
+	.titles {
+		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
 	}
-	.top-section .divider{
+	.top-section .divider {
 		margin-top: 0px;
 		padding-top: 0px;
 	}
-	h5{
+	h5 {
 		font-weight: 300;
 	}
 
-/* drawer */
+	/* drawer */
 	.drawer {
 		position: fixed;
 		top: 0;
 		right: 0;
 		width: 500px;
 		height: 100%;
-		background-color: rgb(225, 233, 240);
+		background-color: rgb(240, 242, 245);
 		box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2);
 		display: flex;
 		padding: 20px;
@@ -98,42 +97,41 @@
 		color: #aabdcc;
 	}
 
-/* items */
+	/* items */
 	.cart-items {
 		flex-grow: 1;
 		overflow-y: auto;
 		padding-right: 10px;
 	}
-	.item{
+	.item {
 		margin-bottom: 30px;
 	}
 
-/*bottom section */ 
+	/*bottom section */
 	.divider {
 		width: 100%;
 		height: 1px;
 		background-color: #ccc;
 		margin: 20px 0;
 		bottom: 0;
-
 	}
-	.bottom{
+	.bottom {
 		position: relative;
 		bottom: 0;
 	}
 
-	.total{
-		display:flex;
+	.total {
+		display: flex;
 		justify-content: space-between;
 		margin: 0px 20px;
 		align-items: center;
 	}
 
-	.total p{
+	.total p {
 		font-weight: 300;
 	}
 
-	.checkout-button{
+	.checkout-button {
 		text-align: center;
 		width: 470px;
 		border-radius: 30px;
@@ -155,4 +153,18 @@
 	.drawer-overlay.open {
 		display: block;
 	}
+
+    /* phones -- WIP */
+    @media (max-width: 768px) {
+        .drawer{
+			max-width: 300px;
+		}
+		.bottom{
+			max-width: 300px;
+		}
+		.checkout-button{
+			max-width: 270px;
+		}	
+    }
+
 </style>
