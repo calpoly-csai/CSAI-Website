@@ -1,3 +1,4 @@
+<!-- merch main loading/skeleton page -->
 <script>
     import {onMount} from 'svelte';
     import {db} from '../../../src/lib/utils/firebase.js';
@@ -6,7 +7,6 @@
     import CartDrawer from '$lib/merch/cart/CartDrawer.svelte';
     import { ShoppingCartIcon} from 'svelte-feather-icons';
     import {toggleDrawer} from '$lib/merch/stores/cartDrawerStore';
-
 
     let products = [];
 
