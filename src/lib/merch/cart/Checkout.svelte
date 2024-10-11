@@ -7,17 +7,23 @@
 		increaseQuantity,
 		decreaseQuantity
 	} from '$lib/merch/stores/cartStore';
+    import { goto } from '$app/navigation';
+
+    function goToForm(){
+        goto('/merch-portal/form');
+    }
 
     // subscribing to the cart store
 	$: items = $cartItems; 
 	$: totalPrice = items.reduce((acc, item) => acc + (item.price * item.quantity), 0).toFixed(2);
     $: totalItems = items.reduce((acc, item) => acc + item.quantity, 0)
+
 </script>
 
 <div class= "main-page">
     <div class="order-details">
         <div class= "top-section"> 
-            <h2> YOUR ORDER</h2>
+            <h3> CONFIRM YOUR ORDER</h3>
             <div class="titles">
                 <h5>PRODUCT</h5>
                 <h5>TOTAL</h5>
@@ -28,7 +34,7 @@
             {#if items.length > 0}
                 {#each items as item (item.id + '-' + item.size)}
                 <div class="item">
-                    <CartItem {item} {increaseQuantity} {decreaseQuantity} {removeFromCart} />
+                    <CartItem {item} {increaseQuantity} {decreaseQuantity} {removeFromCart}/>
                 </div>
                 {/each}
             {:else}
@@ -42,20 +48,19 @@
             <div class="summary-items">{totalItems} items</div>
             <div class="subtotal">
                 <p> SUBTOTAL</p>
-                <b> ${totalPrice}</b>
+                <p><strong>${totalPrice}</strong></p>
             </div>
 
             <div class="member-info">
                 <h5>CSAI MEMBERSHIP</h5>
                 <p>Have you purchased the CSAI Membership? If so there is a $5 discount on your order.</p>
             </div>
-
-            <div class="member-discount">
-
-            </div>
         </div>
-       
-        
+        <div class= "checkout">
+			<button class="checkout-button" on:click={goToForm}>
+				Checkout
+			</button>
+		</div>
     </div>
 </div>
 
@@ -74,10 +79,6 @@
 		margin-top: 0px;
 		padding-top: 0px;
 	}
-    .top-section h2{
-        font-weight: 600;
-        font-style: italic;
-    }
 	h5{
 		font-weight: 300;
 	}
@@ -87,6 +88,7 @@
         padding: 0px 0px 220px 220px;
         display: grid;
         grid-template-columns: 1fr 1fr; 
+        gap: 40px;
     }
 
 /* order-details */
@@ -126,9 +128,6 @@
         flex-direction: row;
         justify-content: space-between;
     }
-    b{
-        margin: 1rem;
-    }
 /* membership details */
     .member-info{
         margin-top: 20px;
@@ -142,4 +141,13 @@
         font-weight: 800;
     }
 
+/* checkout button */
+    .checkout-button{
+        margin-top: 50px;
+		text-align: center;
+		width: 400px;
+        height: 60px;
+		border-radius: 30px;
+		background-color: rgb(40, 46, 87);
+	}
 </style>
