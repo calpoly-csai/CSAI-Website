@@ -1,4 +1,4 @@
-<!-- individual product card for product display page -->
+<!-- individual product card for product display grid -->
 <script>
     export let product;
 </script>

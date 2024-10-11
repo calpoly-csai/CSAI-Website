@@ -1,4 +1,7 @@
+<!--individual product page: size, prod description, price, etc-->
 <!-- TODO: readjust the size of ONE-SIZE button - low priority -->
+<!-- TODO: create carousel for images : high-->
+<!-- TODO: responsive window : high-->
 <script context="module">
 	import { db } from '../../../../src/lib/utils/firebase.js';
 	import { doc, getDoc } from 'firebase/firestore';
@@ -83,7 +86,7 @@
 	</div>
 	<div class="product-image">
 		<img src={product.imgURLS[0]} alt={product.productName} class="main-image" />
-		<img src={product.imgURLS[1]} alt="{product.productName} Zoomed" class="zoomed-image" />
+		<img src={product.imgURLS[1]} alt="{product.productName} Zoomed" class="zoomed-image"/>
 	</div>
 </div>
 
@@ -122,6 +125,7 @@
 		font-family: 'Inter', sans-serif;
 		max-width: 1200px;
 		margin: 0 auto;
+		min-height: 600px; 
 	}
 
 	.product-details {
@@ -220,6 +224,13 @@
 
 	.product-image:hover .main-image {
 		opacity: 0;
+	}
+	
+	.carousel-button {
+		background-color: #ccc;
+		border: none;
+		padding: 10px;
+		cursor: pointer;
 	}
 
 	.price-add-to-cart {
