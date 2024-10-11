@@ -1,8 +1,10 @@
+<!-- ui for a single item in the cart -->
 <script lang="ts">
 	export let item;
 	export let increaseQuantity;
 	export let decreaseQuantity;
 	export let removeFromCart;
+	export let readOnly = false;  //used for form page where increase/decrease quantity is disabled
 	import { PlusIcon, MinusIcon, TrashIcon } from 'svelte-feather-icons';
 
 	// calculate total price for the specific item
@@ -16,25 +18,29 @@
 		<p>${item.price.toFixed(2)}</p>
 		<p>SIZE: {item.size}</p>
 		<!-- quantity controls and delete button -->
-		<div class="quantity-and-delete">
-			<button on:click={() => decreaseQuantity(item.id, item.size)}>
-				<MinusIcon size="15" />
-			</button>
-			<span>{item.quantity}</span>
-			<button on:click={() => increaseQuantity(item.id, item.size)}>
-				<PlusIcon size="15"/>
-			</button>
-			<button class="trash-button" on:click={() => removeFromCart(item.id, item.size)}>
-				<TrashIcon size="15"/>
-			</button>
-		</div>	
+		{#if !readOnly}
+			<div class="quantity-and-delete">
+				<button on:click={() => decreaseQuantity(item.id, item.size)}>
+					<MinusIcon size="15" />
+				</button>
+				<span>{item.quantity}</span>
+				<button on:click={() => increaseQuantity(item.id, item.size)}>
+					<PlusIcon size="15"/>
+				</button>
+				<button class="trash-button" on:click={() => removeFromCart(item.id, item.size)}>
+					<TrashIcon size="15"/>
+				</button>
+			</div>
+		{:else}	
+			<!-- Show static quantity info if readonly -->
+			<p>Quantity: {item.quantity}</p>
+		{/if}
 	</div>
 	<p class="total-price"> ${specificItemTotalPrice}</p>
 </div>
 
 
 <style>
-
 /* product info section */
 	.product-info {
 		display: flex;
