@@ -1,6 +1,5 @@
 <!-- final checkout form before submitting order-->
 <!-- TODO: responsive -->
-<!-- TODO: double check emails -->
 <script>
 	import { cartItems } from '$lib/merch/stores/cartStore';
 	import CartItems from '$lib/merch/cart/CartItems.svelte';
@@ -15,6 +14,7 @@
 	let cartData = [];
 	let subtotal = 0;
 	let isLoading = false;
+	let orderForm; // ref to OrderForm component
 	
 	// subscribe to get current items in cart
 	$: cartItems.subscribe(value =>{
@@ -39,7 +39,8 @@
 	// function that executes when user clicks submit
 	async function submitOrder() {
 
-		if (!userData.first || !userData.last || !userData.email || cartData.length === 0) {
+		userData = orderForm.getUserData();
+		if (!userData || cartData.length === 0) {
 			console.error("User data is incomplete!");
 			return; // set error state to notify user (later)
 		}
@@ -75,12 +76,9 @@
 			isLoading = false;
 		}
 	}
-
-
 </script>
-
 <div class="container">
-	<OrderForm on:submitUserData={handleUserData} />
+	<OrderForm bind:this={orderForm} />
 	<div class="cart-items">
 		<div class="items">
 			<CartItems />
