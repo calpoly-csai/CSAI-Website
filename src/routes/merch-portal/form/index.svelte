@@ -1,7 +1,7 @@
 <!-- final checkout form before submitting order-->
 <!-- TODO: responsive -->
 <script>
-	import { cartItems } from '$lib/merch/stores/cartStore';
+	import { cartItems, clearCart} from '$lib/merch/stores/cartStore';
 	import CartItems from '$lib/merch/cart/CartItems.svelte';
 	import OrderForm from '$lib/merch/cart/OrderForm.svelte';
 	import { goto } from '$app/navigation';
@@ -22,14 +22,9 @@
 		subtotal = cartData.reduce((acc, item) => acc + (item.price * item.quantity), 0);
 	});
 
-	// function to handle the event emitted by orderForm to get user data
-	function handleUserData(event){
-		userData = event.detail;
-		console.log(userData);
-	}
-
 	function goToSuccessfulCheckout(){
 		goto('/merch-portal/form/success');
+		clearCart();
 	}
 
 	function gotToFailedCheckout(){

@@ -11,6 +11,10 @@ type CartItem = {
 
 export const cartItems = writable<CartItem[]>([]);
 
+export function clearCart() {
+	cartItems.set([]);
+}
+
 //add to cart
 export function addToCart(item: CartItem) {
 	
