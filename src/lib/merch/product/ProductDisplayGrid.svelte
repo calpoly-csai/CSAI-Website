@@ -19,6 +19,16 @@
         font-family: 'Inter', sans-serif;
         gap: 50px;
     }
+    
+    /* desktop monitors */
+    @media (min-width: 1540px) {
+        .grid-container {
+            padding: 0px 200px 96px 200px; 
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 70px;
+        }
+    }
+
     /* tablets */
     @media (max-width: 1024px) {
         .grid-container {
@@ -27,17 +37,10 @@
         }
     }
 
-    @media (max-width: 1254px) {
-        .grid-container {
-            padding: 0px 60px 96px 60px;
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
-
     /* phones */
-    @media (max-width: 768px) {
+    @media (max-width: 896px) {
         .grid-container {
-            padding: 0px 50px 96px 20px;
+            padding: 0px 40px 106px 40px;
             grid-template-columns: 1fr;
         }
     }
