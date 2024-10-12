@@ -45,29 +45,28 @@
 		if (field === 'email') emailFocused = true;
 	}
 
-	function handleSubmit() {
-		// validating all fields before dispatching
+	export function getUserData() {
+		// validating fields on submit
 		const firstNameError = validateField(first);
 		const lastNameError = validateField(last);
 		const emailError = validateField(email, 'email');
-
+		
+		// returns info if validated, otherwise null
 		if (!firstNameError && !lastNameError && !emailError) {
-			dispatch('submitUserData', {
-				first,
-				last,
-				email
-			});
+			return{first, last, email};
 		} else {
 			firstFocused = true;
 			lastFocused = true;
 			emailFocused = true;
+			return null; 
 		}
 	}
+	
 </script>
 
 <div class="form-section">
 	<h3>ORDER INFORMATION</h3>
-	<form on:submit|preventDefault={handleSubmit}>
+	<form>
 		<div class="input-group">
 			<label for="firstName">First Name</label>
 			<input
@@ -75,7 +74,6 @@
 				id="firstName"
 				bind:value={first}
 				on:blur={() => handleBlur('first')}
-				on:input={handleSubmit}
 				required
 			/>
 			{#if firstNameError}
@@ -90,7 +88,6 @@
 				bind:value={last}
 				on:blur={() => handleBlur('last')}
 				required
-				on:input={handleSubmit}
 			/>
 			{#if lastNameError}
 				<p class="error">{lastNameError}</p>
@@ -104,7 +101,6 @@
 				bind:value={email}
 				on:blur={() => handleBlur('email')}
 				required
-				on:input={handleSubmit}
 			/>
 			{#if emailError}
 				<p class="error">{emailError}</p>
