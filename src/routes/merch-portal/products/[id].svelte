@@ -1,7 +1,3 @@
-<!--individual product page: size, prod description, price, etc-->
-<!-- TODO: readjust the size of ONE-SIZE button - low priority -->
-<!-- TODO: create carousel for images : high-->
-<!-- TODO: responsive window : high-->
 <script context="module">
 	import { db } from '../../../../src/lib/utils/firebase.js';
 	import { doc, getDoc } from 'firebase/firestore';
@@ -32,7 +28,7 @@
 <script>
 	// @ts-ignore
 	import { addToCart } from '$lib/merch/stores/cartStore';
-	import{toggleDrawer} from '$lib/merch/stores/cartDrawerStore';
+	import { toggleDrawer } from '$lib/merch/stores/cartDrawerStore';
 	import { ArrowLeftIcon } from 'svelte-feather-icons';
 	import CartDrawer from '$lib/merch/cart/CartDrawer.svelte';
 
@@ -64,29 +60,43 @@
 	};
 </script>
 
+<!--individual product page: size, prod description, price, etc-->
+<!-- TODO: readjust the size of ONE-SIZE button - low priority -->
+<!-- TODO: create carousel for images : low/mid-->
+
+
 <div class="product-header">
 	<button class="back-button" on:click={handleBack}>
 		<ArrowLeftIcon />
 	</button>
 </div>
-<CartDrawer/>
+<CartDrawer />
 <div class="product-display">
+	<div class="product-image">
+		<img src={product.imgURLS[0]} alt={product.productName} class="main-image" />
+		<img src={product.imgURLS[1]} alt="{product.productName} Zoomed" class="zoomed-image" />
+	</div>
 	<div class="product-details">
 		<h1>{product.productName}</h1>
 		<p>{product.productDescription}</p>
 		<div class="sizes">
-			{#each product.sizes  as size}
-				<button class="larger-size-button" on:click={() => (selectedSize = size)} class:selected={selectedSize === size}>{size}</button>
+			{#each product.sizes as size}
+				<button
+					class="larger-size-button"
+					on:click={() => (selectedSize = size)}
+					class:selected={selectedSize === size}>{size}</button
+				>
 			{/each}
 		</div>
 		<div class="price-add-to-cart">
 			<span class="total-price">Price: ${product.price}</span>
-			<button on:click={() => { handleAddToCart(); toggleDrawer(); }}>Add to cart</button>
+			<button
+				on:click={() => {
+					handleAddToCart();
+					toggleDrawer();
+				}}>Add to cart</button
+			>
 		</div>
-	</div>
-	<div class="product-image">
-		<img src={product.imgURLS[0]} alt={product.productName} class="main-image" />
-		<img src={product.imgURLS[1]} alt="{product.productName} Zoomed" class="zoomed-image"/>
 	</div>
 </div>
 
@@ -99,7 +109,8 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		padding: 0 130px;
+		left: 0px;
+		padding-left: 50px;
 		margin-top: 80px;
 	}
 
@@ -125,29 +136,29 @@
 		font-family: 'Inter', sans-serif;
 		max-width: 1200px;
 		margin: 0 auto;
-		min-height: 600px; 
+		gap: 140px;
+		min-height: 50vh;
 	}
 
 	.product-details {
-		display: flex;
-		flex-direction: column;
-		margin-top: 87px;
-		//justify-content: center;
-		padding-right: 32px;
+		margin-top: 27px;
+		justify-content: center;
 	}
 
 	//product name
 	.product-details h1 {
 		font-size: 50px;
+		top: 0;
 		font-weight: bold;
 		font-style: italic;
 		margin-bottom: 3px;
 	}
 
 	.product-details p {
-		margin: 16px 0;
-		font-size: 19px;
+		margin: 16px 0px 0px 0px;
+		font-size: 15px;
 		color: #666;
+		line-height: 1.2;
 	}
 
 	//product sizes
@@ -176,8 +187,8 @@
 
 	// larger size button specific styling
 	.larger-size-button {
-		width: 90px; 
-		height: 90px; 
+		width: 90px;
+		height: 90px;
 		font-size: 18px;
 	}
 
@@ -208,8 +219,6 @@
 		position: absolute;
 		top: 20px;
 		left: 50px;
-		width: 410px;
-		height: auto;
 		opacity: 0;
 		transition: opacity 0.3s ease;
 	}
@@ -225,7 +234,7 @@
 	.product-image:hover .main-image {
 		opacity: 0;
 	}
-	
+
 	.carousel-button {
 		background-color: #ccc;
 		border: none;
@@ -266,4 +275,189 @@
 	.price-add-to-cart button:hover {
 		background-color: #8cce74;
 	}
+
+	@media (max-width: 768px) {
+		.product-display {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 0.5px;
+			padding: 0px 50px;
+			min-height: 90vh;
+		}
+		
+		.product-header {
+			padding: 0 10px;
+		}
+
+		.product-details {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			margin-top: 10px;
+		}
+
+		.product-image {
+			margin-top: 20px;
+			width: 90%;  
+			height: auto;
+
+		}
+
+		.product-image .zoomed-image {
+			position: absolute;
+			top: 50%; 
+			left: 50%; 
+			width: 90%; 
+			height: auto;
+			opacity: 0;
+			transition: opacity 0.3s ease;
+			transform: translate(-50%, -50%);
+		}
+
+		.product-details h1 {
+			font-size: 30px;
+		}
+
+		.product-details p {
+			font-size: 16px;
+		}
+
+		.sizes {
+			gap: 8px;
+			margin-top: 24px;
+		}
+
+		.sizes button {
+			width: 40px;
+			height: 40px;
+			font-size: 14px;
+		}
+
+		.larger-size-button {
+			width: 70px;
+			height: 70px;
+			font-size: 16px;
+		}
+
+		.total-price {
+			margin-left: 16px;
+			margin-right: 32px;
+			font-size: 18px;
+		}
+
+		.price-add-to-cart {
+			width: 100%;
+			max-width: 250px;
+			margin: 36px 0px;
+			background-color: #dfdfef;
+			border-radius: 24px;
+			
+		}
+
+		.total-price {
+			margin-left: 4px;
+			margin-right: 8px;
+			font-size: 15px;
+			font-weight: bold;
+			font-style: italic;
+		}
+
+		.price-add-to-cart button {
+			margin: 10px;
+			margin-left: 10px;
+			padding: 12px 24px;
+			background-color: #c0e1b4;
+			border: none;
+			border-radius: 15px;
+			font-size: 12px;
+			cursor: pointer;
+		}
+
+	}
+
+
+	@media (min-width: 769px) and (max-width: 1024px) {
+		.product-display {
+			display: flex;
+			flex-direction: row; 
+			align-items: flex-start; 
+			gap: 20px; 
+			padding: 0 50px; 
+			min-height: 85vh;
+		}
+		
+		.product-header {
+			padding: 0 20px; 
+		}
+
+		.product-details {
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start; 
+			margin-top: 10px;
+		}
+
+		.product-image {
+			margin-top: 20px;
+			width: 70%; 
+			height: auto;
+		}
+
+		.product-image .zoomed-image {
+			width: 70%; 
+			height: auto;
+		}
+
+		.product-details h1 {
+			font-size: 36px; 
+		}
+
+		.product-details p {
+			font-size: 18px; 
+		}
+
+		.sizes {
+			gap: 12px; 
+			margin-top: 32px;
+		}
+
+		.sizes button {
+			width: 50px; 
+			height: 50px; 
+			font-size: 16px;
+		}
+
+		.larger-size-button {
+			width: 80px;
+			height: 80px;
+			font-size: 18px;
+		}
+
+		.total-price {
+			margin-left: 24px; 
+			margin-right: 36px;
+			font-size: 20px; 
+		}
+
+		.price-add-to-cart {
+			width: 100%;
+			max-width: 300px; 
+			margin: 40px 0px;
+			background-color: #dfdfef;
+			border-radius: 24px;
+		}
+
+		.price-add-to-cart button {
+			margin: 12px;
+			margin-left: 0;
+			padding: 14px 28px; 
+			background-color: #c0e1b4;
+			border: none;
+			border-radius: 15px;
+			font-size: 14px;
+			cursor: pointer;
+		}
+	}
+
 </style>
