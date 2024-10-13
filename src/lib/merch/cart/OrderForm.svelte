@@ -109,7 +109,7 @@
 	</form>
 
 	<div class="member-info">
-		<h5>CSAI MEMBERSHIP</h5>
+		<h5>CSAI DONATIONS</h5>
 		<p>
 			Thank you for supporting CS+AI! To recieve your order, please contact Thomas Spieler on the
 			discord as @Thomas, via email at tmspiele@calpoly.edu, or at our next meeting! We look forward
@@ -158,13 +158,13 @@
 		max-width: 500px;
 		width: 100%;
 		margin-top: 30px;
-		border-color: rgb(25, 71, 110);
+		border-color: rgb(90, 26, 153);
 		border-style: groove;
 		padding: 20px;
-		background-color: rgba(246, 147, 33, 0.4);
+		background-color: rgb(223, 193, 252);
 	}
 
 	.member-info h5 {
-		color: rgb(13, 42, 67);
+		color: rgb(89, 25, 162);
 	}
 </style>

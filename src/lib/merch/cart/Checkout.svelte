@@ -52,8 +52,8 @@
             </div>
 
             <div class="member-info">
-                <h5>CSAI MEMBERSHIP</h5>
-                <p>Have you purchased the CSAI Membership? If so there is a $5 discount on your order.</p>
+                <h5>ARE YOU A CSAI DONOR?</h5>
+                <p> Dont forget that if you make a donation of $5 or more, you qualify for donor benefits, including $5 off one merch order! </p>
             </div>
         </div>
         <div class= "checkout">
