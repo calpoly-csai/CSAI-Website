@@ -217,4 +217,25 @@
         0% { transform: rotate(0deg); }
         100% { transform: rotate(360deg); }
     }
+
+	@media (min-width: 769px) and (max-width: 1200px){
+		.container{
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			padding: 0px 20px;
+			min-height: 90vh;
+			margin: 180px 20px;
+		}
+	}
+	@media (max-width: 768px){
+		.container{
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			padding: 0px 20px;
+			min-height: 90vh;
+			margin: 180px 20px;
+		}	
+	}
 </style>
