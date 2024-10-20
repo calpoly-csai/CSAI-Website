@@ -155,12 +155,17 @@
 		background-color: rgb(40, 46, 87);
 	}
     /* mobile */
-    @media only screen and (min-width: 200px) and (max-width: 820px) {
+    @media (min-width: 200px) and (max-width: 767px) {
         .main-page {
             padding: 0px 30px;
             display: grid;
             grid-template-columns: 1fr; 
+            place-items: center;
             gap: 30px;
+        }
+
+        .top-section h3{
+            font-size: 22px;
         }
 
         .order-summary { 
@@ -168,39 +173,59 @@
             margin-bottom: 40px;
         }
 
+        .order-box{
+            padding: 35px;
+        }
+
+        /* .subtotal p{
+            font-size: 12px;
+        }
+
+        .member-info p{
+            font-size: 10px;
+            line-height: normal;
+        } */
+
         .checkout-button {
             width: 100%; 
         }
 
         .order-details {
-            margin: 0px 20px;
+            margin: 0px 0px;
+            padding: 0px;
             max-height: 350px; 
         }
     }
 
     /* ipads -- TODO fix this*/
-    @media (min-width: 821px) and (max-width: 1024px) {
+    @media (min-width: 768px) and (max-width: 1024px) {
         .main-page {
-            padding: 0px 50px;
+            padding: 0px 30px;
             display: grid;
-            grid-template-columns: 0.6fr 0.4fr; 
+            grid-template-columns: 1fr;
             gap: 30px;
-            min-height: 70vh;
-        }
-
-        .order-summary { 
-            margin-top: 0px;
-            margin-bottom: 40px;
-        }
-
-        .checkout-button {
-            width: 100%; 
+            place-items: center;
+            min-height: 80vh;
         }
 
         .order-details {
-            margin: 0px 20px;
-            max-height: 650px; 
+            max-height: 650px;
+        }
+
+        .order-summary {
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+        .order-box{
+            width: 100%;
+            max-width: 500px;
+            margin-bottom: 0px;
+        }
+
+        .checkout-button {
+            width: 100%;
+            max-width: 500px;
+            margin-bottom: 40px;
         }
     }
-
 </style>
