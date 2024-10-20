@@ -1,5 +1,4 @@
 <!-- final checkout form before submitting order-->
-<!-- TODO: responsive -->
 <script>
 	import { cartItems, clearCart} from '$lib/merch/stores/cartStore';
 	import CartItems from '$lib/merch/cart/CartItems.svelte';
@@ -237,5 +236,7 @@
 			min-height: 90vh;
 			margin: 180px 20px;
 		}	
+
 	}
+
 </style>
