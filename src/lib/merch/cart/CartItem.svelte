@@ -32,11 +32,12 @@
 				</button>
 			</div>
 		{:else}	
-			<!-- Show static quantity info if readonly -->
 			<p>Quantity: {item.quantity}</p>
 		{/if}
 	</div>
-	<p class="total-price"> ${specificItemTotalPrice}</p>
+	<div class="total-price-container">
+		<p class="total-price">${specificItemTotalPrice}</p>
+	</div>
 </div>
 
 
@@ -103,5 +104,58 @@
 
 	.trash-button:hover {
 		color: rgb(206, 68, 68);
+	}
+
+	/* this needs work */
+	/* phones -- WIP */
+	@media (max-width: 550px) {
+		.product-info{
+			max-width: 49px;
+		}
+		.details {
+			width: 100%;
+		}
+		.product-info .item-name{
+			font-weight: 500;
+			font-size: 16px;
+		}
+		.product-info p {
+			margin: 0;
+			font-size: 12px;
+			color: #333;
+		}
+
+		.product-info img {
+			width: 50px;
+			height: 50px;
+			margin-bottom: 10px;
+		}
+
+		.product-info .total-price {
+			margin-top: 10px;
+		}
+
+		/* quantity controls + delete button */
+		.quantity-and-delete {
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+			margin-top: 10px;
+		}
+
+		.quantity-and-delete button {
+			padding: 20px;
+		}
+
+		.product-info .total-price{
+			margin-left: 90px;
+			font-style: normal;
+		}
+		.details {
+			display: flex;
+			flex-direction: column;
+		}
+
+
 	}
 </style>
