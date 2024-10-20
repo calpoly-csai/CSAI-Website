@@ -1,4 +1,24 @@
 <!-- rough thank you page, plan to add more css soon -->
+<script>
+	import { onMount } from 'svelte';
+	import particlesConfig from '../../../../../src/modules/particle-config';
+	let ParticlesComponent;
+	let scrollP = 0;
+	$: isOnscreen = scrollP < 0.99;
+	onMount(async () => {
+		const module = await import('svelte-particles');
+		ParticlesComponent = module.default;
+	});
+</script>
+<div>
+    {#if isOnscreen}
+		<svelte:component
+			this={ParticlesComponent}
+			options={particlesConfig}
+			id="particle-background"
+		/>
+	{/if}
+</div>
 <div class="container">
     <div class="right-section">
         <div class="note">

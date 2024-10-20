@@ -31,6 +31,17 @@
 	import { toggleDrawer } from '$lib/merch/stores/cartDrawerStore';
 	import { ArrowLeftIcon } from 'svelte-feather-icons';
 	import CartDrawer from '$lib/merch/cart/CartDrawer.svelte';
+	import { onMount } from 'svelte';
+	import particlesConfig from '../../../modules/particle-config-lightblue';
+	
+	// cool particle bg!
+	let ParticlesComponent;
+	let scrollP = 0;
+	$: isOnscreen = scrollP < 0.99;
+	onMount(async () => {
+		const module = await import('svelte-particles');
+		ParticlesComponent = module.default;
+	});
 
 	export let product;
 
@@ -65,7 +76,15 @@
 <!-- TODO: readjust the size of ONE-SIZE button - low priority -->
 <!-- TODO: create carousel for images : low/mid-->
 
-
+<div>
+    {#if isOnscreen}
+		<svelte:component
+			this={ParticlesComponent}
+			options={particlesConfig}
+			id="particle-background"
+		/>
+	{/if}
+</div>
 <div class="product-header">
 	<button class="back-button" on:click={handleBack}>
 		<ArrowLeftIcon />
@@ -277,7 +296,7 @@
 		background-color: #8cce74;
 	}
 
-	@media (max-width: 768px) {
+	@media (max-width: 767px) {
 
 		.product-display {
 			display: flex;
@@ -350,7 +369,7 @@
 
 		.price-add-to-cart {
 			width: 100%;
-			max-width: 250px;
+			max-width: 350px;
 			margin: 36px 0px;
 			background-color: #dfdfef;
 			border-radius: 24px;
@@ -358,7 +377,7 @@
 		}
 
 		.total-price {
-			margin-left: 4px;
+			margin-left: 20px;
 			margin-right: 8px;
 			font-size: 15px;
 			font-weight: bold;
@@ -378,8 +397,8 @@
 
 	}
 
-
-	@media (min-width: 769px) and (max-width: 1024px) {
+	// ipad
+	@media (min-width: 768px) and (max-width: 1024px) {
 		.product-display {
 			display: flex;
 			flex-direction: column; 
@@ -393,16 +412,12 @@
 			padding: 0 20px; 
 		}
 
-		.product-details h1 {
-			font-size: 40px;
-		}
-
-
 		.product-details {
 			display: flex;
 			flex-direction: column;
-			justify-content: flex-start; 
+			justify-content: center; 
 			margin-top: 10px;
+			// width: 100%;
 		}
 
 		.product-image {
@@ -417,29 +432,30 @@
 		}
 
 		.product-details h1 {
-			font-size: 36px; 
+			font-size: 63px;
 		}
 
 		.product-details p {
-			font-size: 18px; 
+			font-size: 24px; 
 		}
 
 		.sizes {
-			gap: 12px; 
-			margin-top: 32px;
+			width: 100%;
+			gap: 8px;
+			margin-top: 20px;
 		}
 
 		.sizes button {
-			width: 50px; 
-			height: 50px; 
-			font-size: 16px;
+			width: 70px; 
+			height: 70px; 
+			font-size: 24px;
 		}
 
-		.larger-size-button {
-			width: 80px;
-			height: 80px;
-			font-size: 18px;
-		}
+		// .larger-size-button {
+		// 	width: 80px;
+		// 	height: 80px;
+		// 	font-size: 18px;
+		// }
 
 		.total-price {
 			margin-left: 24px; 
@@ -449,20 +465,26 @@
 
 		.price-add-to-cart {
 			width: 100%;
-			max-width: 300px; 
+			max-width: 600px; 
 			margin: 40px 0px;
 			background-color: #dfdfef;
 			border-radius: 24px;
+			display: flex;
+			justify-content: space-between;
+			padding: 20px
 		}
 
-		.price-add-to-cart button {
-			margin: 12px;
-			margin-left: 0;
-			padding: 14px 28px; 
+		.price-add-to-cart .total-price{
+			font-size: 32px;
+		}
+
+		.price-add-to-cart button{
+			margin: 16px;
+			padding: 24px 40px;
 			background-color: #c0e1b4;
 			border: none;
 			border-radius: 15px;
-			font-size: 14px;
+			font-size: 24px;
 			cursor: pointer;
 		}
 	}
