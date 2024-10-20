@@ -14,10 +14,10 @@
 	const officerPath = '/images/officers/';
 	const officers = [
 		{ name: 'Leo Horwitz', title: 'President', image: 'Leo Horwitz.jpg' },
-		{ name: 'Hannah Moshtaghi', title: 'External Vice President', image: 'HannahMoshtaghi.JPG' },
-		{ name: 'Jason Jelincic', title: 'Internal Vice President', image: 'Jason Jelincic.jpg' },
+		{ name: 'Hannah Moshtaghi', title: 'VP of External Affairs', image: 'HannahMoshtaghi.JPG' },
+		{ name: 'Jason Jelincic', title: 'VP of Internal Affairs', image: 'Jason Jelincic.jpg' },
 		{ name: 'Thomas Spieler', title: 'Administrator', image: 'ThomasSpieler.jpg'},
-		{ name: 'Ameer Arsala', title: 'Research Lead', image: 'Ameer Arsala.jpg' },
+		{ name: 'Ameer Arsala', title: 'Research Lead', image: 'AmeerArsala.jpg' },
 		{ name: 'David Hernandez', title: 'Research Lead', image: 'David_Hernandez.png' },
 		{ name: 'Ishan Meher', title: 'Research Lead', image: 'Ishan_Meher.jpg' },
 		{ name: 'Belal Elshenety', title: 'Meeting Facilitator Lead', image: 'Belal Elshenety.jpeg' },	
