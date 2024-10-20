@@ -2,7 +2,10 @@
     <div class = "right-section">
         <h2>THANKS FOR SUPPORTING CSAI</h2>
         <h1>Your order was completed <br> successfully!</h1>
+        <p>Thank you for supporting CS+AI! To receive your order, talk to Leo Horwitz or Thomas Spieler at our next meeting to pay with cash or Venmo! We look forward to seeing you!
+            <br>( If you don't know our faces, feel free to check out our photos on the "Team" page)</p>
     </div>
+    
     <!-- <div class="accent-circle"></div> -->
     <div class = "left-section">
         <img src="/images/logo.svg" alt="logo" />
