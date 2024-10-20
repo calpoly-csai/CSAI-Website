@@ -1,4 +1,4 @@
-<!-- displays the items in cart -->
+<!-- displays the items in cart  in final checkout page (which has no + - delete)-->
 <script lang="ts">
 	import {
 		cartItems,
@@ -78,6 +78,20 @@
 
 	.cart-items :global(.product-info .total-price){
 		margin-left: 180px;
+		
 	}
-
+	/* smaller phones */
+	@media only screen and (min-width: 200px) and (max-width: 430px)  {
+		.cart-items :global(.product-info .total-price){
+			margin-left: 70px;
+			
+		}
+    }
+	/* reg phones  + ipads */
+	@media (min-width: 430px) {
+        .cart-items :global(.product-info .total-price){
+			margin-left: 140px;
+			
+		}
+	}
 </style>
