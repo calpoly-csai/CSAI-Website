@@ -111,11 +111,8 @@
 	<div class="member-info">
 		<h5>CSAI DONATIONS</h5>
 		<p>
-			Thank you for supporting CS+AI! To recieve your order, please contact Thomas Spieler on the
-			discord as @Thomas, via email at tmspiele@calpoly.edu, or at our next meeting! We look forward
-			to seeing you! Don't forget that if you make a donation of $5 or more, you qualify for donor
-			benefits, including $5 off one merch order! Contact Leo Horwitz on the discord with the amount
-			you'd like to donate if you're interested!
+			Thank you for supporting CS+AI! To receive your order, talk to Leo Horwitz or Thomas Spieler at our next meeting to pay with cash or Venmo! We look forward to seeing you!
+<br>( If you don't know our faces, feel free to check out our photos on the "Team" page)
 		</p>
 	</div>
 </div>
