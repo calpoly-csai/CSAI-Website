@@ -50,6 +50,7 @@
 
 			addToCart(productToAdd);
 			console.log(`Added ${productToAdd.name} to cart`);
+			selectedSize = null; // reset after added
 		} else {
 			alert('Please select a size');
 		}
@@ -137,7 +138,7 @@
 		max-width: 1200px;
 		margin: 0 auto;
 		gap: 140px;
-		min-height: 50vh;
+		min-height: 70vh;
 	}
 
 	.product-details {
@@ -277,6 +278,7 @@
 	}
 
 	@media (max-width: 768px) {
+
 		.product-display {
 			display: flex;
 			flex-direction: column;
@@ -380,8 +382,8 @@
 	@media (min-width: 769px) and (max-width: 1024px) {
 		.product-display {
 			display: flex;
-			flex-direction: row; 
-			align-items: flex-start; 
+			flex-direction: column; 
+			align-items: center; 
 			gap: 20px; 
 			padding: 0 50px; 
 			min-height: 85vh;
@@ -390,6 +392,11 @@
 		.product-header {
 			padding: 0 20px; 
 		}
+
+		.product-details h1 {
+			font-size: 40px;
+		}
+
 
 		.product-details {
 			display: flex;
@@ -405,7 +412,7 @@
 		}
 
 		.product-image .zoomed-image {
-			width: 70%; 
+			width: 100%; 
 			height: auto;
 		}
 
