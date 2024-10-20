@@ -168,4 +168,7 @@
 	.member-info h5 {
 		color: rgb(25, 121, 162);
 	}
+	.error{
+		color: rgb(255, 23, 23);;
+	}
 </style>
