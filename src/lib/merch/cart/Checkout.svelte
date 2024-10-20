@@ -84,7 +84,7 @@
 	}
 
     .main-page{
-        margin-top: 180px;
+        /* margin-top: 180px; */
         padding: 0px 0px 220px 220px;
         display: grid;
         grid-template-columns: 1fr 1fr; 
@@ -94,6 +94,7 @@
 /* order-details */
     .order-details {
         max-width: 500px;	
+        max-height: 800px;
 		display: flex;
 		flex-direction: column;
 	}
@@ -134,11 +135,14 @@
         padding: 15px;
         border-style: dotted;
         border-radius: 10px;
-        border-color: #ccc;
+        /* border-color: #ccc; */
+        background-color: rgb(195, 229, 242, 0.3);
+		/* border: 2px solid rgba(6, 61, 119, 0.8);  */
     }
 
     .member-info h5{
         font-weight: 800;
+        color:  rgb(58, 127, 154);
     }
 
 /* checkout button */
@@ -150,4 +154,53 @@
 		border-radius: 30px;
 		background-color: rgb(40, 46, 87);
 	}
+    /* mobile */
+    @media only screen and (min-width: 200px) and (max-width: 820px) {
+        .main-page {
+            padding: 0px 30px;
+            display: grid;
+            grid-template-columns: 1fr; 
+            gap: 30px;
+        }
+
+        .order-summary { 
+            margin-top: 0px;
+            margin-bottom: 40px;
+        }
+
+        .checkout-button {
+            width: 100%; 
+        }
+
+        .order-details {
+            margin: 0px 20px;
+            max-height: 350px; 
+        }
+    }
+
+    /* ipads -- TODO fix this*/
+    @media (min-width: 821px) and (max-width: 1024px) {
+        .main-page {
+            padding: 0px 50px;
+            display: grid;
+            grid-template-columns: 0.6fr 0.4fr; 
+            gap: 30px;
+            min-height: 70vh;
+        }
+
+        .order-summary { 
+            margin-top: 0px;
+            margin-bottom: 40px;
+        }
+
+        .checkout-button {
+            width: 100%; 
+        }
+
+        .order-details {
+            margin: 0px 20px;
+            max-height: 650px; 
+        }
+    }
+
 </style>

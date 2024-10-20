@@ -109,10 +109,10 @@
 	</form>
 
 	<div class="member-info">
-		<h5>CSAI DONATIONS</h5>
+		<h5>ORDER PICKUP INFO</h5>
 		<p>
 			Thank you for supporting CS+AI! To receive your order, talk to Leo Horwitz or Thomas Spieler at our next meeting to pay with cash or Venmo! We look forward to seeing you!
-<br>( If you don't know our faces, feel free to check out our photos on the "Team" page)
+			(If you don't know our faces, feel free to check out our photos on the "Team" page)
 		</p>
 	</div>
 </div>
@@ -155,13 +155,17 @@
 		max-width: 500px;
 		width: 100%;
 		margin-top: 30px;
-		border-color: rgb(90, 26, 153);
+		/* border-color: rgb(90, 26, 153); */
 		border-style: groove;
 		padding: 20px;
-		background-color: rgb(223, 193, 252);
+		background-color: rgb(195, 229, 242);
+		border: 2px solid rgba(6, 61, 119, 0.8); 
+        border-radius: 10px; 
+        /* background-color: rgba(255, 255, 255, 0.9);  */
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
 	}
 
 	.member-info h5 {
-		color: rgb(89, 25, 162);
+		color: rgb(25, 121, 162);
 	}
 </style>
