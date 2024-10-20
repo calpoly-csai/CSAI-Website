@@ -77,4 +77,19 @@
 		background-color: rgb(203, 211, 211, 0.3);
 		border-radius: 50%;
 	} 
+
+    /* tablets */
+    @media (max-width: 1024px) {
+        .cart{
+            margin-right: 30px;
+        }
+    }
+
+    /* phones */
+    @media (max-width: 896px) {
+        .cart{
+            margin-right: 12px;
+        }
+    }
+
 </style>

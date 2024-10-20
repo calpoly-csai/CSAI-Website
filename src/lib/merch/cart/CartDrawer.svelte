@@ -154,17 +154,24 @@
 		display: block;
 	}
 
-    /* phones -- WIP */
-    @media (max-width: 768px) {
-        .drawer{
-			max-width: 300px;
-		}
-		.bottom{
-			max-width: 300px;
+	/* phones */
+	@media (max-width: 520px) {
+		.drawer {
+			width: 80%; 
 		}
 		.checkout-button{
-			max-width: 270px;
-		}	
-    }
+			width: 80%;
+			margin-left: 20px;
+		}
+
+		.cart-items {
+			width: 290px; 
+			max-width: 100%; 
+			padding: 10px;
+			margin: 0 auto; 
+			box-sizing: border-box;
+		}
+		
+	}
 
 </style>
