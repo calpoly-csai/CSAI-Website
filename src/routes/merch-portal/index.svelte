@@ -7,15 +7,15 @@
     import CartDrawer from '$lib/merch/cart/CartDrawer.svelte';
     import { ShoppingCartIcon} from 'svelte-feather-icons';
     import {toggleDrawer} from '$lib/merch/stores/cartDrawerStore';
-	import particlesConfig from '../../modules/particle-config-lightblue';
+	// import particlesConfig from '../../modules/particle-config-lightblue';
 
-	let ParticlesComponent;
-	let scrollP = 0;
-	$: isOnscreen = scrollP < 0.99;
-	onMount(async () => {
-		const module = await import('svelte-particles');
-		ParticlesComponent = module.default;
-	});
+	// let ParticlesComponent;
+	// let scrollP = 0;
+	// $: isOnscreen = scrollP < 0.99;
+	// onMount(async () => {
+	// 	const module = await import('svelte-particles');
+	// 	ParticlesComponent = module.default;
+	// });
 
     let products = [];
 
@@ -48,7 +48,7 @@
 	/>
 </svelte:head>
 
-<div>
+<!-- <div>
     {#if isOnscreen}
 		<svelte:component
 			this={ParticlesComponent}
@@ -56,7 +56,7 @@
 			id="particle-background"
 		/>
 	{/if}
-</div>
+</div> -->
 <div class="top">
     <div class="cart">
         <button class="cart-button" on:click={toggleDrawer}>

@@ -32,16 +32,16 @@
 	import { ArrowLeftIcon } from 'svelte-feather-icons';
 	import CartDrawer from '$lib/merch/cart/CartDrawer.svelte';
 	import { onMount } from 'svelte';
-	import particlesConfig from '../../../modules/particle-config-lightblue';
+	// import particlesConfig from '../../../modules/particle-config-lightblue';
 	
-	// cool particle bg!
-	let ParticlesComponent;
-	let scrollP = 0;
-	$: isOnscreen = scrollP < 0.99;
-	onMount(async () => {
-		const module = await import('svelte-particles');
-		ParticlesComponent = module.default;
-	});
+	// // cool particle bg!
+	// let ParticlesComponent;
+	// let scrollP = 0;
+	// $: isOnscreen = scrollP < 0.99;
+	// onMount(async () => {
+	// 	const module = await import('svelte-particles');
+	// 	ParticlesComponent = module.default;
+	// });
 
 	export let product;
 
@@ -76,7 +76,7 @@
 <!-- TODO: readjust the size of ONE-SIZE button - low priority -->
 <!-- TODO: create carousel for images : low/mid-->
 
-<div>
+<!-- <div>
     {#if isOnscreen}
 		<svelte:component
 			this={ParticlesComponent}
@@ -84,7 +84,7 @@
 			id="particle-background"
 		/>
 	{/if}
-</div>
+</div> -->
 <div class="product-header">
 	<button class="back-button" on:click={handleBack}>
 		<ArrowLeftIcon />
