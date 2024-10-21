@@ -1,12 +1,12 @@
 <!-- final checkout form before submitting order-->
 <script>
-	import { cartItems, clearCart} from '$lib/merch/stores/cartStore';
+	import { cartItems, clearCart } from '$lib/merch/stores/cartStore';
 	import CartItems from '$lib/merch/cart/CartItems.svelte';
 	import OrderForm from '$lib/merch/cart/OrderForm.svelte';
 	import { goto } from '$app/navigation';
 
 	// firebase
-	import { collection, addDoc} from 'firebase/firestore';
+	import { collection, addDoc } from 'firebase/firestore';
 	import { db } from '$lib/utils/firebase';
 
 	let userData = {};
@@ -14,63 +14,69 @@
 	let subtotal = 0;
 	let isLoading = false;
 	let orderForm; // ref to OrderForm component
-	
+
 	// subscribe to get current items in cart
-	$: cartItems.subscribe(value =>{
+	$: cartItems.subscribe((value) => {
 		cartData = value;
-		subtotal = cartData.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+		subtotal = cartData.reduce((acc, item) => acc + item.price * item.quantity, 0);
 	});
 
-	function goToSuccessfulCheckout(){
+	function goToSuccessfulCheckout() {
 		goto('/merch-portal/form/success');
 		clearCart();
 	}
 
-	function gotToFailedCheckout(){
+	function gotToFailedCheckout() {
 		goto('/merch-portal/form/failure');
 	}
 
 	// function that executes when user clicks submit
 	async function submitOrder() {
-
 		userData = orderForm.getUserData();
 		if (!userData || cartData.length === 0) {
-			console.error("User data is incomplete!");
+			console.error('User data is incomplete!');
 			return; // set error state to notify user (later)
 		}
 
 		isLoading = true;
-		
+
 		const productsForFirestore = cartData.map((item) => ({
-			productName : item.name,
-			productRef : `/merchandise/${item.id}`,
+			productName: item.name,
+			productRef: `/merchandise/${item.id}`,
 			price: item.price,
-			quantity: item.quantity, 
+			quantity: item.quantity,
 			size: item.size,
 			total: item.price * item.quantity
 		}));
-	
+
 		//order object
 		const order = {
-			...userData, 
-			orderDate : new Date(),
+			...userData,
+			orderDate: new Date(),
 			products: productsForFirestore,
 			totalAmount: subtotal
-		}
-		try{
+		};
+		try {
 			const docRef = await addDoc(collection(db, 'orders'), order);
 			goToSuccessfulCheckout();
-			console.log("order written w/ ID: ", docRef.id)
+			console.log('order written w/ ID: ', docRef.id);
 			// direct to sucessfully submitted order
-		}catch(error){
+		} catch (error) {
 			gotToFailedCheckout();
-			console.error("error adding order: ", error)
+			console.error('error adding order: ', error);
 			// direct to error page
-		}finally{
+		} finally {
 			isLoading = false;
 		}
 	}
 </script>
+
+<svelte:head>
+	<title>CSAI Order Form</title>
+	<meta name="theme-color" content="#2992e5" />
+	<meta name="description" content="CSAI merch order successful." />
+</svelte:head>
+
 <div class="container">
 	<OrderForm bind:this={orderForm} />
 	<div class="cart-items">
@@ -89,14 +95,14 @@
 				<p class="price">${subtotal.toFixed(2)}</p>
 				<button on:click={submitOrder} class="checkout-btn" disabled={isLoading}>
 					{#if isLoading}
-						<span class="loader"></span> 
+						<span class="loader" />
 					{:else}
 						Submit
 					{/if}
 				</button>
 			</div>
 		</div>
-		<p> 
+		<p />
 	</div>
 </div>
 
@@ -116,7 +122,7 @@
 	}
 	/* cart items + summary*/
 	.items {
-		padding: 25px; 
+		padding: 25px;
 		max-width: 500px;
 		width: 100%;
 		border-style: dashed;
@@ -138,8 +144,7 @@
 		background-color: rgba(6, 23, 41, 0.8);
 	}
 
-
-/* payment details - subtotal, discount, etc */
+	/* payment details - subtotal, discount, etc */
 	.payments .details {
 		max-width: 500px;
 		display: grid;
@@ -162,8 +167,7 @@
 		color: #203c89;
 	}
 
-
-/* totalPrice + checkout/submit section */
+	/* totalPrice + checkout/submit section */
 	.checkout {
 		max-width: 500px;
 		width: 100%;
@@ -200,25 +204,29 @@
 		background-color: #1044a5;
 	}
 
-/* loading spinner */
+	/* loading spinner */
 	.loader {
-        border: 4px solid rgba(255, 255, 255, 0.3);
-        border-top: 4px solid white;
-        border-radius: 50%;
-        width: 20px; 
-        height: 20px;
-        animation: spin 1s linear infinite;
-        display: inline-block; 
-        margin-right: 5px; 
-    }
+		border: 4px solid rgba(255, 255, 255, 0.3);
+		border-top: 4px solid white;
+		border-radius: 50%;
+		width: 20px;
+		height: 20px;
+		animation: spin 1s linear infinite;
+		display: inline-block;
+		margin-right: 5px;
+	}
 
-    @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-    }
+	@keyframes spin {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(360deg);
+		}
+	}
 
-	@media (min-width: 769px) and (max-width: 1200px){
-		.container{
+	@media (min-width: 769px) and (max-width: 1200px) {
+		.container {
 			display: flex;
 			flex-direction: column;
 			align-items: center;
@@ -227,16 +235,14 @@
 			margin: 180px 20px;
 		}
 	}
-	@media (max-width: 768px){
-		.container{
+	@media (max-width: 768px) {
+		.container {
 			display: flex;
 			flex-direction: column;
 			align-items: center;
 			padding: 0px 20px;
 			min-height: 90vh;
 			margin: 180px 20px;
-		}	
-
+		}
 	}
-
 </style>
