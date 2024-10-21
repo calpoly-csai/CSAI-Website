@@ -47,7 +47,18 @@
 	export let product;
 
 	let selectedSize = null;
+	let buttonGlows = false;
 	let currentImageIndex = 0;
+
+	const triggerGlow = () =>{
+		if(selectedSize){
+			buttonGlows = true;
+		}
+
+		setTimeout(() => {
+			buttonGlows = false;
+		}, 2500);
+	}
 
 	const handleAddToCart = () => {
 		if (selectedSize) {
@@ -64,6 +75,7 @@
 			addToCart(productToAdd);
 			console.log(`Added ${productToAdd.name} to cart`);
 			selectedSize = null; // reset after added
+			buttonGlows = false;
 		} else {
 			alert('Please select a size');
 		}
@@ -84,6 +96,8 @@
 	const selectImage = (index) => {
 		currentImageIndex = index;
 	};
+
+
 </script>
 
 <!-- <div>
@@ -125,14 +139,17 @@
 			{#each product.sizes as size}
 				<button
 					class="larger-size-button"
-					on:click={() => (selectedSize = size)}
+					on:click={() => {
+						selectedSize = size;
+						triggerGlow();
+					  }}
 					class:selected={selectedSize === size}>{size}</button
 				>
 			{/each}
 		</div>
 		<div class="price-add-to-cart">
 			<span class="total-price">Price: ${product.price}</span>
-			<button
+			<button class={buttonGlows ? 'glow' : ''} disabled={!selectedSize}
 				on:click={() => {
 					handleAddToCart();
 					toggleDrawer();
@@ -349,8 +366,22 @@
 		cursor: pointer;
 	}
 
-	.price-add-to-cart button:hover {
-		background-color: #8cce74;
+	.price-add-to-cart button.glow{
+		opacity: 1;
+		animation: glow 1.5s infinite alternate;
+	}
+
+	// .price-add-to-cart button:hover {
+	// 	background-color: #8cce74;
+	// }
+
+	@keyframes glow {
+		from {
+			box-shadow: 0 0 10px #8fbb8f, 0 0 20px #8fbb8f, 0 0 30px #8fbb8f;
+		}
+		to {
+			box-shadow: 0 0 20px #79b076, 0 0 40px #5b845b, 0 0 60px #617f61;
+		}
 	}
 
 	@media (max-width: 767px) {
