@@ -1,5 +1,5 @@
 <script>
-	import DotGrid from '$lib/DotGrid.svelte';
+	import DotGrid from '$lib/components/DotGrid.svelte';
 	import Card from './Card.svelte';
 	import { CloudIcon, MapIcon, MessageCircleIcon } from 'svelte-feather-icons';
 

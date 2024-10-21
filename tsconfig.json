@@ -25,7 +25,9 @@
 		"paths": {
 			"$lib": ["src/lib"],
 			"$lib/*": ["src/lib/*"]
-		}
+		},
+		"typeRoots": ["./node_modules/@types"],
+		"types": ["svelte"]
 	},
 	"include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.svelte"],
 	"extends": "./.svelte-kit/tsconfig.json"

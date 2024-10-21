@@ -1,5 +1,5 @@
 <script lang="ts">
-	import DotGrid from '$lib/DotGrid.svelte';
+	import DotGrid from '$lib/components/DotGrid.svelte';
 	import { onMount } from 'svelte';
 	import OfficerCard from './_components/OfficerCard.svelte';
 
@@ -24,7 +24,7 @@
     	{ name: 'Logan Barker', title: 'Meeting Facilitator Lead', image: 'LoganBarker.jpeg'},
    		{ name: 'Matthew Huang', title: 'Project Lead', image: 'MatthewHuang.jpg'},
     	{ name: 'Min Hset Hlaing', title: 'Project Lead', image: 'Min Hset Hlaing.JPG'},
-		{ name: 'Sharon Liang', title: 'Webmaster', image: 'Sharon Liang.png' },
+		{ name: 'Sharon Liang', title: 'Webmaster', image: 'SharonLiang.jpg' },
 		{ name: 'Isha Varrier', title: 'Outreach Officer', image: 'IshaVarrier.png'},
     	{ name: 'Dakshesh Pasala', title: 'Social Media Lead', image: 'DaksheshPasala.png'},
     	{ name: 'Harini Baskar', title: 'Social Media Lead', image: 'HariniBaskar.png'},
