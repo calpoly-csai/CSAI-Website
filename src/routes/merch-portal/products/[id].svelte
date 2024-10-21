@@ -1,3 +1,4 @@
+<!--individual product page: size, prod description, price, etc-->
 <script context="module">
 	import { db } from '../../../../src/lib/utils/firebase.js';
 	import { doc, getDoc } from 'firebase/firestore';
@@ -33,7 +34,7 @@
 	import CartDrawer from '$lib/merch/cart/CartDrawer.svelte';
 	import { onMount } from 'svelte';
 	// import particlesConfig from '../../../modules/particle-config-lightblue';
-	
+
 	// // cool particle bg!
 	// let ParticlesComponent;
 	// let scrollP = 0;
@@ -46,6 +47,7 @@
 	export let product;
 
 	let selectedSize = null;
+	let currentImageIndex = 0;
 
 	const handleAddToCart = () => {
 		if (selectedSize) {
@@ -70,11 +72,19 @@
 	const handleBack = () => {
 		window.history.back();
 	};
-</script>
 
-<!--individual product page: size, prod description, price, etc-->
-<!-- TODO: readjust the size of ONE-SIZE button - low priority -->
-<!-- TODO: create carousel for images : low/mid-->
+	const nextImage = () => {
+		currentImageIndex = (currentImageIndex + 1) % product.imgURLS.length;
+	};
+
+	const prevImage = () => {
+		currentImageIndex = (currentImageIndex - 1 + product.imgURLS.length) % product.imgURLS.length;
+	};
+
+	const selectImage = (index) => {
+		currentImageIndex = index;
+	};
+</script>
 
 <!-- <div>
     {#if isOnscreen}
@@ -93,8 +103,20 @@
 <CartDrawer />
 <div class="product-display">
 	<div class="product-image">
-		<img src={product.imgURLS[0]} alt={product.productName} class="main-image" />
-		<img src={product.imgURLS[1]} alt="{product.productName} Zoomed" class="zoomed-image" />
+		<img src={product.imgURLS[currentImageIndex]} alt={product.productName} class="main-image" />
+		<div class="image-navigation">
+			<button on:click={prevImage}>❮</button>
+			<div class="dots">
+				{#each product.imgURLS as _, index}
+					<span
+						class="dot"
+						class:selected={currentImageIndex === index}
+						on:click={() => selectImage(index)}
+					/>
+				{/each}
+			</div>
+			<button on:click={nextImage}>❯</button>
+		</div>
 	</div>
 	<div class="product-details">
 		<h1>{product.productName}</h1>
@@ -219,7 +241,8 @@
 	// outline size when selected
 	.sizes button:focus {
 		outline: none;
-		border: 2px solid #666;
+		border: 2px solid rgb(81, 81, 81);
+		background-color: rgb(169, 168, 168);
 	}
 
 	.product-image {
@@ -235,31 +258,59 @@
 		display: block;
 	}
 
-	.product-image .zoomed-image {
-		position: absolute;
-		top: 20px;
-		left: 50px;
-		opacity: 0;
-		transition: opacity 0.3s ease;
+	.image-navigation {
+		display: flex;
+		justify-content: center;
+		margin-top: 10px;
 	}
 
-	.product-image:hover .zoomed-image {
-		opacity: 1;
-	}
-
-	.product-image .main-image {
-		transition: opacity 0.3s ease;
-	}
-
-	.product-image:hover .main-image {
-		opacity: 0;
-	}
-
-	.carousel-button {
-		background-color: #ccc;
+	.image-navigation button {
+		width: 10px;
+		padding: 5px 4px 2px 1px;
+		font-size: 20px;
+		background-color: transparent;
+		color: rgb(156, 199, 219);
 		border: none;
-		padding: 10px;
 		cursor: pointer;
+		margin: 0px 20px;
+	}
+
+	.prev-button,
+	.next-button {
+		width: 10px;
+		height: 10px;
+		background-color: rgba(255, 255, 255, 0.7);
+		border: none;
+		cursor: pointer;
+		margin: 0 4px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 0;
+	}
+
+	.dots {
+		text-align: center;
+		margin-top: 10px;
+	}
+
+	.dot {
+		height: 10px;
+		width: 10px;
+		margin: 0 4px;
+		background-color: #bbb;
+		border-radius: 50%;
+		display: inline-block;
+		cursor: pointer;
+	}
+
+	.dot.selected {
+		background-color: #717171;
+	}
+	.product-image img {
+		width: 100%;
+		height: auto;
+		display: block;
 	}
 
 	.price-add-to-cart {
@@ -297,7 +348,6 @@
 	}
 
 	@media (max-width: 767px) {
-
 		.product-display {
 			display: flex;
 			flex-direction: column;
@@ -306,7 +356,7 @@
 			padding: 0px 50px;
 			min-height: 90vh;
 		}
-		
+
 		.product-header {
 			padding: 0 10px;
 		}
@@ -316,20 +366,20 @@
 			flex-direction: column;
 			justify-content: center;
 			margin-top: 10px;
+			padding: 0px 20px;
 		}
 
 		.product-image {
 			margin-top: 20px;
-			width: 90%;  
+			width: 90%;
 			height: auto;
-
 		}
 
 		.product-image .zoomed-image {
 			position: absolute;
-			top: 50%; 
-			left: 50%; 
-			width: 90%; 
+			top: 50%;
+			left: 50%;
+			width: 90%;
 			height: auto;
 			opacity: 0;
 			transition: opacity 0.3s ease;
@@ -355,12 +405,6 @@
 			font-size: 14px;
 		}
 
-		.larger-size-button {
-			width: 70px;
-			height: 70px;
-			font-size: 16px;
-		}
-
 		.total-price {
 			margin-left: 16px;
 			margin-right: 32px;
@@ -373,7 +417,6 @@
 			margin: 36px 0px;
 			background-color: #dfdfef;
 			border-radius: 24px;
-			
 		}
 
 		.total-price {
@@ -394,49 +437,44 @@
 			font-size: 12px;
 			cursor: pointer;
 		}
-
 	}
 
 	// ipad
 	@media (min-width: 768px) and (max-width: 1024px) {
 		.product-display {
 			display: flex;
-			flex-direction: column; 
-			align-items: center; 
-			gap: 20px; 
-			padding: 0 50px; 
+			flex-direction: column;
+			align-items: center;
+			gap: 20px;
+			padding: 0 50px;
 			min-height: 85vh;
 		}
-		
+
 		.product-header {
-			padding: 0 20px; 
+			padding: 0 20px;
 		}
 
 		.product-details {
 			display: flex;
 			flex-direction: column;
-			justify-content: center; 
+			justify-content: center;
 			margin-top: 10px;
+			padding: 0px 90px;
 			// width: 100%;
 		}
 
 		.product-image {
 			margin-top: 20px;
-			width: 70%; 
-			height: auto;
-		}
-
-		.product-image .zoomed-image {
-			width: 100%; 
+			width: 60%;
 			height: auto;
 		}
 
 		.product-details h1 {
-			font-size: 63px;
+			font-size: 44px;
 		}
 
 		.product-details p {
-			font-size: 24px; 
+			font-size: 18px;
 		}
 
 		.sizes {
@@ -446,41 +484,35 @@
 		}
 
 		.sizes button {
-			width: 70px; 
-			height: 70px; 
-			font-size: 24px;
+			width: 60px;
+			height: 60px;
+			font-size: 20px;
 		}
 
-		// .larger-size-button {
-		// 	width: 80px;
-		// 	height: 80px;
-		// 	font-size: 18px;
-		// }
-
 		.total-price {
-			margin-left: 24px; 
+			margin-left: 24px;
 			margin-right: 36px;
-			font-size: 20px; 
+			font-size: 20px;
 		}
 
 		.price-add-to-cart {
 			width: 100%;
-			max-width: 600px; 
-			margin: 40px 0px;
+			max-width: 500px;
+			margin: 30px 0px;
 			background-color: #dfdfef;
 			border-radius: 24px;
 			display: flex;
 			justify-content: space-between;
-			padding: 20px
+			padding: 10px;
 		}
 
-		.price-add-to-cart .total-price{
-			font-size: 32px;
+		.price-add-to-cart .total-price {
+			font-size: 25px;
 		}
 
-		.price-add-to-cart button{
+		.price-add-to-cart button {
 			margin: 16px;
-			padding: 24px 40px;
+			padding: 20px 30px;
 			background-color: #c0e1b4;
 			border: none;
 			border-radius: 15px;
@@ -488,5 +520,4 @@
 			cursor: pointer;
 		}
 	}
-
 </style>
