@@ -238,12 +238,18 @@
 		background-color: #bbb;
 	}
 
-	// outline size when selected
-	.sizes button:focus {
+	.sizes button.selected {
 		outline: none;
-		border: 2px solid rgb(81, 81, 81);
-		background-color: rgb(169, 168, 168);
+		border: 2px solid rgb(47, 113, 156);
+		background-color: rgb(96, 156, 206);
 	}
+
+	// outline size when selected
+	// .sizes button:focus {
+	// 	outline: none;
+	// 	border: 2px solid rgb(81, 81, 81);
+	// 	background-color: rgb(169, 168, 168);
+	// }
 
 	.product-image {
 		position: relative;
@@ -405,7 +411,13 @@
 			font-size: 14px;
 		}
 
-		.sizes button:focus {
+		// .sizes button:focus {
+		// 	outline: none;
+		// 	border: 2px solid rgb(47, 113, 156);
+		// 	background-color: rgb(96, 156, 206);
+		// }
+
+		.sizes button.selected {
 			outline: none;
 			border: 2px solid rgb(47, 113, 156);
 			background-color: rgb(96, 156, 206);
@@ -495,7 +507,14 @@
 			font-size: 20px;
 		}
 
-		.sizes button:focus {
+		// .sizes button:focus {
+		// 	outline: none;
+		// 	border: 2px solid rgb(47, 113, 156);
+		// 	background-color: rgb(96, 156, 206);
+		// }
+
+		// testing for mobile
+		.sizes button.selected {
 			outline: none;
 			border: 2px solid rgb(47, 113, 156);
 			background-color: rgb(96, 156, 206);
