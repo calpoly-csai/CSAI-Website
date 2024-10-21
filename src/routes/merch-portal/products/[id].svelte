@@ -405,6 +405,12 @@
 			font-size: 14px;
 		}
 
+		.sizes button:focus {
+			outline: none;
+			border: 2px solid rgb(47, 113, 156);
+			background-color: rgb(96, 156, 206);
+		}
+
 		.total-price {
 			margin-left: 16px;
 			margin-right: 32px;
@@ -487,6 +493,12 @@
 			width: 60px;
 			height: 60px;
 			font-size: 20px;
+		}
+
+		.sizes button:focus {
+			outline: none;
+			border: 2px solid rgb(47, 113, 156);
+			background-color: rgb(96, 156, 206);
 		}
 
 		.total-price {
