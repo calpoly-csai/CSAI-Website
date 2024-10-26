@@ -32,17 +32,6 @@
 	import { toggleDrawer } from '$lib/merch/stores/cartDrawerStore';
 	import { ArrowLeftIcon } from 'svelte-feather-icons';
 	import CartDrawer from '$lib/merch/cart/CartDrawer.svelte';
-	import { onMount } from 'svelte';
-	// import particlesConfig from '../../../modules/particle-config-lightblue';
-
-	// // cool particle bg!
-	// let ParticlesComponent;
-	// let scrollP = 0;
-	// $: isOnscreen = scrollP < 0.99;
-	// onMount(async () => {
-	// 	const module = await import('svelte-particles');
-	// 	ParticlesComponent = module.default;
-	// });
 
 	export let product;
 
@@ -50,15 +39,15 @@
 	let buttonGlows = false;
 	let currentImageIndex = 0;
 
-	const triggerGlow = () =>{
-		if(selectedSize){
+	const triggerGlow = () => {
+		if (selectedSize) {
 			buttonGlows = true;
 		}
 
-		setTimeout(() => {
-			buttonGlows = false;
-		}, 2500);
-	}
+		// setTimeout(() => {
+		// 	buttonGlows = false;
+		// }, 2500);
+	};
 
 	const handleAddToCart = () => {
 		if (selectedSize) {
@@ -96,19 +85,8 @@
 	const selectImage = (index) => {
 		currentImageIndex = index;
 	};
-
-
 </script>
 
-<!-- <div>
-    {#if isOnscreen}
-		<svelte:component
-			this={ParticlesComponent}
-			options={particlesConfig}
-			id="particle-background"
-		/>
-	{/if}
-</div> -->
 <div class="product-header">
 	<button class="back-button" on:click={handleBack}>
 		<ArrowLeftIcon />
@@ -142,14 +120,16 @@
 					on:click={() => {
 						selectedSize = size;
 						triggerGlow();
-					  }}
+					}}
 					class:selected={selectedSize === size}>{size}</button
 				>
 			{/each}
 		</div>
 		<div class="price-add-to-cart">
 			<span class="total-price">Price: ${product.price}</span>
-			<button class={buttonGlows ? 'glow' : ''} disabled={!selectedSize}
+			<button
+				class={buttonGlows ? 'glow' : ''}
+				disabled={!selectedSize}
 				on:click={() => {
 					handleAddToCart();
 					toggleDrawer();
@@ -261,13 +241,6 @@
 		background-color: rgb(96, 156, 206);
 	}
 
-	// outline size when selected
-	// .sizes button:focus {
-	// 	outline: none;
-	// 	border: 2px solid rgb(81, 81, 81);
-	// 	background-color: rgb(169, 168, 168);
-	// }
-
 	.product-image {
 		position: relative;
 		width: 100%;
@@ -359,31 +332,30 @@
 		margin: 16px;
 		margin-left: 0;
 		padding: 12px 24px;
-		background-color: #c0e1b4;
+		background-color: #a8ada8;
 		border: none;
 		border-radius: 15px;
 		font-size: 16px;
 		cursor: pointer;
 	}
 
-	.price-add-to-cart button.glow{
-		opacity: 1;
-		animation: glow 1.5s infinite alternate;
+	.price-add-to-cart button.glow {
+		background-color:  rgb(23, 143, 208);
+		animation: zoomIn 0.9s ease;
 	}
-
-	// .price-add-to-cart button:hover {
-	// 	background-color: #8cce74;
-	// }
-
-	@keyframes glow {
-		from {
-			box-shadow: 0 0 10px #8fbb8f, 0 0 20px #8fbb8f, 0 0 30px #8fbb8f;
+	@keyframes zoomIn {
+		0% {
+			transform: scale(1);
 		}
-		to {
-			box-shadow: 0 0 20px #79b076, 0 0 40px #5b845b, 0 0 60px #617f61;
+		50% {
+			transform: scale(1.2);
+		}
+		100% {
+			transform: scale(1);
 		}
 	}
 
+	//phone
 	@media (max-width: 767px) {
 		.product-display {
 			display: flex;
@@ -442,12 +414,6 @@
 			font-size: 14px;
 		}
 
-		// .sizes button:focus {
-		// 	outline: none;
-		// 	border: 2px solid rgb(47, 113, 156);
-		// 	background-color: rgb(96, 156, 206);
-		// }
-
 		.sizes button.selected {
 			outline: none;
 			border: 2px solid rgb(47, 113, 156);
@@ -486,6 +452,17 @@
 			font-size: 12px;
 			cursor: pointer;
 		}
+		@keyframes zoomIn {
+		0% {
+			transform: scale(1);
+		}
+		50% {
+			transform: scale(1.1);
+		}
+		100% {
+			transform: scale(1);
+		}
+	}
 	}
 
 	// ipad
@@ -538,13 +515,6 @@
 			font-size: 20px;
 		}
 
-		// .sizes button:focus {
-		// 	outline: none;
-		// 	border: 2px solid rgb(47, 113, 156);
-		// 	background-color: rgb(96, 156, 206);
-		// }
-
-		// testing for mobile
 		.sizes button.selected {
 			outline: none;
 			border: 2px solid rgb(47, 113, 156);
@@ -575,7 +545,6 @@
 		.price-add-to-cart button {
 			margin: 16px;
 			padding: 20px 30px;
-			background-color: #c0e1b4;
 			border: none;
 			border-radius: 15px;
 			font-size: 24px;
