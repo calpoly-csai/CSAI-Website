@@ -15,11 +15,15 @@
 				error: new Error('product not found')
 			};
 		}
+
+		const productData = productDoc.data();
+
 		return {
 			props: {
 				product: {
 					id: productId,
-					...productDoc.data()
+					...productData,
+					hasSizingGuide: Boolean(productData.sizeGuide && productData.sizeGuide.trim() !== '')
 				}
 			}
 		};
@@ -32,23 +36,11 @@
 	import { toggleDrawer } from '$lib/merch/stores/cartDrawerStore';
 	import { ArrowLeftIcon } from 'svelte-feather-icons';
 	import CartDrawer from '$lib/merch/cart/CartDrawer.svelte';
+	// import SizingGuideModal from '$lib/merch/product/SizingGuideModal.svelte';
+	
 
 	export let product;
-
 	let selectedSize = null;
-	let buttonGlows = false;
-	let currentImageIndex = 0;
-
-	const triggerGlow = () => {
-		if (selectedSize) {
-			buttonGlows = true;
-		}
-
-		// setTimeout(() => {
-		// 	buttonGlows = false;
-		// }, 2500);
-	};
-
 	const handleAddToCart = () => {
 		if (selectedSize) {
 			console.log(`size selected!${selectedSize}`);
@@ -70,10 +62,28 @@
 		}
 	};
 
+	// sizing guide
+	// let showModal = false;
+	// const toggleModal = () => {
+	// 	showModal = !showModal;
+	// };
+
+	// add to cart button
+	let buttonGlows = false;
+	const triggerGlow = () => {
+		if (selectedSize) {
+			buttonGlows = true;
+		}
+	};
+
+	// navigate to page before
 	const handleBack = () => {
 		window.history.back();
 	};
 
+	//product image carousel
+
+	let currentImageIndex = 0;
 	const nextImage = () => {
 		currentImageIndex = (currentImageIndex + 1) % product.imgURLS.length;
 	};
@@ -85,6 +95,7 @@
 	const selectImage = (index) => {
 		currentImageIndex = index;
 	};
+
 </script>
 
 <div class="product-header">
@@ -125,6 +136,9 @@
 				>
 			{/each}
 		</div>
+		<!-- {#if product.hasSizingGuide}
+			<button class="sizing-guide-link" on:click={toggleModal}>Sizing Guide</button>
+		{/if} -->
 		<div class="price-add-to-cart">
 			<span class="total-price">Price: ${product.price}</span>
 			<button
@@ -137,12 +151,27 @@
 			>
 		</div>
 	</div>
+	<!-- {#if showModal}
+		<SizingGuideModal sizingGuide={product.sizeGuide} onClose={toggleModal}/>
+	{/if} -->
 </div>
 
 <style lang="scss" global>
 	@import '../../../scss/global.scss';
 	@import '../../../scss/utils.scss';
 	@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+	.sizing-guide-link {
+		background: none;
+		color: blue;
+		text-decoration: underline;
+		border: none;
+		cursor: pointer;
+		padding: 0;
+		font-size: inherit;
+	}
+	.sizing-guide-link:focus {
+		outline: none;
+	}
 
 	.product-header {
 		display: flex;
@@ -176,7 +205,7 @@
 		max-width: 1200px;
 		margin: 0 auto;
 		gap: 140px;
-		min-height: 70vh;
+		min-height: 90vh;
 	}
 
 	.product-details {
@@ -240,6 +269,19 @@
 		border: 2px solid rgb(47, 113, 156);
 		background-color: rgb(96, 156, 206);
 	}
+
+	.sizing-guide-link{
+		margin-top: 20px;
+		text-decoration: none;
+		color: rgb(51, 138, 209);
+	}
+
+	.sizing-guide-link:hover{
+		margin-top: 20px;
+		text-decoration: underline;
+		color: rgb(96, 156, 206);
+	}
+
 
 	.product-image {
 		position: relative;
@@ -363,7 +405,7 @@
 			align-items: center;
 			gap: 0.5px;
 			padding: 0px 50px;
-			min-height: 90vh;
+			min-height: 100vh;
 		}
 
 		.product-header {
@@ -446,7 +488,7 @@
 			margin: 10px;
 			margin-left: 10px;
 			padding: 12px 24px;
-			background-color: #c0e1b4;
+			background-color: #a8ada8;
 			border: none;
 			border-radius: 15px;
 			font-size: 12px;
@@ -473,7 +515,7 @@
 			align-items: center;
 			gap: 20px;
 			padding: 0 50px;
-			min-height: 85vh;
+			min-height: 90vh;
 		}
 
 		.product-header {
