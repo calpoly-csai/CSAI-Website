@@ -1,4 +1,5 @@
 <!--individual product page: size, prod description, price, etc-->
+<!-- need to fix modal scroll and centering it on page -->
 <script context="module">
 	import { db } from '../../../../src/lib/utils/firebase.js';
 	import { doc, getDoc } from 'firebase/firestore';
@@ -23,7 +24,7 @@
 				product: {
 					id: productId,
 					...productData,
-					hasSizingGuide: Boolean(productData.sizeGuide && productData.sizeGuide.trim() !== '')
+					hasSizingGuide: Boolean(productData.sizeGuide && productData.sizeGuide.length >= 2)
 				}
 			}
 		};
@@ -34,13 +35,15 @@
 	// @ts-ignore
 	import { addToCart } from '$lib/merch/stores/cartStore';
 	import { toggleDrawer } from '$lib/merch/stores/cartDrawerStore';
-	import { ArrowLeftIcon } from 'svelte-feather-icons';
+	import { ArrowLeftIcon, LogInIcon } from 'svelte-feather-icons';
 	import CartDrawer from '$lib/merch/cart/CartDrawer.svelte';
-	// import SizingGuideModal from '$lib/merch/product/SizingGuideModal.svelte';
-	
+	import SizingGuideModal from '$lib/merch/product/SizingGuideModal.svelte';
 
 	export let product;
+
+	let modal;
 	let selectedSize = null;
+
 	const handleAddToCart = () => {
 		if (selectedSize) {
 			console.log(`size selected!${selectedSize}`);
@@ -52,7 +55,6 @@
 				size: selectedSize,
 				quantity: 1
 			};
-
 			addToCart(productToAdd);
 			console.log(`Added ${productToAdd.name} to cart`);
 			selectedSize = null; // reset after added
@@ -61,12 +63,6 @@
 			alert('Please select a size');
 		}
 	};
-
-	// sizing guide
-	// let showModal = false;
-	// const toggleModal = () => {
-	// 	showModal = !showModal;
-	// };
 
 	// add to cart button
 	let buttonGlows = false;
@@ -95,7 +91,7 @@
 	const selectImage = (index) => {
 		currentImageIndex = index;
 	};
-
+	let selectedTab = 0; // Index 0 for inches, 1 for cm
 </script>
 
 <div class="product-header">
@@ -136,9 +132,19 @@
 				>
 			{/each}
 		</div>
-		<!-- {#if product.hasSizingGuide}
-			<button class="sizing-guide-link" on:click={toggleModal}>Sizing Guide</button>
-		{/if} -->
+		{#if product.hasSizingGuide}
+			<button class="modal-button" on:click={() => modal.show()}> SIZING GUIDE</button>
+				<SizingGuideModal bind:this={modal}>
+					{#if product.sizeGuide.length  == 3}
+						<img src={product.sizeGuide[2]} alt={product.productName} class="modal-image" />
+					{/if}
+					<span class="tabs">
+						<button on:click={() => (selectedTab = 0)} class={selectedTab === 0 ? 'active' : 'inactive'}>INCHES</button>
+						<button on:click={() => (selectedTab = 1)} class={selectedTab === 1 ? 'active' : 'inactive'}>CM</button>
+					</span>
+					<img src={product.sizeGuide[selectedTab]} alt={product.productName} class="modal-image" />
+				</SizingGuideModal>
+		{/if}
 		<div class="price-add-to-cart">
 			<span class="total-price">Price: ${product.price}</span>
 			<button
@@ -151,26 +157,59 @@
 			>
 		</div>
 	</div>
-	<!-- {#if showModal}
-		<SizingGuideModal sizingGuide={product.sizeGuide} onClose={toggleModal}/>
-	{/if} -->
 </div>
 
 <style lang="scss" global>
 	@import '../../../scss/global.scss';
 	@import '../../../scss/utils.scss';
 	@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-	.sizing-guide-link {
-		background: none;
-		color: blue;
-		text-decoration: underline;
-		border: none;
-		cursor: pointer;
-		padding: 0;
-		font-size: inherit;
+	.tabs {
+		display: flex;
+		justify-content: left;
+		margin-bottom: 20px;
 	}
-	.sizing-guide-link:focus {
-		outline: none;
+
+	.tabs button {
+		padding: 10px;
+		margin: 0 10px;
+		cursor: pointer;
+		background-color: transparent;
+		border: none;
+	}
+
+	.tabs button.active {
+		font-weight: bold;
+		color: rgb(0, 0, 0);
+		text-decoration: underline;  
+		color: rgb(0, 0, 0);     
+	}
+	button.inactive {
+		color: gray;                
+		text-decoration: none;      
+	}
+	
+	.modal-image {
+		width: 100%;
+		max-width: 700px;
+		display: block;
+		margin: 0 auto;
+	}
+
+	.modal-button {
+		background-color: transparent;
+		color: black;
+		text-align: left;
+		padding-left: 0;
+		padding-top: 20px;
+		text-decoration: underline;
+	}
+
+	.modal-button:hover {
+		background-color: transparent;
+		color: rgb(57, 114, 167);
+		text-align: left;
+		padding-left: 0;
+		padding-top: 20px;
 	}
 
 	.product-header {
@@ -270,18 +309,17 @@
 		background-color: rgb(96, 156, 206);
 	}
 
-	.sizing-guide-link{
+	.sizing-guide-link {
 		margin-top: 20px;
 		text-decoration: none;
 		color: rgb(51, 138, 209);
 	}
 
-	.sizing-guide-link:hover{
+	.sizing-guide-link:hover {
 		margin-top: 20px;
 		text-decoration: underline;
 		color: rgb(96, 156, 206);
 	}
-
 
 	.product-image {
 		position: relative;
@@ -382,7 +420,7 @@
 	}
 
 	.price-add-to-cart button.glow {
-		background-color:  rgb(23, 143, 208);
+		background-color: rgb(23, 143, 208);
 		animation: zoomIn 0.9s ease;
 	}
 	@keyframes zoomIn {
@@ -397,6 +435,7 @@
 		}
 	}
 
+	// MEDIA QUERIES -----------------------------------------------
 	//phone
 	@media (max-width: 767px) {
 		.product-display {
@@ -495,16 +534,16 @@
 			cursor: pointer;
 		}
 		@keyframes zoomIn {
-		0% {
-			transform: scale(1);
+			0% {
+				transform: scale(1);
+			}
+			50% {
+				transform: scale(1.1);
+			}
+			100% {
+				transform: scale(1);
+			}
 		}
-		50% {
-			transform: scale(1.1);
-		}
-		100% {
-			transform: scale(1);
-		}
-	}
 	}
 
 	// ipad
@@ -515,7 +554,7 @@
 			align-items: center;
 			gap: 20px;
 			padding: 0 50px;
-			min-height: 90vh;
+			min-height: 100vh;
 		}
 
 		.product-header {
