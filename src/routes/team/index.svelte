@@ -10,7 +10,9 @@
 		avatar_url: string; // Profile Picture
 		html_url: string; // URL to personal GitHub page
 	}
-
+	
+	// HINT: add your officer image in jpg format inside the folder `static/images/officers`
+	
 	const officerPath = '/images/officers/';
 	const officers = [
 		{ name: 'Leo Horwitz', title: 'President', image: 'Leo Horwitz.jpg' },
