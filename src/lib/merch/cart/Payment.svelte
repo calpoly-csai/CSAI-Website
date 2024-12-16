@@ -7,7 +7,6 @@
 
 <!-- payment section + submit button for final checkout page -->
 
-
 <div class="payments">
 	<span>PAYMENT</span>
 	<div class="details">

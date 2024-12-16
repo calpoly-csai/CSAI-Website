@@ -57,7 +57,7 @@
 		overflow-y: auto;
 		padding: 2rem;
 		margin: 15% auto;
-		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 	}
 	.close {
 		float: right;

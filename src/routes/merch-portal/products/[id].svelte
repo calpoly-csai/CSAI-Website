@@ -95,7 +95,6 @@
 
 <!--individual product page: size, prod description, price, etc-->
 
-
 <div class="product-header">
 	<button class="back-button" on:click={handleBack}>
 		<ArrowLeftIcon />
