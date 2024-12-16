@@ -4,7 +4,7 @@
 	import { fly } from 'svelte/transition';
 	// import {env} from '$env/dynamic/private'
 	export let formType: 'member' | 'partner' | 'speaker';
-	const apikey = import.meta.env.VITE_ML_KEY
+	const apikey = import.meta.env.VITE_ML_KEY;
 	let sendCount = 0;
 	function onSubmit(e: Event) {
 		// Send off form data
@@ -14,10 +14,11 @@
 		fetch('https://connect.mailerlite.com/api/subscribers', {
 			method: 'POST',
 			// mode: 'no-cors',
-			headers: {'Authorization': apikey,
-					'Content-Type': 'application/json' ,
-					'Accept' : 'application/json',
-					},
+			headers: {
+				Authorization: apikey,
+				'Content-Type': 'application/json',
+				Accept: 'application/json'
+			},
 			body
 		}).catch(console.error);
 	}
@@ -114,12 +115,12 @@
 		text-align: left;
 		grid-template-rows: repeat(4, auto);
 		grid-template-columns: 1fr 1fr;
-		grid-template-areas: 
-			'title title' 
-			'name reason' 
-			'email reason' 
-			'lastname reason'  
-			'submit submit' ;
+		grid-template-areas:
+			'title title'
+			'name reason'
+			'email reason'
+			'lastname reason'
+			'submit submit';
 
 		@include viewport(small) {
 			grid-template-rows: repeat(5, auto);
@@ -141,22 +142,20 @@
 
 		&.member {
 			grid-template-rows: repeat(5, auto);
-			grid-template-areas: 
-				'title title' 
+			grid-template-areas:
+				'title title'
 				'name reason'
-				'lastname reason' 
-				'email reason' 
-				'topic reason' 
+				'lastname reason'
+				'email reason'
+				'topic reason'
 				'submit submit';
-				
-				@include viewport(small) {
+
+			@include viewport(small) {
 				grid-template-rows: repeat(6, auto);
 				grid-template-columns: 1fr;
 				grid-template-areas: 'title ' 'name' 'lastname' 'email' 'topic' 'reason' 'submit';
 			}
 		}
-
-
 	}
 
 	h3 {

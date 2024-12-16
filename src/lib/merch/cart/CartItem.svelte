@@ -4,7 +4,7 @@
 	export let increaseQuantity;
 	export let decreaseQuantity;
 	export let removeFromCart;
-	export let readOnly = false;  //used for form page where increase/decrease quantity is disabled
+	export let readOnly = false; //used for form page where increase/decrease quantity is disabled
 	import { PlusIcon, MinusIcon, TrashIcon } from 'svelte-feather-icons';
 
 	// calculate total price for the specific item
@@ -13,8 +13,8 @@
 
 <div class="product-info">
 	<img src={item.images[0]} alt={item.name} class="size-12 object-cover rounded mr-4" />
-	<div class = "details">
-		<p class='item-name'>{item.name}</p>
+	<div class="details">
+		<p class="item-name">{item.name}</p>
 		<p>${item.price.toFixed(2)}</p>
 		<p>SIZE: {item.size}</p>
 		<!-- quantity controls and delete button -->
@@ -25,13 +25,13 @@
 				</button>
 				<span>{item.quantity}</span>
 				<button on:click={() => increaseQuantity(item.id, item.size)}>
-					<PlusIcon size="15"/>
+					<PlusIcon size="15" />
 				</button>
 				<button class="trash-button" on:click={() => removeFromCart(item.id, item.size)}>
-					<TrashIcon size="15"/>
+					<TrashIcon size="15" />
 				</button>
 			</div>
-		{:else}	
+		{:else}
 			<p>Quantity: {item.quantity}</p>
 		{/if}
 	</div>
@@ -40,14 +40,13 @@
 	</div>
 </div>
 
-
 <style>
-/* product info section */
+	/* product info section */
 	.product-info {
 		display: flex;
 		align-items: flex-start;
 	}
-	.product-info .item-name{
+	.product-info .item-name {
 		font-weight: 500;
 		font-size: 17px;
 	}
@@ -65,7 +64,7 @@
 		font-size: 14px;
 		color: #333;
 	}
-	.product-info .total-price{
+	.product-info .total-price {
 		margin-left: 120px;
 		font-style: normal;
 	}
@@ -73,9 +72,8 @@
 		display: flex;
 		flex-direction: column;
 	}
-	
 
-/* quantity controls + delete button */
+	/* quantity controls + delete button */
 	.quantity-and-delete {
 		display: flex;
 		align-items: center;
@@ -109,13 +107,13 @@
 	/* this needs work */
 	/* phones -- WIP */
 	@media (max-width: 550px) {
-		.product-info{
+		.product-info {
 			max-width: 49px;
 		}
 		.details {
 			width: 100%;
 		}
-		.product-info .item-name{
+		.product-info .item-name {
 			font-weight: 500;
 			font-size: 16px;
 		}
@@ -147,7 +145,7 @@
 			padding: 20px;
 		}
 
-		.product-info .total-price{
+		.product-info .total-price {
 			margin-left: 90px;
 			font-style: normal;
 		}
@@ -155,7 +153,5 @@
 			display: flex;
 			flex-direction: column;
 		}
-
-
 	}
 </style>

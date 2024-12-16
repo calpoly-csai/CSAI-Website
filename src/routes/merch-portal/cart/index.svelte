@@ -1,33 +1,33 @@
 <script>
-    import Checkout from "$lib/merch/cart/Checkout.svelte";
-    import { ArrowLeftIcon } from 'svelte-feather-icons';
+	import Checkout from '$lib/merch/cart/Checkout.svelte';
+	import { ArrowLeftIcon } from 'svelte-feather-icons';
 
-    const handleBack = () => {
+	const handleBack = () => {
 		window.history.back();
 	};
 </script>
 
 <div class="top">
-    <button class="back-button" on:click={handleBack}>
-        <ArrowLeftIcon />
-    </button>
-    <Checkout/>
+	<button class="back-button" on:click={handleBack}>
+		<ArrowLeftIcon />
+	</button>
+	<Checkout />
 </div>
 
 <style>
-    @import '../../../scss/global.scss';
+	@import '../../../scss/global.scss';
 	@import '../../../scss/utils.scss';
 
-    .top{
-        margin-top: 90px;
-    }
+	.top {
+		margin-top: 90px;
+	}
 
-    .back-button {
+	.back-button {
 		background: transparent;
 		border: none;
 		color: black;
 		cursor: pointer;
-        margin-left: 50px;
+		margin-left: 50px;
 	}
 
 	.back-button:hover {
@@ -35,12 +35,11 @@
 		border-radius: 50%;
 	}
 
-    @media (max-width: 1020px) {
+	@media (max-width: 1020px) {
 		.back-button {
-            left: 0;
-            margin-left: 0;
-            margin-bottom: 30px;
-	    }
-    }
-
+			left: 0;
+			margin-left: 0;
+			margin-bottom: 30px;
+		}
+	}
 </style>

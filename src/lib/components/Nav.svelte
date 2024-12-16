@@ -7,7 +7,7 @@
 	const routes = [
 		{ title: 'Home', href: '/' },
 		{ title: 'Team', href: '/team' },
-		{ title: 'Merch', href: '/merch-portal'},
+		{ title: 'Merch', href: '/merch-portal' },
 		{ title: 'Projects', href: '/#projects' },
 		{ title: 'Contact Us', href: '/#get-involved' }
 	];

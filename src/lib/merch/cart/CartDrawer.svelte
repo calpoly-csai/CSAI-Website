@@ -157,21 +157,19 @@
 	/* phones */
 	@media (max-width: 520px) {
 		.drawer {
-			width: 80%; 
+			width: 80%;
 		}
-		.checkout-button{
+		.checkout-button {
 			width: 80%;
 			margin-left: 20px;
 		}
 
 		.cart-items {
-			width: 290px; 
-			max-width: 100%; 
+			width: 290px;
+			max-width: 100%;
 			padding: 10px;
-			margin: 0 auto; 
+			margin: 0 auto;
 			box-sizing: border-box;
 		}
-		
 	}
-
 </style>

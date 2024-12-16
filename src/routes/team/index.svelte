@@ -16,28 +16,27 @@
 		{ name: 'Leo Horwitz', title: 'President', image: 'Leo Horwitz.jpg' },
 		{ name: 'Hannah Moshtaghi', title: 'VP of External Affairs', image: 'HannahMoshtaghi.JPG' },
 		{ name: 'Jason Jelincic', title: 'VP of Internal Affairs', image: 'Jason Jelincic.jpg' },
-		{ name: 'Thomas Spieler', title: 'Administrator', image: 'ThomasSpieler.jpg'},
+		{ name: 'Thomas Spieler', title: 'Administrator', image: 'ThomasSpieler.jpg' },
 		{ name: 'Ameer Arsala', title: 'Research Lead', image: 'AmeerArsala.jpg' },
 		{ name: 'David Hernandez', title: 'Research Lead', image: 'David_Hernandez.png' },
 		{ name: 'Ishan Meher', title: 'Research Lead', image: 'Ishan_Meher.jpg' },
-		{ name: 'Belal Elshenety', title: 'Meeting Facilitator Lead', image: 'Belal Elshenety.jpeg' },	
-    	{ name: 'Logan Barker', title: 'Meeting Facilitator Lead', image: 'LoganBarker.jpeg'},
-   		{ name: 'Matthew Huang', title: 'Project Lead', image: 'MatthewHuang.jpg'},
-    	{ name: 'Min Hset Hlaing', title: 'Project Lead', image: 'Min Hset Hlaing.JPG'},
+		{ name: 'Belal Elshenety', title: 'Meeting Facilitator Lead', image: 'Belal Elshenety.jpeg' },
+		{ name: 'Logan Barker', title: 'Meeting Facilitator Lead', image: 'LoganBarker.jpeg' },
+		{ name: 'Matthew Huang', title: 'Project Lead', image: 'MatthewHuang.jpg' },
+		{ name: 'Min Hset Hlaing', title: 'Project Lead', image: 'Min Hset Hlaing.JPG' },
 		{ name: 'Sharon Liang', title: 'Webmaster', image: 'SharonLiang.jpg' },
-		{ name: 'Isha Varrier', title: 'Outreach Officer', image: 'IshaVarrier.png'},
-    	{ name: 'Dakshesh Pasala', title: 'Social Media Lead', image: 'DaksheshPasala.png'},
-    	{ name: 'Harini Baskar', title: 'Social Media Lead', image: 'HariniBaskar.png'},
-    	{ name: 'Rachana Raju', title: 'Event Coordinator', image: 'RachanaRaju.jpg'}
-    
+		{ name: 'Isha Varrier', title: 'Outreach Officer', image: 'IshaVarrier.png' },
+		{ name: 'Dakshesh Pasala', title: 'Social Media Lead', image: 'DaksheshPasala.png' },
+		{ name: 'Harini Baskar', title: 'Social Media Lead', image: 'HariniBaskar.png' },
+		{ name: 'Rachana Raju', title: 'Event Coordinator', image: 'RachanaRaju.jpg' }
 	];
 
 	const teamMembers = [
 		// { name: 'Misha Bandi', title: 'Meeting Facilitator', image: '' },
 		{ name: 'Parker Jones', title: 'Meeting Facilitator', image: 'ParkerJones.jpg' },
 		{ name: 'Muzart Tuman', title: 'Meeting Facilitator', image: 'Muzart Tuman.jpg' },
-		{ name: 'Weston Patrick', title: 'Meeting Facilitator', image: 'WestonPatrick.jpg'},
-	]
+		{ name: 'Weston Patrick', title: 'Meeting Facilitator', image: 'WestonPatrick.jpg' }
+	];
 
 	let members: MemberData[] = [];
 
@@ -86,9 +85,9 @@
 				<OfficerCard {name} {title} image={officerPath + image} />
 			{/each}
 		</ul>
-		<h3><br> Meeting Facilitators</h3>
+		<h3><br /> Meeting Facilitators</h3>
 		<ul class="officer-list">
-			{#each teamMembers as { name, title, image}}
+			{#each teamMembers as { name, title, image }}
 				<OfficerCard {name} {title} image={officerPath + image} />
 			{/each}
 		</ul>

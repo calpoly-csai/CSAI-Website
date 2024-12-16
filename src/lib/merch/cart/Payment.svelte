@@ -1,10 +1,12 @@
-<!-- payment section + submit button for final checkout page -->
 <!-- TODO: responsive -->
 <script>
 	import { cartItems } from '$lib/merch/stores/cartStore';
 	$: items = $cartItems;
-	$: subtotal = items.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+	$: subtotal = items.reduce((acc, item) => acc + item.price * item.quantity, 0);
 </script>
+
+<!-- payment section + submit button for final checkout page -->
+
 
 <div class="payments">
 	<span>PAYMENT</span>
@@ -41,5 +43,4 @@
 		font-weight: 600;
 		color: #203c89;
 	}
-
 </style>

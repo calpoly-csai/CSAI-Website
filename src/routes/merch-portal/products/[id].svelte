@@ -1,4 +1,3 @@
-<!--individual product page: size, prod description, price, etc-->
 <!-- need to fix modal scroll and centering it on page -->
 <script context="module">
 	import { db } from '../../../../src/lib/utils/firebase.js';
@@ -94,6 +93,9 @@
 	let selectedTab = 0; // Index 0 for inches, 1 for cm
 </script>
 
+<!--individual product page: size, prod description, price, etc-->
+
+
 <div class="product-header">
 	<button class="back-button" on:click={handleBack}>
 		<ArrowLeftIcon />
@@ -134,16 +136,22 @@
 		</div>
 		{#if product.hasSizingGuide}
 			<button class="modal-button" on:click={() => modal.show()}> SIZING GUIDE</button>
-				<SizingGuideModal bind:this={modal}>
-					{#if product.sizeGuide.length  == 3}
-						<img src={product.sizeGuide[2]} alt={product.productName} class="modal-image" />
-					{/if}
-					<span class="tabs">
-						<button on:click={() => (selectedTab = 0)} class={selectedTab === 0 ? 'active' : 'inactive'}>INCHES</button>
-						<button on:click={() => (selectedTab = 1)} class={selectedTab === 1 ? 'active' : 'inactive'}>CM</button>
-					</span>
-					<img src={product.sizeGuide[selectedTab]} alt={product.productName} class="modal-image" />
-				</SizingGuideModal>
+			<SizingGuideModal bind:this={modal}>
+				{#if product.sizeGuide.length == 3}
+					<img src={product.sizeGuide[2]} alt={product.productName} class="modal-image" />
+				{/if}
+				<span class="tabs">
+					<button
+						on:click={() => (selectedTab = 0)}
+						class={selectedTab === 0 ? 'active' : 'inactive'}>INCHES</button
+					>
+					<button
+						on:click={() => (selectedTab = 1)}
+						class={selectedTab === 1 ? 'active' : 'inactive'}>CM</button
+					>
+				</span>
+				<img src={product.sizeGuide[selectedTab]} alt={product.productName} class="modal-image" />
+			</SizingGuideModal>
 		{/if}
 		<div class="price-add-to-cart">
 			<span class="total-price">Price: ${product.price}</span>
@@ -180,14 +188,14 @@
 	.tabs button.active {
 		font-weight: bold;
 		color: rgb(0, 0, 0);
-		text-decoration: underline;  
-		color: rgb(0, 0, 0);     
+		text-decoration: underline;
+		color: rgb(0, 0, 0);
 	}
 	button.inactive {
-		color: gray;                
-		text-decoration: none;      
+		color: gray;
+		text-decoration: none;
 	}
-	
+
 	.modal-image {
 		width: 100%;
 		max-width: 700px;

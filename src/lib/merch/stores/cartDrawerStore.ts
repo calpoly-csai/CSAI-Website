@@ -4,13 +4,13 @@ import { writable } from 'svelte/store';
 export const isDrawerOpen = writable(false);
 
 export function toggleDrawer() {
-    isDrawerOpen.update(n => !n);
+	isDrawerOpen.update((n) => !n);
 }
 
 export function openDrawer() {
-    isDrawerOpen.set(true);
+	isDrawerOpen.set(true);
 }
 
 export function closeDrawer() {
-    isDrawerOpen.set(false);
+	isDrawerOpen.set(false);
 }

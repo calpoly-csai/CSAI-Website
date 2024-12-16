@@ -50,18 +50,17 @@
 		const firstNameError = validateField(first);
 		const lastNameError = validateField(last);
 		const emailError = validateField(email, 'email');
-		
+
 		// returns info if validated, otherwise null
 		if (!firstNameError && !lastNameError && !emailError) {
-			return{first, last, email};
+			return { first, last, email };
 		} else {
 			firstFocused = true;
 			lastFocused = true;
 			emailFocused = true;
-			return null; 
+			return null;
 		}
 	}
-	
 </script>
 
 <div class="form-section">
@@ -111,8 +110,9 @@
 	<div class="member-info">
 		<h5>ORDER PICKUP INFO</h5>
 		<p>
-			Thank you for supporting CS+AI! To receive your order, talk to Leo Horwitz or Thomas Spieler at our next meeting to pay with cash or Venmo! We look forward to seeing you!
-			(If you don't know our faces, feel free to check out our photos on the "Team" page)
+			Thank you for supporting CS+AI! To receive your order, talk to Leo Horwitz or Thomas Spieler
+			at our next meeting to pay with cash or Venmo! We look forward to seeing you! (If you don't
+			know our faces, feel free to check out our photos on the "Team" page)
 		</p>
 	</div>
 </div>
@@ -159,16 +159,16 @@
 		border-style: groove;
 		padding: 20px;
 		background-color: rgb(195, 229, 242);
-		border: 2px solid rgba(6, 61, 119, 0.8); 
-        border-radius: 10px; 
-        /* background-color: rgba(255, 255, 255, 0.9);  */
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
+		border: 2px solid rgba(6, 61, 119, 0.8);
+		border-radius: 10px;
+		/* background-color: rgba(255, 255, 255, 0.9);  */
+		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 	}
 
 	.member-info h5 {
 		color: rgb(25, 121, 162);
 	}
-	.error{
-		color: rgb(255, 23, 23);;
+	.error {
+		color: rgb(255, 23, 23);
 	}
 </style>
