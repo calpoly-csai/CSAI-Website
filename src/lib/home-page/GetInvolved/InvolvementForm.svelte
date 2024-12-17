@@ -15,7 +15,7 @@
 			method: 'POST',
 			// mode: 'no-cors',
 			headers: {
-				Authorization: apikey,
+				'Authorization': apikey,
 				'Content-Type': 'application/json',
 				Accept: 'application/json'
 			},
@@ -115,12 +115,12 @@
 		text-align: left;
 		grid-template-rows: repeat(4, auto);
 		grid-template-columns: 1fr 1fr;
-		grid-template-areas:
-			'title title'
-			'name reason'
-			'email reason'
-			'lastname reason'
-			'submit submit';
+		grid-template-areas: 
+			'title title' 
+			'name reason' 
+			'email reason' 
+			'lastname reason'  
+			'submit submit' ;
 
 		@include viewport(small) {
 			grid-template-rows: repeat(5, auto);
@@ -142,15 +142,15 @@
 
 		&.member {
 			grid-template-rows: repeat(5, auto);
-			grid-template-areas:
-				'title title'
+			grid-template-areas: 
+				'title title' 
 				'name reason'
-				'lastname reason'
-				'email reason'
-				'topic reason'
+				'lastname reason' 
+				'email reason' 
+				'topic reason' 
 				'submit submit';
-
-			@include viewport(small) {
+				
+				@include viewport(small) {
 				grid-template-rows: repeat(6, auto);
 				grid-template-columns: 1fr;
 				grid-template-areas: 'title ' 'name' 'lastname' 'email' 'topic' 'reason' 'submit';
