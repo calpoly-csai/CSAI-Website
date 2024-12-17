@@ -69,9 +69,9 @@
 		<h2>Meetings</h2>
 		<p class="meeting-time">Sundays 1:00 PM - 3:00 PM PST</p>
 		<p class="meeting-description">
-			Meetings are often held in Engineering IV 192-106 on the Cal Poly
-			Campus. During these sessions, project teams intermingle to learn new technologies and touch
-			base on large architectural decisions.
+			Meetings are often held in Engineering IV 192-106 on the Cal Poly Campus. During these
+			sessions, project teams intermingle to learn new technologies and touch base on large
+			architectural decisions.
 		</p>
 		<a
 			href="https://calendar.google.com/calendar/embed?src=csaicalpoly%40gmail.com&ctz=America%2FLos_Angeles"

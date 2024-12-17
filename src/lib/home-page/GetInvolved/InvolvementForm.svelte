@@ -1,10 +1,10 @@
 <script lang="ts">
-	import TextField from '$lib/TextField.svelte';
+	import TextField from '$lib/components/TextField.svelte';
 	import { json_encode } from '../../../modules/utils';
 	import { fly } from 'svelte/transition';
 	// import {env} from '$env/dynamic/private'
 	export let formType: 'member' | 'partner' | 'speaker';
-	const apikey = import.meta.env.VITE_ML_KEY
+	const apikey = import.meta.env.VITE_ML_KEY;
 	let sendCount = 0;
 	function onSubmit(e: Event) {
 		// Send off form data
@@ -14,10 +14,11 @@
 		fetch('https://connect.mailerlite.com/api/subscribers', {
 			method: 'POST',
 			// mode: 'no-cors',
-			headers: {'Authorization': apikey,
-					'Content-Type': 'application/json' ,
-					'Accept' : 'application/json',
-					},
+			headers: {
+				'Authorization': apikey,
+				'Content-Type': 'application/json',
+				Accept: 'application/json'
+			},
 			body
 		}).catch(console.error);
 	}
@@ -155,8 +156,6 @@
 				grid-template-areas: 'title ' 'name' 'lastname' 'email' 'topic' 'reason' 'submit';
 			}
 		}
-
-
 	}
 
 	h3 {
