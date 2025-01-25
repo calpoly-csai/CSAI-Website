@@ -38,7 +38,9 @@
 		{ name: 'Weston Patrick', title: 'Meeting Facilitator', image: 'WestonPatrick.jpg' }
 	];
 
-	const webTeamMembers = [];
+	const webTeamMembers = [
+		{ name: 'Darpan Khanna', title: 'Web Developer', image: 'DarpanKhanna.jpeg' }
+	];
 
 	let members: MemberData[] = [];
 
@@ -94,6 +96,11 @@
 			{/each}
 		</ul>
 		<h3><br /> Web Team</h3>
+		<ul class="officer-list">
+			{#each webTeamMembers as { name, title, image }}
+				<OfficerCard {name} {title} image={officerPath + image} />
+			{/each}
+		</ul>
 	</section>
 	<section class="Contributors">
 		<h2>Contributors</h2>
