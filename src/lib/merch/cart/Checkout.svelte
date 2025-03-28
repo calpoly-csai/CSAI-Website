@@ -50,13 +50,13 @@
 				<p><strong>${totalPrice}</strong></p>
 			</div>
 
-			<div class="member-info">
+			<!-- <div class="member-info">
 				<h5>ARE YOU A CSAI DONOR?</h5>
 				<p>
 					Dont forget that if you make a donation of $5 or more, you qualify for donor benefits,
 					including $5 off one merch order!
 				</p>
-			</div>
+			</div> -->
 		</div>
 		<div class="checkout">
 			<button class="checkout-button" on:click={goToForm}> Checkout </button>
