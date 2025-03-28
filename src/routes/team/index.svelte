@@ -17,9 +17,7 @@
 		{ name: 'Hannah Moshtaghi', title: 'VP of External Affairs', image: 'HannahMoshtaghi.JPG' },
 		{ name: 'Jason Jelincic', title: 'VP of Internal Affairs', image: 'Jason Jelincic.jpg' },
 		{ name: 'Thomas Spieler', title: 'Administrator', image: 'ThomasSpieler.jpg'},
-		{ name: 'Ameer Arsala', title: 'Research Lead', image: 'AmeerArsala.jpg' },
 		{ name: 'David Hernandez', title: 'Research Lead', image: 'David_Hernandez.png' },
-		{ name: 'Ishan Meher', title: 'Research Lead', image: 'Ishan_Meher.jpg' },
 		{ name: 'Belal Elshenety', title: 'Meeting Facilitator Lead', image: 'Belal Elshenety.jpeg' },	
     	{ name: 'Logan Barker', title: 'Meeting Facilitator Lead', image: 'LoganBarker.jpeg'},
    		{ name: 'Matthew Huang', title: 'Project Lead', image: 'MatthewHuang.jpg'},
@@ -33,7 +31,7 @@
 	];
 
 	const teamMembers = [
-		// { name: 'Misha Bandi', title: 'Meeting Facilitator', image: '' },
+		{ name: 'Misha Bandi', title: 'Meeting Facilitator', image: 'MishaBandi.jpg' },
 		{ name: 'Parker Jones', title: 'Meeting Facilitator', image: 'ParkerJones.jpg' },
 		{ name: 'Muzart Tuman', title: 'Meeting Facilitator', image: 'Muzart Tuman.jpg' },
 		{ name: 'Weston Patrick', title: 'Meeting Facilitator', image: 'WestonPatrick.jpg'},
