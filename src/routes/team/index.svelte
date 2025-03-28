@@ -17,10 +17,8 @@
 		{ name: 'Hannah Moshtaghi', title: 'VP of External Affairs', image: 'HannahMoshtaghi.JPG' },
 		{ name: 'Jason Jelincic', title: 'VP of Internal Affairs', image: 'Jason Jelincic.jpg' },
 		{ name: 'Thomas Spieler', title: 'Administrator', image: 'ThomasSpieler.jpg' },
-		{ name: 'Ameer Arsala', title: 'Research Lead', image: 'AmeerArsala.jpg' },
 		{ name: 'Thomas Spieler', title: 'Administrator', image: 'ThomasSpieler.jpg'},
 		{ name: 'David Hernandez', title: 'Research Lead', image: 'David_Hernandez.png' },
-		{ name: 'Ishan Meher', title: 'Research Lead', image: 'Ishan_Meher.jpg' },
 		{ name: 'Belal Elshenety', title: 'Meeting Facilitator Lead', image: 'Belal Elshenety.jpeg' },
 		{ name: 'Logan Barker', title: 'Meeting Facilitator Lead', image: 'LoganBarker.jpeg' },
 		{ name: 'Matthew Huang', title: 'Project Lead', image: 'MatthewHuang.jpg' },
@@ -30,16 +28,6 @@
 		{ name: 'Dakshesh Pasala', title: 'Social Media Lead', image: 'DaksheshPasala.png' },
 		{ name: 'Harini Baskar', title: 'Social Media Lead', image: 'HariniBaskar.png' },
 		{ name: 'Rachana Raju', title: 'Event Coordinator', image: 'RachanaRaju.jpg' }
-		{ name: 'Belal Elshenety', title: 'Meeting Facilitator Lead', image: 'Belal Elshenety.jpeg' },	
-    	{ name: 'Logan Barker', title: 'Meeting Facilitator Lead', image: 'LoganBarker.jpeg'},
-   		{ name: 'Matthew Huang', title: 'Project Lead', image: 'MatthewHuang.jpg'},
-    	{ name: 'Min Hset Hlaing', title: 'Project Lead', image: 'Min Hset Hlaing.JPG'},
-		{ name: 'Sharon Liang', title: 'Webmaster', image: 'Sharon Liang.png' },
-		{ name: 'Isha Varrier', title: 'Outreach Officer', image: 'IshaVarrier.png'},
-    	{ name: 'Dakshesh Pasala', title: 'Social Media Lead', image: 'DaksheshPasala.png'},
-    	{ name: 'Harini Baskar', title: 'Social Media Lead', image: 'HariniBaskar.png'},
-    	{ name: 'Rachana Raju', title: 'Event Coordinator', image: 'RachanaRaju.jpg'}
-    
 	];
 
 	const teamMembers = [
