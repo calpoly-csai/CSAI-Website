@@ -37,4 +37,4 @@ npm run build
 ### Note on Environment Variables
 
 - You can set-up your own Environment Variable using a .env file on your local machine, but please refrain from uploading it to GitHub.
-- To use Environment Variables on deploy, you must add them to the Netlify build settings. 
+- To use Environment Variables on deploy, you must add them to the Netlify build settings.
