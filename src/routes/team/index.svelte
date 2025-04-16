@@ -17,7 +17,6 @@
 		{ name: 'Hannah Moshtaghi', title: 'VP of External Affairs', image: 'HannahMoshtaghi.JPG' },
 		{ name: 'Jason Jelincic', title: 'VP of Internal Affairs', image: 'Jason Jelincic.jpg' },
 		{ name: 'Thomas Spieler', title: 'Administrator', image: 'ThomasSpieler.jpg' },
-		{ name: 'Thomas Spieler', title: 'Administrator', image: 'ThomasSpieler.jpg'},
 		{ name: 'David Hernandez', title: 'Research Lead', image: 'David_Hernandez.png' },
 		{ name: 'Belal Elshenety', title: 'Meeting Facilitator Lead', image: 'Belal Elshenety.jpeg' },
 		{ name: 'Logan Barker', title: 'Meeting Facilitator Lead', image: 'LoganBarker.jpeg' },
