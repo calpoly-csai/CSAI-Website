@@ -13,27 +13,37 @@
 
 	const officerPath = '/images/officers/';
 	const officers = [
-		{ name: 'Leo Horwitz', title: 'President', image: 'Leo Horwitz.jpg' },
-		{ name: 'Hannah Moshtaghi', title: 'VP of External Affairs', image: 'HannahMoshtaghi.JPG' },
-		{ name: 'Jason Jelincic', title: 'VP of Internal Affairs', image: 'Jason Jelincic.jpg' },
-		{ name: 'Thomas Spieler', title: 'Administrator', image: 'ThomasSpieler.jpg' },
-		{ name: 'David Hernandez', title: 'Research Lead', image: 'David_Hernandez.png' },
-		{ name: 'Belal Elshenety', title: 'Meeting Facilitator Lead', image: 'Belal Elshenety.jpeg' },
-		{ name: 'Logan Barker', title: 'Meeting Facilitator Lead', image: 'LoganBarker.jpeg' },
-		{ name: 'Matthew Huang', title: 'Project Lead', image: 'MatthewHuang.jpg' },
-		{ name: 'Min Hset Hlaing', title: 'Project Lead', image: 'Min Hset Hlaing.JPG' },
+		{ name: 'Jason Jelincic', title: 'President', image: 'Jason Jelincic.jpg' },
+		{ name: 'Isha Varrier', title: 'Director of External Affairs', image: 'IshaVarrier.png' },
+		{ name: 'Muzart Tuman', title: 'Director of Projects', image: 'MuzTum_Muzart Tuman.jpeg' },
+		{ name: 'Thomas Spieler', title: 'Director of Operations', image: 'ThomasSpieler.jpg' },
+		{ name: 'Parker Jones', title: 'Director of Meetings', image: 'ParkerJones.jpg' },
+		{ name: 'Alexios Sideris', title: 'Associate Director of Projects', image: 'Alexios Sideris.jpg' },
+
+		{ name: 'Rachana Raju', title: 'Event Coordinator', image: 'RachanaRaju.jpg' },
 		{ name: 'Sharon Liang', title: 'Webmaster', image: 'SharonLiang.jpg' },
-		{ name: 'Isha Varrier', title: 'Outreach Officer', image: 'IshaVarrier.png' },
-		{ name: 'Dakshesh Pasala', title: 'Social Media Lead', image: 'DaksheshPasala.png' },
-		{ name: 'Harini Baskar', title: 'Social Media Lead', image: 'HariniBaskar.png' },
-		{ name: 'Rachana Raju', title: 'Event Coordinator', image: 'RachanaRaju.jpg' }
+		{ name: 'Ammara Amin', title: 'Associate Webmaster', image: 'Ammara Amin.jpg' },
+
+		{ name: 'Weston Patrick', title: 'Outreach Officer', image: 'Weston Patrick.JPEG' },
+		{ name: 'Hannah Bratten', title: 'Social Media Lead', image: 'Hannah Bratten.jpeg' },
+		// { name: 'Sherry Cao', title: 'Social Media Lead', image: 'RachanaRaju.jpg' },
+
+		{ name: 'Logan Barker', title: 'Project Lead', image: 'Logan Barker.jpeg' },
+		// { name: 'Gus Flusser', title: 'Project Lead', image: 'gus_flusser_bodyshot.heic' },
+		{ name: 'Pranav Athreya', title: 'Project Lead', image: 'Pranav Athreya.jpeg' },
+		{ name: 'Logan Beard', title: 'Project Lead', image: 'Logan Beard.jpg' },
+		{ name: 'Ivan Torriani', title: 'Project Lead', image: '1737017852096_Ivan Torriani.jpg' },
+		{ name: 'Zach Mattes', title: 'Project Lead', image: 'IMG_4512_Zachary Mattes.jpg' },
+		{ name: 'Misha Bandi', title: 'Project Lead', image: 'MishaBandi.jpg' },
+		
 	];
 
 	const teamMembers = [
-		{ name: 'Misha Bandi', title: 'Meeting Facilitator', image: 'MishaBandi.jpg' },
-		{ name: 'Parker Jones', title: 'Meeting Facilitator', image: 'ParkerJones.jpg' },
-		{ name: 'Muzart Tuman', title: 'Meeting Facilitator', image: 'Muzart Tuman.jpg' },
-		{ name: 'Weston Patrick', title: 'Meeting Facilitator', image: 'WestonPatrick.jpg' }
+		{ name: 'Sumedha Kadurthi', title: 'Meeting Facilitator', image: 'Sumedha Kundurthi.jpg' },
+		{ name: 'Jacob Timmer', title: 'Meeting Facilitator', image: 'JacobSelfPortrait_Jacob Timmer.jpg' },
+		{ name: 'Harini Baskar', title: 'Meeting Facilitator', image: 'HariniBaskar.png' },
+		// { name: 'Omar Alim Mohamed', title: 'Meeting Facilitator', image: '20250607_140415_Omar Mohamed.jpg' },
+
 	];
 
 	let members: MemberData[] = [];
