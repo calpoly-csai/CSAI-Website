@@ -29,7 +29,7 @@
 		// { name: 'Sherry Cao', title: 'Social Media Lead', image: 'RachanaRaju.jpg' },
 
 		{ name: 'Logan Barker', title: 'Project Lead', image: 'Logan Barker.jpeg' },
-		// { name: 'Gus Flusser', title: 'Project Lead', image: 'gus_flusser_bodyshot.heic' },
+		{ name: 'Gus Flusser', title: 'Project Lead', image: 'gus_flusser.png' },
 		{ name: 'Pranav Athreya', title: 'Project Lead', image: 'Pranav Athreya.jpeg' },
 		{ name: 'Logan Beard', title: 'Project Lead', image: 'Logan Beard.jpg' },
 		{ name: 'Ivan Torriani', title: 'Project Lead', image: '1737017852096_Ivan Torriani.jpg' },
@@ -42,7 +42,7 @@
 		{ name: 'Sumedha Kadurthi', title: 'Meeting Facilitator', image: 'Sumedha Kundurthi.jpg' },
 		{ name: 'Jacob Timmer', title: 'Meeting Facilitator', image: 'JacobSelfPortrait_Jacob Timmer.jpg' },
 		{ name: 'Harini Baskar', title: 'Meeting Facilitator', image: 'HariniBaskar.png' },
-		// { name: 'Omar Alim Mohamed', title: 'Meeting Facilitator', image: '20250607_140415_Omar Mohamed.jpg' },
+		{ name: 'Omar Alim Mohamed', title: 'Meeting Facilitator', image: 'omar_m.png' },
 
 	];
 
