@@ -4,46 +4,52 @@
 	import OfficerCard from './_components/OfficerCard.svelte';
 
 	interface MemberData {
-		login: string; // Username
+		login: string;
 		id: number;
 		node_id: string;
-		avatar_url: string; // Profile Picture
-		html_url: string; // URL to personal GitHub page
+		avatar_url: string; 
+		html_url: string; 
 	}
 
 	const officerPath = '/images/officers/';
-	const officers = [
+	
+	// Executive Board
+	const executiveBoard = [
 		{ name: 'Jason Jelincic', title: 'President', image: 'Jason Jelincic.jpg' },
-		{ name: 'Isha Varrier', title: 'Director of External Affairs', image: 'IshaVarrier.png' },
-		{ name: 'Muzart Tuman', title: 'Director of Projects', image: 'MuzTum_Muzart Tuman.jpeg' },
-		{ name: 'Thomas Spieler', title: 'Director of Operations', image: 'ThomasSpieler.jpg' },
 		{ name: 'Parker Jones', title: 'Director of Meetings', image: 'ParkerJones.jpg' },
-		{ name: 'Alexios Sideris', title: 'Associate Director of Projects', image: 'Alexios Sideris.jpg' },
+		{ name: 'Muzart Tuman', title: 'Director of Projects', image: 'MuzTum_Muzart Tuman.jpeg' },
+		{ name: 'Thomas Spieler', title: 'Director of Operations and Finances', image: 'ThomasSpieler.jpg' },
+		{ name: 'Isha Varrier', title: 'Director of External Affairs', image: 'IshaVarrier.png' }
+	];
 
-		{ name: 'Rachana Raju', title: 'Event Coordinator', image: 'RachanaRaju.jpg' },
-		{ name: 'Sharon Liang', title: 'Webmaster', image: 'SharonLiang.jpg' },
-		{ name: 'Ammara Amin', title: 'Associate Webmaster', image: 'Ammara Amin.jpg' },
-
+	// Officer Positions by Branch
+	const externalAffairsBranch = [
 		{ name: 'Weston Patrick', title: 'Outreach Officer', image: 'Weston Patrick.JPEG' },
 		{ name: 'Hannah Bratten', title: 'Social Media Lead', image: 'Hannah Bratten.jpeg' },
-		// { name: 'Sherry Cao', title: 'Social Media Lead', image: 'RachanaRaju.jpg' },
+		{ name: 'Rachana Raju', title: 'Event Coordinator', image: 'RachanaRaju.jpg' }
+	];
 
+	const meetingsBranch = [
+		{ name: 'Sumedha Kadurthi', title: 'Meeting Lead', image: 'Sumedha Kundurthi.jpg' },
+		{ name: 'Jacob Timmer', title: 'Meeting Lead', image: 'JacobSelfPortrait_Jacob Timmer.jpg' },
+		{ name: 'Harini Baskar', title: 'Meeting Lead', image: 'HariniBaskar.png' },
+		{ name: 'Omar Alim Mohamed', title: 'Meeting Lead', image: 'omar_m.png' }
+	];
+
+	const projectsBranch = [
+		{ name: 'Alexios Sideris', title: 'Associate Director of Projects', image: 'Alexios Sideris.jpg' },
 		{ name: 'Logan Barker', title: 'Project Lead', image: 'Logan Barker.jpeg' },
 		{ name: 'Gus Flusser', title: 'Project Lead', image: 'gus_flusser.png' },
 		{ name: 'Pranav Athreya', title: 'Project Lead', image: 'Pranav Athreya.jpeg' },
 		{ name: 'Logan Beard', title: 'Project Lead', image: 'Logan Beard.jpg' },
 		{ name: 'Ivan Torriani', title: 'Project Lead', image: '1737017852096_Ivan Torriani.jpg' },
 		{ name: 'Zach Mattes', title: 'Project Lead', image: 'IMG_4512_Zachary Mattes.jpg' },
-		{ name: 'Misha Bandi', title: 'Project Lead', image: 'MishaBandi.jpg' },
-		
+		{ name: 'Misha Bandi', title: 'Project Lead', image: 'MishaBandi.jpg' }
 	];
 
-	const teamMembers = [
-		{ name: 'Sumedha Kadurthi', title: 'Meeting Facilitator', image: 'Sumedha Kundurthi.jpg' },
-		{ name: 'Jacob Timmer', title: 'Meeting Facilitator', image: 'JacobSelfPortrait_Jacob Timmer.jpg' },
-		{ name: 'Harini Baskar', title: 'Meeting Facilitator', image: 'HariniBaskar.png' },
-		{ name: 'Omar Alim Mohamed', title: 'Meeting Facilitator', image: 'omar_m.png' },
-
+	const administrativeBranch = [
+		{ name: 'Sharon Liang', title: 'Webmaster', image: 'SharonLiang.jpg' },
+		{ name: 'Ammara Amin', title: 'Associate Webmaster', image: 'Ammara Amin.jpg' }
 	];
 
 	let members: MemberData[] = [];
@@ -83,22 +89,55 @@
 		</div>
 	</div>
 	<section class="officers">
-		<h2>CSAI Officers</h2>
+		<h2>CSAI Team</h2>
 		<p class="description">
-			The officer team is available to assist members on their AI learning paths, advise development
-			leaders on community projects, and carry out the administrative processes of the club.
+			The officer team is available to assist members on their AI learning paths, advise development leaders on community projects, and carry out the administrative processes of the club.
 		</p>
-		<ul class="officer-list">
-			{#each officers as { name, title, image }}
-				<OfficerCard {name} {title} image={officerPath + image} />
-			{/each}
-		</ul>
-		<h3><br /> Meeting Facilitators</h3>
-		<ul class="officer-list">
-			{#each teamMembers as { name, title, image }}
-				<OfficerCard {name} {title} image={officerPath + image} />
-			{/each}
-		</ul>
+
+		<div class="branch-section">
+			<span class="branch-badge executive">Executive Board</span>
+			<ul class="officer-list">
+				{#each executiveBoard as { name, title, image }}
+					<OfficerCard {name} {title} image={officerPath + image} />
+				{/each}
+			</ul>
+		</div>
+
+		<div class="branch-section">
+			<span class="branch-badge administrative">Administrative</span>
+			<ul class="officer-list">
+				{#each administrativeBranch as { name, title, image }}
+					<OfficerCard {name} {title} image={officerPath + image} />
+				{/each}
+			</ul>
+		</div>
+
+		<div class="branch-section">
+			<span class="branch-badge external">External Affairs</span>
+			<ul class="officer-list">
+				{#each externalAffairsBranch as { name, title, image }}
+					<OfficerCard {name} {title} image={officerPath + image} />
+				{/each}
+			</ul>
+		</div>
+
+		<div class="branch-section">
+			<span class="branch-badge meetings">Meetings</span>
+			<ul class="officer-list">
+				{#each meetingsBranch as { name, title, image }}
+					<OfficerCard {name} {title} image={officerPath + image} />
+				{/each}
+			</ul>
+		</div>
+
+		<div class="branch-section">
+			<span class="branch-badge projects">Projects</span>
+			<ul class="officer-list">
+				{#each projectsBranch as { name, title, image }}
+					<OfficerCard {name} {title} image={officerPath + image} />
+				{/each}
+			</ul>
+		</div>
 	</section>
 	<section class="Contributors">
 		<h2>Contributors</h2>
@@ -131,36 +170,46 @@
 		position: relative;
 		min-height: min-content;
 		width: 100%;
-		padding: 100px;
+		padding: 120px 60px;
 		overflow-x: hidden;
 		@include viewport(small) {
-			padding: 30px;
+			padding: 60px 30px;
 		}
 	}
 
 	section.officers {
-		padding-top: 160px;
+		padding-top: 180px;
 
 		@include viewport(small) {
-			padding-top: 120px;
+			padding-top: 140px;
 		}
 	}
 
-	section.contributors {
-		padding-top: 0;
+	section.Contributors {
+		padding-top: 60px;
+		background: linear-gradient(135deg, rgba(41, 146, 229, 0.02) 0%, rgba(41, 146, 229, 0.05) 100%);
 	}
 
 	p {
-		max-width: 500px;
+		max-width: 600px;
 	}
 
 	h2 {
-		margin: 0;
-		margin-bottom: 10px;
+		margin: 0 auto 0px auto;
+		font-size: 2.5em;
+		color: var(--color-primary);
+		text-align: left;
+		font-weight: 700;
+		letter-spacing: -0.02em;
 	}
 
 	.description {
-		margin: 0;
+		margin: 0 0 40px 0;
+		text-align: left;
+		font-size: 1.1em;
+		line-height: 1.6;
+		color: var(--color-text-dark);
+		opacity: 0.8;
 	}
 	.backdrop {
 		position: fixed;
@@ -189,37 +238,79 @@
 		width: 50%;
 	}
 
+	.branch-section {
+		margin: 60px auto;
+		max-width: 1200px;
+		text-align: left;
+	}
+
+	.branch-badge {
+		display: inline-block;
+		padding: 8px 20px;
+		border-radius: 20px;
+		font-size: 0.9em;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		margin-bottom: 30px;
+		color: white;
+	}
+
+	.branch-badge.administrative {
+		background-color: #1e3a8a;
+	}
+
+	.branch-badge.external {
+		background-color: #3b82f6;
+	}
+
+	.branch-badge.meetings {
+		background-color: #60a5fa;
+	}
+
+	.branch-badge.projects {
+		background-color: #93c5fd;
+	}
+
+	.branch-badge.executive {
+		background-color: var(--color-primary);
+	}
+
 	.officer-list {
 		display: flex;
 		flex-wrap: wrap;
-
 		margin: 0;
-		margin-top: 50px;
 		padding: 0;
 		list-style: none;
+		gap: 25px;
+		justify-content: flex-start;
 	}
 
 	.contributor-list {
 		list-style: none;
 		width: 100%;
-		margin: 30px 0;
+		max-width: 1000px;
+		margin: 40px auto 0 auto;
 		padding: 0;
 		a {
 			display: block;
 			color: var(--color-primary);
 			text-decoration: none;
-			margin: 10px;
-			padding: 11px 30px;
+			margin: 8px;
+			padding: 15px 25px;
 			border-left: 4px solid var(--color-primary);
 			font-size: 16px;
 			background-color: var(--color-background-mid);
 			cursor: pointer;
-			transition: all 0.5s;
-			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			transition: all 0.3s ease;
+			box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+			border-radius: 8px;
 
 			&:hover {
 				color: white;
 				background-color: var(--color-primary);
+				transform: translateY(-2px);
+				box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 			}
 		}
 		li {
