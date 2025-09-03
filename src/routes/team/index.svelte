@@ -89,10 +89,12 @@
 		</div>
 	</div>
 	<section class="officers">
-		<h2>CSAI Team</h2>
-		<p class="description">
-			The officer team is available to assist members on their AI learning paths, advise development leaders on community projects, and carry out the administrative processes of the club.
-		</p>
+		<div class="header-section">
+			<h2>CSAI Team</h2>
+			<p class="description">
+				The officer team is available to assist members on their AI learning paths, advise development leaders on community projects, and carry out the administrative processes of the club.
+			</p>
+		</div>
 
 		<div class="branch-section">
 			<span class="branch-badge executive">Executive Board</span>
@@ -140,11 +142,13 @@
 		</div>
 	</section>
 	<section class="Contributors">
-		<h2>Contributors</h2>
-		<p class="description">
-			CSAI community members apply their software engineering skills to large-scale collaborative
-			projects. Thank you to everyone who has contributed.
-		</p>
+		<div class="header-section">
+			<h2>Contributors</h2>
+			<p class="description">
+				CSAI community members apply their software engineering skills to large-scale collaborative
+				projects. Thank you to everyone who has contributed.
+			</p>
+		</div>
 
 		<ul class="contributor-list">
 			{#each members as member}
@@ -195,7 +199,8 @@
 	}
 
 	h2 {
-		margin: 0 auto 0px auto;
+		margin: 0 auto 20px auto;
+		max-width: 1200px;
 		font-size: 2.5em;
 		color: var(--color-primary);
 		text-align: left;
@@ -203,8 +208,19 @@
 		letter-spacing: -0.02em;
 	}
 
+	.header-section {
+		margin: 0 auto 40px auto;
+		max-width: 1200px;
+	}
+
+	.header-section h2 {
+		margin: 0 0 20px 0;
+		max-width: none;
+	}
+
 	.description {
-		margin: 0 0 40px 0;
+		margin: 0;
+		max-width: 600px;
 		text-align: left;
 		font-size: 1.1em;
 		line-height: 1.6;
@@ -289,8 +305,8 @@
 	.contributor-list {
 		list-style: none;
 		width: 100%;
-		max-width: 1000px;
-		margin: 40px auto 0 auto;
+		max-width: 1200px;
+		margin: 0 auto;
 		padding: 0;
 		a {
 			display: block;
