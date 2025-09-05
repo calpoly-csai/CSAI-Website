@@ -170,7 +170,7 @@
 		background-color: var(--color-background-light);
 	}
 
-	section {
+	.Team section {
 		position: relative;
 		min-height: min-content;
 		width: 100%;
@@ -181,7 +181,7 @@
 		}
 	}
 
-	section.officers {
+	.Team section.officers {
 		padding-top: 180px;
 
 		@include viewport(small) {
@@ -189,16 +189,16 @@
 		}
 	}
 
-	section.Contributors {
+	.Team section.Contributors {
 		padding-top: 60px;
 		background: linear-gradient(135deg, rgba(41, 146, 229, 0.02) 0%, rgba(41, 146, 229, 0.05) 100%);
 	}
 
-	p {
+	.Team p {
 		max-width: 600px;
 	}
 
-	h2 {
+	.Team h2 {
 		margin: 0 auto 20px auto;
 		max-width: 1200px;
 		font-size: 2.5em;
@@ -208,17 +208,17 @@
 		letter-spacing: -0.02em;
 	}
 
-	.header-section {
+	.Team .header-section {
 		margin: 0 auto 40px auto;
 		max-width: 1200px;
 	}
 
-	.header-section h2 {
+	.Team .header-section h2 {
 		margin: 0 0 20px 0;
 		max-width: none;
 	}
 
-	.description {
+	.Team .description {
 		margin: 0;
 		max-width: 600px;
 		text-align: left;
