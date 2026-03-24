@@ -22,7 +22,31 @@
 			description: 'An interactive chat bot for visitors of the Swanton Pacific Ranch.',
 			icon: MessageCircleIcon,
 			repositoryLink: 'https://github.com/calpoly-csai/swanton'
-		}
+		},
+		{
+			title: 'CS+AI Discord Bot',
+			description: 'The goated discord bot of the CS+AI discord server!',
+			icon: MessageCircleIcon,
+			repositoryLink: 'https://github.com/calpoly-csai/CSAI-Discord-Bot'
+		},
+		{
+			title: 'Pseudocode LLM Project',
+			description: 'A LLM pipeline to mimic reasoning models with non-reasoning models. Red Light, Blue Light: A recreation of the mini-game from Squid Games with computer vision and player tracking.',
+			icon: MessageCircleIcon,
+			repositoryLink: 'https://github.com/calpoly-csai/RedLight-BlueLight'
+		},
+				{
+			title: 'MealPrepAI',
+			description: 'An AI assistant to make the most out of your fridge and optimize your meal prep.',
+			icon: MessageCircleIcon,
+			repositoryLink: 'https://github.com/calpoly-csai/MealPrepAI'
+		},
+				{
+			title: 'NoteVision',
+			description: 'An AI platform to get the most out of your notes.',
+			icon: MessageCircleIcon,
+			repositoryLink: 'https://github.com/calpoly-csai/NoteVision'
+		},
 	];
 </script>
 
