@@ -1,31 +1,9 @@
 <!-- rough thank you page, plan to add more css soon -->
-<script>
-	import { onMount } from 'svelte';
-	import particlesConfig from '../../../../../src/modules/particle-config';
-	let ParticlesComponent;
-	let scrollP = 0;
-	$: isOnscreen = scrollP < 0.99;
-	onMount(async () => {
-		const module = await import('svelte-particles');
-		ParticlesComponent = module.default;
-	});
-</script>
-
 <svelte:head>
 	<title>CSAI Order Success</title>
 	<meta name="theme-color" content="#2992e5" />
 	<meta name="description" content="CSAI merch order successful." />
 </svelte:head>
-
-<div>
-	{#if isOnscreen}
-		<svelte:component
-			this={ParticlesComponent}
-			options={particlesConfig}
-			id="particle-background"
-		/>
-	{/if}
-</div>
 <div class="container">
 	<div class="right-section">
 		<div class="note">
@@ -55,6 +33,9 @@
 		min-height: calc(140vh - 180px - 180px - 100px);
 		position: relative;
 		z-index: 1;
+		background:
+			radial-gradient(circle at top left, rgba(41, 146, 229, 0.15), transparent 35%),
+			linear-gradient(180deg, #f8fbff 0%, #eef5ff 100%);
 	}
 
 	.right-section {
