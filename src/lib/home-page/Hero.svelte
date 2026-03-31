@@ -1,25 +1,9 @@
 <script>
-	import { onMount } from 'svelte';
-	import particlesConfig from '../../modules/particle-config';
 	import scrollTrackable from '../../modules/scrollTrackable';
-	let ParticlesComponent;
 	let scrollP = 0;
-	$: isOnscreen = scrollP < 0.99;
-	onMount(async () => {
-		const module = await import('svelte-particles');
-		ParticlesComponent = module.default;
-	});
 </script>
 
 <section class="Hero" id="hero" use:scrollTrackable={(progress) => (scrollP = progress)}>
-	{#if isOnscreen}
-		<svelte:component
-			this={ParticlesComponent}
-			options={particlesConfig}
-			id="particle-background"
-		/>
-	{/if}
-
 	<div class="content">
 		<div class="logo-frame">
 			<img class="logo" src="/images/logo-white.png" alt="CSAI Logo" />
@@ -33,17 +17,11 @@
 
 <style lang="scss">
 	@import '../../scss/utils.scss';
-	:global(#particle-background) {
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		z-index: -1;
-	}
 
 	.Hero {
-		background-color: transparent;
+		background:
+			radial-gradient(circle at top, rgba(41, 146, 229, 0.18), transparent 45%),
+			linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.82));
 		min-height: 100vh;
 	}
 
